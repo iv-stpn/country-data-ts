@@ -6,10 +6,10 @@
 // that drive level1 in src/address.ts.
 //
 // Run with: bun run scripts/gen-countries.ts
-import { spawn } from "node:child_process";
-import { readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { spawn } from 'node:child_process';
+import { readFile, writeFile } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Biome force-excludes src/data, so it won't format these files even via
 // `--stdin-file-path` pointing at the real path (an excluded path makes Biome
@@ -18,24 +18,24 @@ import { fileURLToPath } from "node:url";
 // so it applies the repo's real config before we write.
 function formatTs(source: string): Promise<string> {
   return new Promise((resolvePromise, reject) => {
-    const child = spawn("bunx", ["biome", "format", "--stdin-file-path=gen-output.ts"]);
-    let out = "";
-    let err = "";
-    child.stdout.on("data", (d) => {
+    const child = spawn('bunx', ['biome', 'format', '--stdin-file-path=gen-output.ts']);
+    let out = '';
+    let err = '';
+    child.stdout.on('data', (d) => {
       out += d;
     });
-    child.stderr.on("data", (d) => {
+    child.stderr.on('data', (d) => {
       err += d;
     });
-    child.on("error", reject);
-    child.on("close", (code) => (code === 0 ? resolvePromise(out) : reject(new Error(err || `biome exited ${code}`))));
+    child.on('error', reject);
+    child.on('close', (code) => (code === 0 ? resolvePromise(out) : reject(new Error(err || `biome exited ${code}`))));
     child.stdin.end(source);
   });
 }
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const inFile = resolve(__dirname, "../data/countries.json");
-const outFile = resolve(__dirname, "../src/data/countries.ts");
+const inFile = resolve(__dirname, '../data/countries.json');
+const outFile = resolve(__dirname, '../src/data/countries.ts');
 
 type DivisionLabel = { en: string | null; local: string | null };
 type Country = {
@@ -53,7 +53,7 @@ type Country = {
   };
 };
 
-const countries: Country[] = JSON.parse(await readFile(inFile, "utf8"));
+const countries: Country[] = JSON.parse(await readFile(inFile, 'utf8'));
 countries.sort((a, b) => a.code.localeCompare(b.code));
 
 // GeoNames reports a single dominant level1 category, but some countries mix
@@ -61,20 +61,20 @@ countries.sort((a, b) => a.code.localeCompare(b.code));
 // English level1 label with the combined form so level1
 // in src/address.ts reads correctly. Keyed by alpha-2 code.
 const LEVEL1_LABEL_OVERRIDES: Record<string, string> = {
-  CA: "Province/Territory",
-  AU: "State/Territory",
-  VN: "Province/Municipality",
-  SL: "Province/Area",
-  PA: "Province/Indigenous region",
-  KP: "Province/Municipality",
-  MM: "Region/State",
-  MD: "District/Municipality",
-  MY: "State/Federal territory",
-  MV: "Atoll/City",
-  IE: "County/City",
-  ET: "Region/Chartered city",
-  AZ: "District/City",
-  AG: "Parish/Dependency",
+  CA: 'Province/Territory',
+  AU: 'State/Territory',
+  VN: 'Province/Municipality',
+  SL: 'Province/Area',
+  PA: 'Province/Indigenous region',
+  KP: 'Province/Municipality',
+  MM: 'Region/State',
+  MD: 'District/Municipality',
+  MY: 'State/Federal territory',
+  MV: 'Atoll/City',
+  IE: 'County/City',
+  ET: 'Region/Chartered city',
+  AZ: 'District/City',
+  AG: 'Parish/Dependency',
 };
 
 for (const c of countries) {
@@ -110,8 +110,8 @@ export interface CountryData {
 // Pretty-print each country as an object literal; the whole file is then run
 // through Biome (see formatTs) so the indentation/spacing matches the repo.
 const entries = countries
-  .map((c) => `  ${JSON.stringify(c.code)}: ${JSON.stringify(c, null, 2).replace(/\n/g, "\n  ")},`)
-  .join("\n");
+  .map((c) => `  ${JSON.stringify(c.code)}: ${JSON.stringify(c, null, 2).replace(/\n/g, '\n  ')},`)
+  .join('\n');
 
 // Emit the alpha-2 codes as a readonly tuple so CountryCode is a literal union
 // (every country GeoNames knows about) rather than a bare string — this is the
@@ -124,11 +124,11 @@ for (let i = 0; i < countries.length; i += codesPerLine)
     `  ${countries
       .slice(i, i + codesPerLine)
       .map((c) => JSON.stringify(c.code))
-      .join(", ")},`,
+      .join(', ')},`,
   );
 const codesBlock = `// ISO 3166-1 alpha-2 code for every country GeoNames knows about.
 export const COUNTRY_CODES = [
-${codeRows.join("\n")}
+${codeRows.join('\n')}
 ] as const;
 
 export type CountryCode = (typeof COUNTRY_CODES)[number];

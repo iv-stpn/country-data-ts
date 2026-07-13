@@ -6,8 +6,8 @@
 // Full country reference data (every country), generated from data/countries.json
 // by scripts/gen-countries.ts. Source of postal-code patterns and level-1
 // division labels below.
-import { COUNTRY_CODES, COUNTRY_DATA, type CountryCode, isCountryCode } from "./data/countries";
-import type { AdministrativeDivisionOption } from "./data/level1-administrative-codes";
+import { COUNTRY_CODES, COUNTRY_DATA, type CountryCode, isCountryCode } from './data/countries';
+import type { AdministrativeDivisionOption } from './data/level1-administrative-codes';
 import {
   level1Admin_AD,
   level1Admin_AE,
@@ -238,24 +238,19 @@ import {
   level1Admin_ZA,
   level1Admin_ZM,
   level1Admin_ZW,
-} from "./data/level1-administrative-codes";
+} from './data/level1-administrative-codes';
 // Curated level-1 option lists for countries GeoNames has no admin1 data for,
 // but which have an officially documented (ISO 3166-2) subdivision scheme.
-import { POSTAL_CODE_DATA } from "./data/postal-codes";
+import { POSTAL_CODE_DATA } from './data/postal-codes';
 
-export type { CountryCode };
-// Re-export the generated country code list and union type so consumers can
-// import them from the address utilities alongside the address config helpers.
-export { COUNTRY_CODES };
-
-export interface AddressValue {
+type AddressValue = {
   line1: string;
   line2?: string;
   city: string;
   level1?: string;
   postalCode: string;
   country: string;
-}
+};
 
 /**
  * An {@link AddressValue} where every field is optional and nullable, except
@@ -263,22 +258,22 @@ export interface AddressValue {
  * {@link validateAddress}: callers may pass a partially-filled address (e.g.
  * straight from a form) without defaulting the missing fields first.
  */
-export type AddressValueInput = {
-  [K in keyof Omit<AddressValue, "country">]?: AddressValue[K] | null;
-} & Pick<AddressValue, "country">;
+type AddressValueInput = {
+  [K in keyof Omit<AddressValue, 'country'>]?: AddressValue[K] | null;
+} & Pick<AddressValue, 'country'>;
 
 /** Controls which address fields are collected. */
-export type AddressCollectionMode =
+type AddressCollectionMode =
   /** Country only; region also for countries with per-region tax rules (US, CA); full address for EU countries. */
-  | "minimal"
+  | 'minimal'
   /** Country + region always; full address for EU countries. */
-  | "regionMinimal"
+  | 'regionMinimal'
   /** Country + region only, always. */
-  | "region"
+  | 'region'
   /** Full address, always. */
-  | "full"
+  | 'full'
   /** Full address + region is required. */
-  | "fullRegion";
+  | 'fullRegion';
 
 /**
  * Controls *when* field-level validation errors are surfaced in the UI.
@@ -289,11 +284,11 @@ export type AddressCollectionMode =
  * - "onSubmit": errors stay hidden until validation is triggered imperatively
  *   (via the component's ref `validate()` handle).
  */
-export type ValidationMode = "onType" | "onBlur" | "onSubmit";
+type ValidationMode = 'onType' | 'onBlur' | 'onSubmit';
 
-export type AddressFieldKey = "line1" | "line2" | "city" | "level1" | "postalCode" | "country";
+type AddressFieldKey = 'line1' | 'line2' | 'city' | 'level1' | 'postalCode' | 'country';
 
-export interface CountryAddressConfig {
+type CountryAddressConfig = {
   code: CountryCode;
   name: string;
   /** Field keys in display order. Labels/required/options are resolved per key. */
@@ -301,51 +296,51 @@ export interface CountryAddressConfig {
   /** Postal-code pattern, derived from COUNTRY_DATA (not hand-maintained). */
   postalCodePattern?: RegExp;
   /** When present, the level-1 field renders a <select> with these options. */
-  level1Options?: ReadonlyArray<AdministrativeDivisionOption>;
-}
+  level1Options?: readonly AdministrativeDivisionOption[];
+};
 
 // Default field labels and placeholders. Per-country overrides for the postal
 // code and city fields live in POSTAL_CODE_DATA; the level-1 label is
 // derived from COUNTRY_DATA. line1/line2 use the generic labels/placeholders
 // below for every country except those listed in LINE_OVERRIDES.
-const LINE1_LABEL_DEFAULT = "Address line 1";
-const LINE2_LABEL_DEFAULT = "Address line 2";
-const LINE1_PLACEHOLDER_DEFAULT = "Street address";
-const LINE2_PLACEHOLDER_DEFAULT = "Apartment, unit number, building, floor, etc.";
-const POSTAL_CODE_LABEL_DEFAULT = "Postal code";
-const CITY_LABEL_DEFAULT = "City";
+const LINE1_LABEL_DEFAULT = 'Address line 1';
+const LINE2_LABEL_DEFAULT = 'Address line 2';
+const LINE1_PLACEHOLDER_DEFAULT = 'Street address';
+const LINE2_PLACEHOLDER_DEFAULT = 'Apartment, unit number, building, floor, etc.';
+const POSTAL_CODE_LABEL_DEFAULT = 'Postal code';
+const CITY_LABEL_DEFAULT = 'City';
 
 // Per-country overrides for the line1/line2 label and placeholder text. The
 // label conveys what the field *is* (and often differs by locale convention);
 // the placeholder gives an example of what to type (and differs where local
 // addressing relies on landmarks, blocks, etc.). Any field left unset falls
 // back to the generic default above.
-interface LineOverrides {
+type LineOverrides = {
   line1Label?: string;
   line2Label?: string;
   line1Placeholder?: string;
   line2Placeholder?: string;
-}
+};
 
 const LINE_OVERRIDES: Partial<Record<string, LineOverrides>> = {
-  FR: { line1Label: "Address", line2Label: "Address details" },
+  FR: { line1Label: 'Address', line2Label: 'Address details' },
   // Countries where landmark-based addressing is common.
   PH: {
-    line1Label: "Address",
-    line2Label: "Landmark/Unit details",
-    line1Placeholder: "Street, road, block and lot number",
-    line2Placeholder: "Near landmark or unit number, building, floor, etc.",
+    line1Label: 'Address',
+    line2Label: 'Landmark/Unit details',
+    line1Placeholder: 'Street, road, block and lot number',
+    line2Placeholder: 'Near landmark or unit number, building, floor, etc.',
   },
   IN: {
-    line1Label: "Address",
-    line2Label: "Landmark/Unit details",
-    line1Placeholder: "Street, road, block and lot number",
-    line2Placeholder: "Near landmark or unit number, building, floor, etc.",
+    line1Label: 'Address',
+    line2Label: 'Landmark/Unit details',
+    line1Placeholder: 'Street, road, block and lot number',
+    line2Placeholder: 'Near landmark or unit number, building, floor, etc.',
   },
 };
 
 // Suffix appended to the label of optional fields in the rendered UI.
-const OPTIONAL_SUFFIX = " (optional)";
+const OPTIONAL_SUFFIX = ' (optional)';
 
 // ---------------------------------------------------------------------------
 // Field metadata resolution
@@ -356,33 +351,34 @@ const OPTIONAL_SUFFIX = " (optional)";
  * {@link CountryAddressConfig} + field key so the config itself only has to
  * declare field order, not per-field labels/required/placeholder/options.
  */
-export interface ResolvedAddressField {
+type ResolvedAddressField = {
   field: AddressFieldKey;
   /** Display label, including the " (optional)" suffix for optional fields. */
   label: string;
   required: boolean;
   placeholder?: string;
   /** When present, the field renders a <select> instead of an <input>. */
-  options?: ReadonlyArray<AdministrativeDivisionOption>;
-}
+  options?: readonly AdministrativeDivisionOption[];
+};
 
 /** The base label for a field, before the optional suffix is applied. */
-export function addressFieldLabel(code: string, key: AddressFieldKey): string {
+function addressFieldLabel(code: string, key: AddressFieldKey): string {
   switch (key) {
-    case "line1":
+    case 'line1':
       return LINE_OVERRIDES[code]?.line1Label ?? LINE1_LABEL_DEFAULT;
-    case "line2":
+    case 'line2':
       return LINE_OVERRIDES[code]?.line2Label ?? LINE2_LABEL_DEFAULT;
-    case "city":
+    case 'city':
       return POSTAL_CODE_DATA[code]?.cityLabel ?? CITY_LABEL_DEFAULT;
-    case "postalCode":
+    case 'postalCode':
       return POSTAL_CODE_DATA[code]?.label ?? POSTAL_CODE_LABEL_DEFAULT;
-    case "level1":
+    case 'level1': {
       const countryCode = isCountryCode(code) ? code : null;
-      if (!countryCode) return "Region";
-      return COUNTRY_DATA[countryCode]?.administrativeLabels.level1?.en ?? "Region";
-    case "country":
-      return "Country";
+      if (!countryCode) return 'Region';
+      return COUNTRY_DATA[countryCode]?.administrativeLabels.level1?.en ?? 'Region';
+    }
+    default:
+      return 'Country';
   }
 }
 
@@ -391,17 +387,13 @@ export function addressFieldLabel(code: string, key: AddressFieldKey): string {
  * is always optional; the level-1 field is required based on the mode and
  * whether it's included in the effective field list for that mode.
  */
-export function isAddressFieldRequired(key: AddressFieldKey, mode: AddressCollectionMode = "full"): boolean {
+function isAddressFieldRequired(key: AddressFieldKey, mode: AddressCollectionMode = 'full'): boolean {
   // level1 is required for region, regionMinimal, fullRegion, and minimal (when applicable)
-  if (key === "level1") return mode === "region" || mode === "regionMinimal" || mode === "fullRegion" || mode === "minimal";
-  return key !== "line2";
+  if (key === 'level1') return mode === 'region' || mode === 'regionMinimal' || mode === 'fullRegion' || mode === 'minimal';
+  return key !== 'line2';
 }
 
-export function resolveAddressField(
-  code: string,
-  key: AddressFieldKey,
-  mode: AddressCollectionMode = "full",
-): ResolvedAddressField {
+function resolveAddressField(code: string, key: AddressFieldKey, mode: AddressCollectionMode = 'full'): ResolvedAddressField {
   const required = isAddressFieldRequired(key, mode);
   const baseLabel = addressFieldLabel(code, key);
   const field: ResolvedAddressField = {
@@ -410,16 +402,16 @@ export function resolveAddressField(
     required,
   };
 
-  if (key === "line1") field.placeholder = LINE_OVERRIDES[code]?.line1Placeholder ?? LINE1_PLACEHOLDER_DEFAULT;
-  if (key === "line2") field.placeholder = LINE_OVERRIDES[code]?.line2Placeholder ?? LINE2_PLACEHOLDER_DEFAULT;
+  if (key === 'line1') field.placeholder = LINE_OVERRIDES[code]?.line1Placeholder ?? LINE1_PLACEHOLDER_DEFAULT;
+  if (key === 'line2') field.placeholder = LINE_OVERRIDES[code]?.line2Placeholder ?? LINE2_PLACEHOLDER_DEFAULT;
 
-  if (key === "postalCode") {
+  if (key === 'postalCode') {
     const placeholder = POSTAL_CODE_DATA[code]?.placeholder;
     if (placeholder) field.placeholder = placeholder;
   }
 
-  if (key === "level1") {
-    const options = LEVEL1_OPTIONS[code as CountryCode];
+  if (key === 'level1' && isCountryCode(code)) {
+    const options = LEVEL1_OPTIONS[code];
     if (options) field.options = options;
   }
 
@@ -433,18 +425,18 @@ export function resolveAddressField(
 // Postal-code pattern, compiled from the GeoNames regex in COUNTRY_DATA.
 function postalPattern(code: CountryCode): RegExp | undefined {
   const raw = COUNTRY_DATA[code]?.postalCodeRegex;
-  if (!raw) return undefined;
+  if (!raw) return;
   try {
     // GeoNames patterns are case-sensitive ASCII; alpha postcodes (GB, NL,
     // MT, …) are entered in either case, so match case-insensitively.
-    return new RegExp(raw.trim(), "i");
+    return new RegExp(raw.trim(), 'i');
   } catch {
-    return undefined;
+    // A malformed GeoNames pattern is treated as "no postal pattern".
   }
 }
 
 // Level-1 <select> option lists, one entry per country that has division data.
-const LEVEL1_OPTIONS: Partial<Record<CountryCode, ReadonlyArray<AdministrativeDivisionOption>>> = {
+const LEVEL1_OPTIONS: Partial<Record<CountryCode, readonly AdministrativeDivisionOption[]>> = {
   AD: level1Admin_AD,
   AE: level1Admin_AE,
   AF: level1Admin_AF,
@@ -682,56 +674,56 @@ const LEVEL1_OPTIONS: Partial<Record<CountryCode, ReadonlyArray<AdministrativeDi
 // by standardFieldOrder below and must NOT be listed here.
 const FIELD_ORDER_OVERRIDES: Partial<Record<CountryCode, AddressFieldKey[]>> = {
   // Postal code first (JP-style: code → region → city → street lines)
-  JP: ["postalCode", "level1", "city", "line1", "line2"],
-  KR: ["postalCode", "level1", "city", "line1", "line2"],
-  TW: ["postalCode", "level1", "city", "line1", "line2"],
+  JP: ['postalCode', 'level1', 'city', 'line1', 'line2'],
+  KR: ['postalCode', 'level1', 'city', 'line1', 'line2'],
+  TW: ['postalCode', 'level1', 'city', 'line1', 'line2'],
 
   // City before postal code — with curated level-1 options
-  AU: ["line1", "line2", "city", "level1", "postalCode"],
-  CA: ["line1", "line2", "city", "level1", "postalCode"],
-  GB: ["line1", "line2", "city", "level1", "postalCode"],
-  US: ["line1", "line2", "city", "level1", "postalCode"],
+  AU: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  CA: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  GB: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  US: ['line1', 'line2', 'city', 'level1', 'postalCode'],
 
   // City before postal code — Americas
-  AR: ["line1", "line2", "city", "level1", "postalCode"],
-  BR: ["line1", "line2", "city", "level1", "postalCode"],
-  CL: ["line1", "line2", "city", "level1", "postalCode"],
-  CO: ["line1", "line2", "city", "level1", "postalCode"],
-  CR: ["line1", "line2", "city", "level1", "postalCode"],
-  DO: ["line1", "line2", "city", "level1", "postalCode"],
-  EC: ["line1", "line2", "city", "level1", "postalCode"],
-  MX: ["line1", "line2", "city", "level1", "postalCode"],
-  PE: ["line1", "line2", "city", "level1", "postalCode"],
-  PY: ["line1", "line2", "city", "level1", "postalCode"],
-  UY: ["line1", "line2", "city", "level1", "postalCode"],
-  VE: ["line1", "line2", "city", "level1", "postalCode"],
+  AR: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  BR: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  CL: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  CO: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  CR: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  DO: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  EC: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  MX: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  PE: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  PY: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  UY: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  VE: ['line1', 'line2', 'city', 'level1', 'postalCode'],
 
   // City before postal code — Europe / Middle East / Africa
-  IE: ["line1", "line2", "city", "level1", "postalCode"],
-  IL: ["line1", "line2", "city", "level1", "postalCode"],
-  NG: ["line1", "line2", "city", "level1", "postalCode"],
-  ZA: ["line1", "line2", "city", "level1", "postalCode"],
+  IE: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  IL: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  NG: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  ZA: ['line1', 'line2', 'city', 'level1', 'postalCode'],
 
   // City before postal code — Asia / Oceania
-  BD: ["line1", "line2", "city", "level1", "postalCode"],
-  CN: ["line1", "line2", "city", "level1", "postalCode"],
-  ID: ["line1", "line2", "city", "level1", "postalCode"],
-  IN: ["line1", "line2", "city", "level1", "postalCode"],
-  NZ: ["line1", "line2", "city", "level1", "postalCode"],
-  PH: ["line1", "line2", "city", "level1", "postalCode"],
-  PK: ["line1", "line2", "city", "level1", "postalCode"],
-  TH: ["line1", "line2", "city", "level1", "postalCode"],
-  VN: ["line1", "line2", "city", "level1", "postalCode"],
+  BD: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  CN: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  ID: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  IN: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  NZ: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  PH: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  PK: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  TH: ['line1', 'line2', 'city', 'level1', 'postalCode'],
+  VN: ['line1', 'line2', 'city', 'level1', 'postalCode'],
 };
 
 function standardFieldOrder(code: CountryCode): AddressFieldKey[] {
   // Standard layout: street lines, postal code (when present), city.
   // Appends level1 at the end for countries with a curated division list that
   // follow the default postalCode→city ordering (e.g. ES, IT).
-  const fields: AddressFieldKey[] = ["line1", "line2"];
-  if (postalPattern(code)) fields.push("postalCode");
-  fields.push("city");
-  if (LEVEL1_OPTIONS[code]) fields.push("level1");
+  const fields: AddressFieldKey[] = ['line1', 'line2'];
+  if (postalPattern(code)) fields.push('postalCode');
+  fields.push('city');
+  if (LEVEL1_OPTIONS[code]) fields.push('level1');
   return fields;
 }
 
@@ -748,25 +740,29 @@ function buildConfig(code: CountryCode): CountryAddressConfig {
 }
 
 // Every supported country gets a concrete config. Field order is curated where
-// a bespoke layout is needed, otherwise generated from COUNTRY_DATA"; the
+// a bespoke layout is needed, otherwise generated from COUNTRY_DATA; the
 // postal-code pattern always comes from COUNTRY_DATA. Built as a typed Record
 // so callers never have to handle a missing config for a supported code.
-export const COUNTRIES_ADDRESSES = Object.fromEntries(COUNTRY_CODES.map((code) => [code, buildConfig(code)])) as Record<
+// COUNTRY_CODES is the exhaustive key set, so every CountryCode is present;
+// Object.fromEntries widens to a string index, so the exhaustive Record type
+// needs an assertion no cast-free construction can produce.
+// biome-ignore lint/plugin: exhaustive Record built from COUNTRY_CODES; see note above.
+const COUNTRIES_ADDRESSES = Object.fromEntries(COUNTRY_CODES.map((code) => [code, buildConfig(code)])) as Record<
   CountryCode,
   CountryAddressConfig
 >;
 
-export const COUNTRY_LIST = Object.values(COUNTRIES_ADDRESSES).sort((a, b) => a.name.localeCompare(b.name));
+const COUNTRY_LIST: CountryAddressConfig[] = Object.values(COUNTRIES_ADDRESSES).sort((a, b) => a.name.localeCompare(b.name));
 
 // Simple { code, name } list of every country GeoNames knows about, derived
 // from the generated COUNTRY_DATA. Used to populate the country selector so
 // users can pick any country, not just the curated subset that has a full
 // address-field config.
-export const ALL_COUNTRY_OPTIONS = Object.values(COUNTRY_DATA)
+const ALL_COUNTRY_OPTIONS: { code: string; name: string }[] = Object.values(COUNTRY_DATA)
   .map((country) => ({ code: country.code, name: country.name }))
   .sort((country1, country2) => country1.name.localeCompare(country2.name));
 
-export function getCountryConfig(code: string): CountryAddressConfig | undefined {
+function getCountryConfig(code: string): CountryAddressConfig | undefined {
   const countryCode = isCountryCode(code) ? code : null;
   if (!countryCode) return;
   return COUNTRIES_ADDRESSES[countryCode];
@@ -774,35 +770,55 @@ export function getCountryConfig(code: string): CountryAddressConfig | undefined
 
 // All 27 EU member states as of 2024.
 const EU_COUNTRY_CODES = new Set([
-  "AT",
-  "BE",
-  "BG",
-  "CY",
-  "CZ",
-  "DE",
-  "DK",
-  "EE",
-  "ES",
-  "FI",
-  "FR",
-  "GR",
-  "HR",
-  "HU",
-  "IE",
-  "IT",
-  "LT",
-  "LU",
-  "LV",
-  "MT",
-  "NL",
-  "PL",
-  "PT",
-  "RO",
-  "SE",
-  "SI",
-  "SK",
+  'AT',
+  'BE',
+  'BG',
+  'CY',
+  'CZ',
+  'DE',
+  'DK',
+  'EE',
+  'ES',
+  'FI',
+  'FR',
+  'GR',
+  'HR',
+  'HU',
+  'IE',
+  'IT',
+  'LT',
+  'LU',
+  'LV',
+  'MT',
+  'NL',
+  'PL',
+  'PT',
+  'RO',
+  'SE',
+  'SI',
+  'SK',
 ]);
 
-export function isEUCountry(code: string): boolean {
+function isEUCountry(code: string): boolean {
   return EU_COUNTRY_CODES.has(code.toUpperCase());
 }
+
+export type {
+  AddressCollectionMode,
+  AddressFieldKey,
+  AddressValue,
+  AddressValueInput,
+  CountryAddressConfig,
+  ResolvedAddressField,
+  ValidationMode,
+};
+export {
+  ALL_COUNTRY_OPTIONS,
+  addressFieldLabel,
+  COUNTRIES_ADDRESSES,
+  COUNTRY_LIST,
+  getCountryConfig,
+  isAddressFieldRequired,
+  isEUCountry,
+  resolveAddressField,
+};

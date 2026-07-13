@@ -1,8 +1,15 @@
-import { defineConfig } from "tsup";
+import { defineConfig } from 'tsup';
 
 export default defineConfig({
-  entry: ["src/index.ts", "src/countries.ts", "src/address.ts", "src/phone.ts", "src/tax.ts", "src/divisions.ts"],
-  format: ["cjs", "esm"],
+  entry: {
+    countries: 'src/data/countries.ts',
+    'phone-data': 'src/data/phone-data.ts',
+    address: 'src/address.ts',
+    phone: 'src/phone.ts',
+    tax: 'src/tax.ts',
+    divisions: 'src/divisions.ts',
+  },
+  format: ['cjs', 'esm'],
   dts: true,
   sourcemap: false,
   clean: true,

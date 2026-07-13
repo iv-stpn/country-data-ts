@@ -23,67 +23,68 @@
 // with at least one localized division get an export.
 //
 // Run with: bun run gen:local-names
-import { readFile, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFile, writeFile } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { stripPrefix } from './_utils';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const localNamesFile = resolve(__dirname, "../data/administrative-local-names.json");
-const level1File = resolve(__dirname, "../data/level1-administrative-codes.json");
-const level2File = resolve(__dirname, "../data/level2-administrative-codes.json");
-const outFile = resolve(__dirname, "../src/data/administrative-local-names.ts");
+const localNamesFile = resolve(__dirname, '../data/administrative-local-names.json');
+const level1File = resolve(__dirname, '../data/level1-administrative-codes.json');
+const level2File = resolve(__dirname, '../data/level2-administrative-codes.json');
+const outFile = resolve(__dirname, '../src/data/administrative-local-names.ts');
 
 type LocalNameEntry = { code: string; localNames: Record<string, string> };
 type Level1Division = { code: string; name: string; officialCode: string | null };
 type Level2Division = { level1AdminCode: string; code: string; name: string; officialCode: string | null };
 
-// "US-NY" -> "NY"; leaves codes without a 2-letter country prefix untouched.
-// Mirrors the stripping in gen-level1-codes.ts / gen-level2-codes.ts so the
-// keys here line up exactly with the option `value`s those scripts emit.
-function stripPrefix(code: string): string {
-  return code.replace(/^[A-Z]{2}-/, "");
-}
-
-const localNames: Record<string, LocalNameEntry> = JSON.parse(await readFile(localNamesFile, "utf8"));
-const level1: Record<string, Level1Division[]> = JSON.parse(await readFile(level1File, "utf8"));
-const level2: Record<string, Level2Division[]> = JSON.parse(await readFile(level2File, "utf8"));
+const localNames: Record<string, LocalNameEntry> = JSON.parse(await readFile(localNamesFile, 'utf8'));
+const level1: Record<string, Level1Division[]> = JSON.parse(await readFile(level1File, 'utf8'));
+const level2: Record<string, Level2Division[]> = JSON.parse(await readFile(level2File, 'utf8'));
 
 type CountryLocalNames = {
   level1: Record<string, Record<string, string>>;
   level2: Record<string, Record<string, Record<string, string>>>;
 };
 
-const byCountry: Record<string, CountryLocalNames> = {};
+const byCountry = new Map<string, CountryLocalNames>();
 
 function ensure(cc: string): CountryLocalNames {
-  return (byCountry[cc] ??= { level1: {}, level2: {} });
+  let entry = byCountry.get(cc);
+  if (!entry) {
+    entry = { level1: {}, level2: {} };
+    byCountry.set(cc, entry);
+  }
+  return entry;
 }
 
 // Level-1: join on the division's GeoNames `code`, re-key by option value.
-for (const [cc, divisions] of Object.entries(level1)) {
-  for (const d of divisions) {
-    const names = localNames[d.code]?.localNames;
-    if (!names || Object.keys(names).length === 0) continue;
-    ensure(cc).level1[stripPrefix(d.officialCode ?? d.code)] = names;
+for (const [countryCode, divisions] of Object.entries(level1)) {
+  for (const division of divisions) {
+    const names = localNames[division.code]?.localNames;
+    if (names && Object.keys(names).length > 0)
+      ensure(countryCode).level1[stripPrefix(division.officialCode ?? division.code)] = names;
   }
 }
 
 // Level-2: local names are keyed by "<level1AdminCode>.<code>"; re-key by
 // [level1Value][level2Value] so lookups mirror getLevel2Options' filtering.
-for (const [cc, divisions] of Object.entries(level2)) {
-  for (const d of divisions) {
-    const names = localNames[`${d.level1AdminCode}.${d.code}`]?.localNames;
-    if (!names || Object.keys(names).length === 0) continue;
-    const level1Value = stripPrefix(d.level1AdminCode);
-    const level2Value = stripPrefix(d.officialCode ?? d.code);
-    const country = ensure(cc);
-    (country.level2[level1Value] ??= {})[level2Value] = names;
+for (const [countryCode, divisions] of Object.entries(level2)) {
+  for (const division of divisions) {
+    const names = localNames[`${division.level1AdminCode}.${division.code}`]?.localNames;
+    if (names && Object.keys(names).length > 0) {
+      const level1Value = stripPrefix(division.level1AdminCode);
+      const level2Value = stripPrefix(division.officialCode ?? division.code);
+      const country = ensure(countryCode);
+      country.level2[level1Value] ??= {};
+      country.level2[level1Value][level2Value] = names;
+    }
   }
 }
 
 // Drop countries that ended up with no localized divisions at all.
-for (const [cc, entry] of Object.entries(byCountry)) {
-  if (Object.keys(entry.level1).length === 0 && Object.keys(entry.level2).length === 0) delete byCountry[cc];
+for (const [countryCode, entry] of byCountry) {
+  if (Object.keys(entry.level1).length === 0 && Object.keys(entry.level2).length === 0) byCountry.delete(countryCode);
 }
 
 const header = `// AUTO-GENERATED by scripts/gen-local-names.ts — do not edit by hand.
@@ -102,20 +103,24 @@ export type CountryLocalNames = {
 `;
 
 const blocks: string[] = [];
-for (const cc of Object.keys(byCountry).sort()) {
-  const entry = byCountry[cc];
-  blocks.push(`export const localNames_${cc} = ${JSON.stringify(entry)} as const satisfies CountryLocalNames;`);
+for (const countryCode of [...byCountry.keys()].sort((country1, country2) =>
+  country1.localeCompare(country2, 'en', { sensitivity: 'base' }),
+)) {
+  const entry = byCountry.get(countryCode);
+  blocks.push(`export const localNames_${countryCode} = ${JSON.stringify(entry)} as const satisfies CountryLocalNames;`);
 }
 
 // src/data/ is excluded from Biome's checks; write directly without piping
 // through the formatter (same rationale as gen-level2-codes.ts — the file is
 // large and the stdin formatter times out on it).
-await writeFile(outFile, `${header}\n${blocks.join("\n\n")}\n`);
-const l1Count = Object.values(byCountry).reduce((s, c) => s + Object.keys(c.level1).length, 0);
-const l2Count = Object.values(byCountry).reduce(
-  (s, c) => s + Object.values(c.level2).reduce((n, m) => n + Object.keys(m).length, 0),
+await writeFile(outFile, `${header}\n${blocks.join('\n\n')}\n`);
+const level1Count = [...byCountry.values()].reduce((sum, country) => sum + Object.keys(country.level1).length, 0);
+const level2Count = [...byCountry.values()].reduce(
+  (sum, country) =>
+    sum +
+    Object.values(country.level2).reduce((totalCount, level2Divisions) => totalCount + Object.keys(level2Divisions).length, 0),
   0,
 );
 console.log(
-  `wrote ${outFile} (${Object.keys(byCountry).length} countries, ${l1Count} level-1 + ${l2Count} level-2 localized divisions)`,
+  `wrote ${outFile} (${byCountry.size} countries, ${level1Count} level-1 + ${level2Count} level-2 localized divisions)`,
 );

@@ -1,5531 +1,4630 @@
 [
-	{
-		"code": "AD",
-		"iso3": "AND",
-		"name": "Andorra",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:AD)*(\\d{3})$",
-		"languages": [
-			"ca"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parròquia"
-			},
-			"level2": {
-				"en": "Settlement",
-				"local": "Ciutat"
-			}
-		}
-	},
-	{
-		"code": "AE",
-		"iso3": "ARE",
-		"name": "United Arab Emirates",
-		"continent": "AS",
-		"currencyCode": "AED",
-		"currencyName": "Dirham",
-		"postalCodeRegex": "^\\d{5}-\\d{5}$",
-		"languages": [
-			"ar-AE",
-			"fa",
-			"en",
-			"hi",
-			"ur"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Emirate",
-				"local": "إمارة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "AF",
-		"iso3": "AFG",
-		"name": "Afghanistan",
-		"continent": "AS",
-		"currencyCode": "AFN",
-		"currencyName": "Afghani",
-		"postalCodeRegex": null,
-		"languages": [
-			"fa-AF",
-			"ps",
-			"uz-AF",
-			"tk"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "ولایت"
-			},
-			"level2": {
-				"en": "District",
-				"local": "ولسوالی"
-			}
-		}
-	},
-	{
-		"code": "AG",
-		"iso3": "ATG",
-		"name": "Antigua and Barbuda",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-AG"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "AI",
-		"iso3": "AIA",
-		"name": "Anguilla",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(?:AZ)*(\\d{4})$",
-		"languages": [
-			"en-AI"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "AL",
-		"iso3": "ALB",
-		"name": "Albania",
-		"continent": "EU",
-		"currencyCode": "ALL",
-		"currencyName": "Lek",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"sq",
-			"el"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Qarku"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Rrethet"
-			}
-		}
-	},
-	{
-		"code": "AM",
-		"iso3": "ARM",
-		"name": "Armenia",
-		"continent": "AS",
-		"currencyCode": "AMD",
-		"currencyName": "Dram",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"hy"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Մարզ"
-			},
-			"level2": {
-				"en": "Village",
-				"local": "Գյուղ"
-			}
-		}
-	},
-	{
-		"code": "AO",
-		"iso3": "AGO",
-		"name": "Angola",
-		"continent": "AF",
-		"currencyCode": "AOA",
-		"currencyName": "Kwanza",
-		"postalCodeRegex": null,
-		"languages": [
-			"pt-AO"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Província"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Município"
-			}
-		}
-	},
-	{
-		"code": "AQ",
-		"iso3": "ATA",
-		"name": "Antarctica",
-		"continent": "AN",
-		"currencyCode": "",
-		"currencyName": "",
-		"postalCodeRegex": null,
-		"languages": [],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "AR",
-		"iso3": "ARG",
-		"name": "Argentina",
-		"continent": "SA",
-		"currencyCode": "ARS",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^[A-Z]?\\d{4}[A-Z]{0,3}$",
-		"languages": [
-			"es-AR",
-			"en",
-			"it",
-			"de",
-			"fr",
-			"gn"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Departamento"
-			}
-		}
-	},
-	{
-		"code": "AS",
-		"iso3": "ASM",
-		"name": "American Samoa",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "96799",
-		"languages": [
-			"en-AS",
-			"sm",
-			"to"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": {
-				"en": "County",
-				"local": "County"
-			}
-		}
-	},
-	{
-		"code": "AT",
-		"iso3": "AUT",
-		"name": "Austria",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"de-AT",
-			"hr",
-			"hu",
-			"sl"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Federal state",
-				"local": "Bundesland"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Bezirk"
-			}
-		}
-	},
-	{
-		"code": "AU",
-		"iso3": "AUS",
-		"name": "Australia",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"en-AU"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "External territory",
-				"local": "External territory"
-			},
-			"level2": {
-				"en": "Local government area",
-				"local": "Local government area"
-			}
-		}
-	},
-	{
-		"code": "AW",
-		"iso3": "ABW",
-		"name": "Aruba",
-		"continent": "NA",
-		"currencyCode": "AWG",
-		"currencyName": "Guilder",
-		"postalCodeRegex": null,
-		"languages": [
-			"nl-AW",
-			"pap",
-			"es",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "AX",
-		"iso3": "ALA",
-		"name": "Aland Islands",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:FI)*(\\d{5})$",
-		"languages": [
-			"sv-AX"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "AZ",
-		"iso3": "AZE",
-		"name": "Azerbaijan",
-		"continent": "AS",
-		"currencyCode": "AZN",
-		"currencyName": "Manat",
-		"postalCodeRegex": "^(?:AZ )*(\\d{4})$",
-		"languages": [
-			"az",
-			"ru",
-			"hy"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Rayonu"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BA",
-		"iso3": "BIH",
-		"name": "Bosnia and Herzegovina",
-		"continent": "EU",
-		"currencyCode": "BAM",
-		"currencyName": "Marka",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"bs",
-			"hr-BA",
-			"sr-BA"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Political division",
-				"local": "Administrativna podjela"
-			},
-			"level2": {
-				"en": "Region",
-				"local": "Regije Republike Srpske"
-			}
-		}
-	},
-	{
-		"code": "BB",
-		"iso3": "BRB",
-		"name": "Barbados",
-		"continent": "NA",
-		"currencyCode": "BBD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(?:BB)*(\\d{5})$",
-		"languages": [
-			"en-BB"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BD",
-		"iso3": "BGD",
-		"name": "Bangladesh",
-		"continent": "AS",
-		"currencyCode": "BDT",
-		"currencyName": "Taka",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"bn-BD",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Division",
-				"local": "বিভাগ"
-			},
-			"level2": {
-				"en": "District",
-				"local": "জেলা"
-			}
-		}
-	},
-	{
-		"code": "BE",
-		"iso3": "BEL",
-		"name": "Belgium",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"nl-BE",
-			"fr-BE",
-			"de-BE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Gewest"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincie"
-			}
-		}
-	},
-	{
-		"code": "BF",
-		"iso3": "BFA",
-		"name": "Burkina Faso",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-BF",
-			"mos"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Province"
-			}
-		}
-	},
-	{
-		"code": "BG",
-		"iso3": "BGR",
-		"name": "Bulgaria",
-		"continent": "EU",
-		"currencyCode": "BGN",
-		"currencyName": "Lev",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"bg",
-			"tr-BG",
-			"rom"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Oblast",
-				"local": "Oбласт"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Община"
-			}
-		}
-	},
-	{
-		"code": "BH",
-		"iso3": "BHR",
-		"name": "Bahrain",
-		"continent": "AS",
-		"currencyCode": "BHD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{3}\\d?)$",
-		"languages": [
-			"ar-BH",
-			"en",
-			"fa",
-			"ur"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BI",
-		"iso3": "BDI",
-		"name": "Burundi",
-		"continent": "AF",
-		"currencyCode": "BIF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-BI",
-			"rn"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Commune"
-			}
-		}
-	},
-	{
-		"code": "BJ",
-		"iso3": "BEN",
-		"name": "Benin",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-BJ"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Département"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Commune"
-			}
-		}
-	},
-	{
-		"code": "BL",
-		"iso3": "BLM",
-		"name": "Saint Barthelemy",
-		"continent": "NA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "BM",
-		"iso3": "BMU",
-		"name": "Bermuda",
-		"continent": "NA",
-		"currencyCode": "BMD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^([A-Z]{2}\\d{2})$",
-		"languages": [
-			"en-BM",
-			"pt"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BN",
-		"iso3": "BRN",
-		"name": "Brunei",
-		"continent": "AS",
-		"currencyCode": "BND",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^([A-Z]{2}\\d{4})$",
-		"languages": [
-			"ms-BN",
-			"en-BN"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Daerah"
-			},
-			"level2": {
-				"en": "Mukim",
-				"local": "Mukim Negara"
-			}
-		}
-	},
-	{
-		"code": "BO",
-		"iso3": "BOL",
-		"name": "Bolivia",
-		"continent": "SA",
-		"currencyCode": "BOB",
-		"currencyName": "Boliviano",
-		"postalCodeRegex": null,
-		"languages": [
-			"es-BO",
-			"qu",
-			"ay"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincia"
-			}
-		}
-	},
-	{
-		"code": "BQ",
-		"iso3": "BES",
-		"name": "Bonaire, Saint Eustatius and Saba ",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"nl",
-			"pap",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "BR",
-		"iso3": "BRA",
-		"name": "Brazil",
-		"continent": "SA",
-		"currencyCode": "BRL",
-		"currencyName": "Real",
-		"postalCodeRegex": "^\\d{5}-\\d{3}$",
-		"languages": [
-			"pt-BR",
-			"es",
-			"en",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Federative unit",
-				"local": "Unidade federativa"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Município"
-			}
-		}
-	},
-	{
-		"code": "BS",
-		"iso3": "BHS",
-		"name": "Bahamas",
-		"continent": "NA",
-		"currencyCode": "BSD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-BS"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BT",
-		"iso3": "BTN",
-		"name": "Bhutan",
-		"continent": "AS",
-		"currencyCode": "BTN",
-		"currencyName": "Ngultrum",
-		"postalCodeRegex": null,
-		"languages": [
-			"dz"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "རྫོང་ཁག"
-			},
-			"level2": {
-				"en": "Gewog",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "BV",
-		"iso3": "BVT",
-		"name": "Bouvet Island",
-		"continent": "AN",
-		"currencyCode": "NOK",
-		"currencyName": "Krone",
-		"postalCodeRegex": null,
-		"languages": [],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "BW",
-		"iso3": "BWA",
-		"name": "Botswana",
-		"continent": "AF",
-		"currencyCode": "BWP",
-		"currencyName": "Pula",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-BW",
-			"tn-BW"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "BY",
-		"iso3": "BLR",
-		"name": "Belarus",
-		"continent": "EU",
-		"currencyCode": "BYN",
-		"currencyName": "Belarusian ruble",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"be",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Вобласць"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Раён"
-			}
-		}
-	},
-	{
-		"code": "BZ",
-		"iso3": "BLZ",
-		"name": "Belize",
-		"continent": "NA",
-		"currencyCode": "BZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-BZ",
-			"es"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "CA",
-		"iso3": "CAN",
-		"name": "Canada",
-		"continent": "NA",
-		"currencyCode": "CAD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^([ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJKLMNPRSTVWXYZ]) ?(\\d[ABCEGHJKLMNPRSTVWXYZ]\\d)$ ",
-		"languages": [
-			"en-CA",
-			"fr-CA",
-			"iu"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": {
-				"en": "Regional district",
-				"local": "Regional district"
-			}
-		}
-	},
-	{
-		"code": "CC",
-		"iso3": "CCK",
-		"name": "Cocos Islands",
-		"continent": "AS",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"ms-CC",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "CD",
-		"iso3": "COD",
-		"name": "Democratic Republic of the Congo",
-		"continent": "AF",
-		"currencyCode": "CDF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-CD",
-			"ln",
-			"ktu",
-			"kg",
-			"sw",
-			"lua"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provinces"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Commune"
-			}
-		}
-	},
-	{
-		"code": "CF",
-		"iso3": "CAF",
-		"name": "Central African Republic",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-CF",
-			"sg",
-			"ln",
-			"kg"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Prefecture",
-				"local": "Préfecture"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "CG",
-		"iso3": "COG",
-		"name": "Republic of the Congo",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-CG",
-			"kg",
-			"ln-CG"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Département"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "CH",
-		"iso3": "CHE",
-		"name": "Switzerland",
-		"continent": "EU",
-		"currencyCode": "CHF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"de-CH",
-			"fr-CH",
-			"it-CH",
-			"rm"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Canton",
-				"local": "Kanton"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Gemeinde"
-			}
-		}
-	},
-	{
-		"code": "CI",
-		"iso3": "CIV",
-		"name": "Ivory Coast",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-CI"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "CK",
-		"iso3": "COK",
-		"name": "Cook Islands",
-		"continent": "OC",
-		"currencyCode": "NZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-CK",
-			"mi"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "CL",
-		"iso3": "CHL",
-		"name": "Chile",
-		"continent": "SA",
-		"currencyCode": "CLP",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{7})$",
-		"languages": [
-			"es-CL"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Región"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincia"
-			}
-		}
-	},
-	{
-		"code": "CM",
-		"iso3": "CMR",
-		"name": "Cameroon",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-CM",
-			"fr-CM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Electoral unit",
-				"local": "Electoral unit"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Department"
-			}
-		}
-	},
-	{
-		"code": "CN",
-		"iso3": "CHN",
-		"name": "China",
-		"continent": "AS",
-		"currencyCode": "CNY",
-		"currencyName": "Yuan Renminbi",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"zh-CN",
-			"yue",
-			"wuu",
-			"dta",
-			"ug",
-			"za"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "省"
-			},
-			"level2": {
-				"en": "Prefecture-level city",
-				"local": "地级市"
-			}
-		}
-	},
-	{
-		"code": "CO",
-		"iso3": "COL",
-		"name": "Colombia",
-		"continent": "SA",
-		"currencyCode": "COP",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"es-CO"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "CR",
-		"iso3": "CRI",
-		"name": "Costa Rica",
-		"continent": "NA",
-		"currencyCode": "CRC",
-		"currencyName": "Colon",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-CR",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Electoral unit",
-				"local": "Circunscripción electoral"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Cantón"
-			}
-		}
-	},
-	{
-		"code": "CU",
-		"iso3": "CUB",
-		"name": "Cuba",
-		"continent": "NA",
-		"currencyCode": "CUP",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(?:CP)*(\\d{5})$",
-		"languages": [
-			"es-CU",
-			"pap"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "CV",
-		"iso3": "CPV",
-		"name": "Cabo Verde",
-		"continent": "AF",
-		"currencyCode": "CVE",
-		"currencyName": "Escudo",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"pt-CV"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Concelho",
-				"local": "Municipio"
-			},
-			"level2": {
-				"en": "Freguesia",
-				"local": "Freguesia"
-			}
-		}
-	},
-	{
-		"code": "CW",
-		"iso3": "CUW",
-		"name": "Curacao",
-		"continent": "NA",
-		"currencyCode": "XCG",
-		"currencyName": "Guilder",
-		"postalCodeRegex": null,
-		"languages": [
-			"nl",
-			"pap"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "CX",
-		"iso3": "CXR",
-		"name": "Christmas Island",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"en",
-			"zh",
-			"ms-CX"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "CY",
-		"iso3": "CYP",
-		"name": "Cyprus",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"el-CY",
-			"tr-CY",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Επαρχία"
-			},
-			"level2": {
-				"en": "Community",
-				"local": "Κοινότητα"
-			}
-		}
-	},
-	{
-		"code": "CZ",
-		"iso3": "CZE",
-		"name": "Czechia",
-		"continent": "EU",
-		"currencyCode": "CZK",
-		"currencyName": "Koruna",
-		"postalCodeRegex": "^\\d{3}\\s?\\d{2}$",
-		"languages": [
-			"cs",
-			"sk"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Kraj"
-			},
-			"level2": {
-				"en": "Municipal part",
-				"local": "Část obce"
-			}
-		}
-	},
-	{
-		"code": "DE",
-		"iso3": "DEU",
-		"name": "Germany",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"de"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Federated state",
-				"local": "Bundesland"
-			},
-			"level2": {
-				"en": "Urban municipality",
-				"local": "Stadt"
-			}
-		}
-	},
-	{
-		"code": "DJ",
-		"iso3": "DJI",
-		"name": "Djibouti",
-		"continent": "AF",
-		"currencyCode": "DJF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-DJ",
-			"ar",
-			"so-DJ",
-			"aa"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Sub-prefecture",
-				"local": "Sous-préfecture"
-			}
-		}
-	},
-	{
-		"code": "DK",
-		"iso3": "DNK",
-		"name": "Denmark",
-		"continent": "EU",
-		"currencyCode": "DKK",
-		"currencyName": "Krone",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"da-DK",
-			"en",
-			"fo",
-			"de-DK"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Dansk amt"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Kommune"
-			}
-		}
-	},
-	{
-		"code": "DM",
-		"iso3": "DMA",
-		"name": "Dominica",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-DM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "DO",
-		"iso3": "DOM",
-		"name": "Dominican Republic",
-		"continent": "NA",
-		"currencyCode": "DOP",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-DO"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "DZ",
-		"iso3": "DZA",
-		"name": "Algeria",
-		"continent": "AF",
-		"currencyCode": "DZD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-DZ"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "ولاية"
-			},
-			"level2": {
-				"en": "District",
-				"local": "دائرة"
-			}
-		}
-	},
-	{
-		"code": "EC",
-		"iso3": "ECU",
-		"name": "Ecuador",
-		"continent": "SA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^([a-zA-Z]\\d{4}[a-zA-Z])$",
-		"languages": [
-			"es-EC"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Cantón"
-			}
-		}
-	},
-	{
-		"code": "EE",
-		"iso3": "EST",
-		"name": "Estonia",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"et",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Maakond"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "EG",
-		"iso3": "EGY",
-		"name": "Egypt",
-		"continent": "AF",
-		"currencyCode": "EGP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-EG",
-			"en",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": {
-				"en": "Marka",
-				"local": "مركز"
-			}
-		}
-	},
-	{
-		"code": "EH",
-		"iso3": "ESH",
-		"name": "Western Sahara",
-		"continent": "AF",
-		"currencyCode": "MAD",
-		"currencyName": "Dirham",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar",
-			"mey"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "ER",
-		"iso3": "ERI",
-		"name": "Eritrea",
-		"continent": "AF",
-		"currencyCode": "ERN",
-		"currencyName": "Nakfa",
-		"postalCodeRegex": null,
-		"languages": [
-			"aa-ER",
-			"ar",
-			"tig",
-			"kun",
-			"ti-ER"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "ES",
-		"iso3": "ESP",
-		"name": "Spain",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-ES",
-			"ca",
-			"gl",
-			"eu",
-			"oc"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Autonomous community",
-				"local": "Comunidad autónoma"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincia"
-			}
-		}
-	},
-	{
-		"code": "ET",
-		"iso3": "ETH",
-		"name": "Ethiopia",
-		"continent": "AF",
-		"currencyCode": "ETB",
-		"currencyName": "Birr",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"am",
-			"en-ET",
-			"om-ET",
-			"ti-ET",
-			"so-ET",
-			"sid"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": ""
-			},
-			"level2": {
-				"en": "District",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "FI",
-		"iso3": "FIN",
-		"name": "Finland",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:FI)*(\\d{5})$",
-		"languages": [
-			"fi-FI",
-			"sv-FI",
-			"smn"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Maakunta"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Kunta"
-			}
-		}
-	},
-	{
-		"code": "FJ",
-		"iso3": "FJI",
-		"name": "Fiji",
-		"continent": "OC",
-		"currencyCode": "FJD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-FJ",
-			"fj"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Division",
-				"local": "Division"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "FK",
-		"iso3": "FLK",
-		"name": "Falkland Islands",
-		"continent": "SA",
-		"currencyCode": "FKP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "FIQQ 1ZZ",
-		"languages": [
-			"en-FK"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "FM",
-		"iso3": "FSM",
-		"name": "Micronesia",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"en-FM",
-			"chk",
-			"pon",
-			"yap",
-			"kos",
-			"uli",
-			"woe",
-			"nkr",
-			"kpg"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "State"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "FO",
-		"iso3": "FRO",
-		"name": "Faroe Islands",
-		"continent": "EU",
-		"currencyCode": "DKK",
-		"currencyName": "Krone",
-		"postalCodeRegex": "^(?:FO)*(\\d{3})$",
-		"languages": [
-			"fo",
-			"da-FO"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "FR",
-		"iso3": "FRA",
-		"name": "France",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-FR",
-			"frp",
-			"br",
-			"co",
-			"ca",
-			"eu",
-			"oc"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Département"
-			}
-		}
-	},
-	{
-		"code": "GA",
-		"iso3": "GAB",
-		"name": "Gabon",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-GA"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GB",
-		"iso3": "GBR",
-		"name": "United Kingdom",
-		"continent": "EU",
-		"currencyCode": "GBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^([Gg][Ii][Rr]\\s?0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\\s?[0-9][A-Za-z]{2})$",
-		"languages": [
-			"en-GB",
-			"cy-GB",
-			"gd"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Constituent country",
-				"local": "Constituent country"
-			},
-			"level2": {
-				"en": "Council area",
-				"local": "Council area"
-			}
-		}
-	},
-	{
-		"code": "GD",
-		"iso3": "GRD",
-		"name": "Grenada",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-GD"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GE",
-		"iso3": "GEO",
-		"name": "Georgia",
-		"continent": "AS",
-		"currencyCode": "GEL",
-		"currencyName": "Lari",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"ka",
-			"ru",
-			"hy",
-			"az"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Mkhare",
-				"local": "Მხარე"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Მუნიციპალიტეტი"
-			}
-		}
-	},
-	{
-		"code": "GF",
-		"iso3": "GUF",
-		"name": "French Guiana",
-		"continent": "SA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^((97|98)3\\d{2})$",
-		"languages": [
-			"fr-GF"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Arrondissement",
-				"local": "Arrondissement"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Canton"
-			}
-		}
-	},
-	{
-		"code": "GG",
-		"iso3": "GGY",
-		"name": "Guernsey",
-		"continent": "EU",
-		"currencyCode": "GBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
-		"languages": [
-			"en",
-			"nrf"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Island",
-				"local": "Island"
-			},
-			"level2": {
-				"en": "Parish",
-				"local": "Parish"
-			}
-		}
-	},
-	{
-		"code": "GH",
-		"iso3": "GHA",
-		"name": "Ghana",
-		"continent": "AF",
-		"currencyCode": "GHS",
-		"currencyName": "Cedi",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-GH",
-			"ak",
-			"ee",
-			"tw"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": {
-				"en": "District",
-				"local": "District"
-			}
-		}
-	},
-	{
-		"code": "GI",
-		"iso3": "GIB",
-		"name": "Gibraltar",
-		"continent": "EU",
-		"currencyCode": "GIP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "GX11 1AA",
-		"languages": [
-			"en-GI",
-			"es",
-			"it",
-			"pt"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "GL",
-		"iso3": "GRL",
-		"name": "Greenland",
-		"continent": "NA",
-		"currencyCode": "DKK",
-		"currencyName": "Krone",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"kl",
-			"da-GL",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GM",
-		"iso3": "GMB",
-		"name": "Gambia",
-		"continent": "AF",
-		"currencyCode": "GMD",
-		"currencyName": "Dalasi",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-GM",
-			"mnk",
-			"wof",
-			"wo",
-			"ff"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GN",
-		"iso3": "GIN",
-		"name": "Guinea",
-		"continent": "AF",
-		"currencyCode": "GNF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-GN"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Prefecture",
-				"local": "Préfecture"
-			}
-		}
-	},
-	{
-		"code": "GP",
-		"iso3": "GLP",
-		"name": "Guadeloupe",
-		"continent": "NA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^((97|98)\\d{3})$",
-		"languages": [
-			"fr-GP"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Canton"
-			}
-		}
-	},
-	{
-		"code": "GQ",
-		"iso3": "GNQ",
-		"name": "Equatorial Guinea",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"es-GQ",
-			"fr",
-			"pt"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GR",
-		"iso3": "GRC",
-		"name": "Greece",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"el-GR",
-			"en",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Monastic community",
-				"local": "Μοναστική κοινότητα"
-			},
-			"level2": {
-				"en": "Regional unit",
-				"local": "Περιφερειακή ενότητα"
-			}
-		}
-	},
-	{
-		"code": "GS",
-		"iso3": "SGS",
-		"name": "South Georgia and the South Sandwich Islands",
-		"continent": "AN",
-		"currencyCode": "GBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "SIQQ 1ZZ",
-		"languages": [
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "GT",
-		"iso3": "GTM",
-		"name": "Guatemala",
-		"continent": "NA",
-		"currencyCode": "GTQ",
-		"currencyName": "Quetzal",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-GT"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "GU",
-		"iso3": "GUM",
-		"name": "Guam",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(969\\d{2})$",
-		"languages": [
-			"en-GU",
-			"ch-GU"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Village",
-				"local": "Village"
-			},
-			"level2": {
-				"en": "Village",
-				"local": "Village"
-			}
-		}
-	},
-	{
-		"code": "GW",
-		"iso3": "GNB",
-		"name": "Guinea-Bissau",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"pt-GW",
-			"pov"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Região"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "GY",
-		"iso3": "GUY",
-		"name": "Guyana",
-		"continent": "SA",
-		"currencyCode": "GYD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-GY"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "HK",
-		"iso3": "HKG",
-		"name": "Hong Kong",
-		"continent": "AS",
-		"currencyCode": "HKD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"zh-HK",
-			"yue",
-			"zh",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "香港政區"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "HM",
-		"iso3": "HMD",
-		"name": "Heard Island and McDonald Islands",
-		"continent": "AN",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "HN",
-		"iso3": "HND",
-		"name": "Honduras",
-		"continent": "NA",
-		"currencyCode": "HNL",
-		"currencyName": "Lempira",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"es-HN",
-			"cab",
-			"miq"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "HR",
-		"iso3": "HRV",
-		"name": "Croatia",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:HR)*(\\d{5})$",
-		"languages": [
-			"hr-HR",
-			"sr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Županija"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Općina"
-			}
-		}
-	},
-	{
-		"code": "HT",
-		"iso3": "HTI",
-		"name": "Haiti",
-		"continent": "NA",
-		"currencyCode": "HTG",
-		"currencyName": "Gourde",
-		"postalCodeRegex": "^(?:HT)*(\\d{4})$",
-		"languages": [
-			"ht",
-			"fr-HT"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Depatman"
-			},
-			"level2": {
-				"en": "Arrondissement",
-				"local": "Lis awondisman"
-			}
-		}
-	},
-	{
-		"code": "HU",
-		"iso3": "HUN",
-		"name": "Hungary",
-		"continent": "EU",
-		"currencyCode": "HUF",
-		"currencyName": "Forint",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"hu-HU"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Vármegye"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Járás"
-			}
-		}
-	},
-	{
-		"code": "ID",
-		"iso3": "IDN",
-		"name": "Indonesia",
-		"continent": "AS",
-		"currencyCode": "IDR",
-		"currencyName": "Rupiah",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"id",
-			"en",
-			"nl",
-			"jv"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provinsi"
-			},
-			"level2": {
-				"en": "Regency",
-				"local": "Kabupaten"
-			}
-		}
-	},
-	{
-		"code": "IE",
-		"iso3": "IRL",
-		"name": "Ireland",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(D6W|[AC-FHKNPRTV-Y][0-9]{2})\\s?([AC-FHKNPRTV-Y0-9]{4})",
-		"languages": [
-			"en-IE",
-			"ga-IE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "County"
-			},
-			"level2": {
-				"en": "Municipal district",
-				"local": "Municipal district"
-			}
-		}
-	},
-	{
-		"code": "IL",
-		"iso3": "ISR",
-		"name": "Israel",
-		"continent": "AS",
-		"currencyCode": "ILS",
-		"currencyName": "Shekel",
-		"postalCodeRegex": "^(\\d{7}|\\d{5})$",
-		"languages": [
-			"he",
-			"ar-IL",
-			"en-IL",
-			""
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "מחוז"
-			},
-			"level2": {
-				"en": "Settlement",
-				"local": "התנחלות"
-			}
-		}
-	},
-	{
-		"code": "IM",
-		"iso3": "IMN",
-		"name": "Isle of Man",
-		"continent": "EU",
-		"currencyCode": "GBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
-		"languages": [
-			"en",
-			"gv"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "IN",
-		"iso3": "IND",
-		"name": "India",
-		"continent": "AS",
-		"currencyCode": "INR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"en-IN",
-			"hi",
-			"bn",
-			"te",
-			"mr",
-			"ta",
-			"ur",
-			"gu",
-			"kn",
-			"ml",
-			"or",
-			"pa",
-			"as",
-			"bh",
-			"sat",
-			"ks",
-			"ne",
-			"sd",
-			"kok",
-			"doi",
-			"mni",
-			"sit",
-			"sa",
-			"fr",
-			"lus",
-			"inc"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "State"
-			},
-			"level2": {
-				"en": "District",
-				"local": "District"
-			}
-		}
-	},
-	{
-		"code": "IO",
-		"iso3": "IOT",
-		"name": "British Indian Ocean Territory",
-		"continent": "AS",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "BBND 1ZZ",
-		"languages": [
-			"en-IO"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "IQ",
-		"iso3": "IRQ",
-		"name": "Iraq",
-		"continent": "AS",
-		"currencyCode": "IQD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-IQ",
-			"ku",
-			"hy"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": {
-				"en": "District",
-				"local": "قضاء"
-			}
-		}
-	},
-	{
-		"code": "IR",
-		"iso3": "IRN",
-		"name": "Iran",
-		"continent": "AS",
-		"currencyCode": "IRR",
-		"currencyName": "Rial",
-		"postalCodeRegex": "^(\\d{10})$",
-		"languages": [
-			"fa-IR",
-			"ku"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "استان"
-			},
-			"level2": {
-				"en": "County",
-				"local": "شهرستان"
-			}
-		}
-	},
-	{
-		"code": "IS",
-		"iso3": "ISL",
-		"name": "Iceland",
-		"continent": "EU",
-		"currencyCode": "ISK",
-		"currencyName": "Krona",
-		"postalCodeRegex": "^(\\d{3})$",
-		"languages": [
-			"is",
-			"en",
-			"de",
-			"da",
-			"sv",
-			"no"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Constituency",
-				"local": "Kjördæmi"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "IT",
-		"iso3": "ITA",
-		"name": "Italy",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"it-IT",
-			"de-IT",
-			"fr-IT",
-			"sc",
-			"ca",
-			"co",
-			"sl"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Regione"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincia"
-			}
-		}
-	},
-	{
-		"code": "JE",
-		"iso3": "JEY",
-		"name": "Jersey",
-		"continent": "EU",
-		"currencyCode": "GBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
-		"languages": [
-			"en",
-			"fr",
-			"nrf"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "JM",
-		"iso3": "JAM",
-		"name": "Jamaica",
-		"continent": "NA",
-		"currencyCode": "JMD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-JM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "County"
-			},
-			"level2": {
-				"en": "Parish",
-				"local": "Parish"
-			}
-		}
-	},
-	{
-		"code": "JO",
-		"iso3": "JOR",
-		"name": "Jordan",
-		"continent": "AS",
-		"currencyCode": "JOD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-JO",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "JP",
-		"iso3": "JPN",
-		"name": "Japan",
-		"continent": "AS",
-		"currencyCode": "JPY",
-		"currencyName": "Yen",
-		"postalCodeRegex": "^\\d{3}-\\d{4}$",
-		"languages": [
-			"ja"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Prefecture",
-				"local": "都道府県"
-			},
-			"level2": {
-				"en": "City",
-				"local": "日本の市"
-			}
-		}
-	},
-	{
-		"code": "KE",
-		"iso3": "KEN",
-		"name": "Kenya",
-		"continent": "AF",
-		"currencyCode": "KES",
-		"currencyName": "Shilling",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"en-KE",
-			"sw-KE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "KG",
-		"iso3": "KGZ",
-		"name": "Kyrgyzstan",
-		"continent": "AS",
-		"currencyCode": "KGS",
-		"currencyName": "Som",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"ky",
-			"uz",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "KH",
-		"iso3": "KHM",
-		"name": "Cambodia",
-		"continent": "AS",
-		"currencyCode": "KHR",
-		"currencyName": "Riels",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"km",
-			"fr",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "ខេត្តនៃកម្ពុជា"
-			},
-			"level2": {
-				"en": "District",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "KI",
-		"iso3": "KIR",
-		"name": "Kiribati",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-KI",
-			"gil"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "KM",
-		"iso3": "COM",
-		"name": "Comoros",
-		"continent": "AF",
-		"currencyCode": "KMF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar",
-			"fr-KM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Volcanic island",
-				"local": "جزيرة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "KN",
-		"iso3": "KNA",
-		"name": "Saint Kitts and Nevis",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-KN"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "KP",
-		"iso3": "PRK",
-		"name": "North Korea",
-		"continent": "AS",
-		"currencyCode": "KPW",
-		"currencyName": "Won",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"ko-KP"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "도"
-			},
-			"level2": {
-				"en": "County",
-				"local": "군"
-			}
-		}
-	},
-	{
-		"code": "KR",
-		"iso3": "KOR",
-		"name": "South Korea",
-		"continent": "AS",
-		"currencyCode": "KRW",
-		"currencyName": "Won",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ko-KR",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Metropolitan city",
-				"local": "광역시"
-			},
-			"level2": {
-				"en": "County",
-				"local": "군"
-			}
-		}
-	},
-	{
-		"code": "KW",
-		"iso3": "KWT",
-		"name": "Kuwait",
-		"continent": "AS",
-		"currencyCode": "KWD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-KW",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "KY",
-		"iso3": "CYM",
-		"name": "Cayman Islands",
-		"continent": "NA",
-		"currencyCode": "KYD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-KY"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "KZ",
-		"iso3": "KAZ",
-		"name": "Kazakhstan",
-		"continent": "AS",
-		"currencyCode": "KZT",
-		"currencyName": "Tenge",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"kk",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Облыс"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LA",
-		"iso3": "LAO",
-		"name": "Laos",
-		"continent": "AS",
-		"currencyCode": "LAK",
-		"currencyName": "Kip",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"lo",
-			"fr",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "ແຂວງຂອງປະເທດລາວ"
-			},
-			"level2": {
-				"en": "District",
-				"local": "ເມືອງ"
-			}
-		}
-	},
-	{
-		"code": "LB",
-		"iso3": "LBN",
-		"name": "Lebanon",
-		"continent": "AS",
-		"currencyCode": "LBP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^(\\d{4}(\\d{4})?)$",
-		"languages": [
-			"ar-LB",
-			"fr-LB",
-			"en",
-			"hy"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LC",
-		"iso3": "LCA",
-		"name": "Saint Lucia",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-LC"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Quarter",
-				"local": "Quarter"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LI",
-		"iso3": "LIE",
-		"name": "Liechtenstein",
-		"continent": "EU",
-		"currencyCode": "CHF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"de-LI"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Gemeinde"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LK",
-		"iso3": "LKA",
-		"name": "Sri Lanka",
-		"continent": "AS",
-		"currencyCode": "LKR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"si",
-			"ta",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "පළාත"
-			},
-			"level2": {
-				"en": "District",
-				"local": "පරිපාලන දිස්ත්රික්කය"
-			}
-		}
-	},
-	{
-		"code": "LR",
-		"iso3": "LBR",
-		"name": "Liberia",
-		"continent": "AF",
-		"currencyCode": "LRD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"en-LR"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "County"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LS",
-		"iso3": "LSO",
-		"name": "Lesotho",
-		"continent": "AF",
-		"currencyCode": "LSL",
-		"currencyName": "Loti",
-		"postalCodeRegex": "^(\\d{3})$",
-		"languages": [
-			"en-LS",
-			"st",
-			"zu",
-			"xh"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "LT",
-		"iso3": "LTU",
-		"name": "Lithuania",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:LT)*(\\d{5})$",
-		"languages": [
-			"lt",
-			"ru",
-			"pl"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District municipality",
-				"local": "Rajono savivaldybė"
-			},
-			"level2": {
-				"en": "Eldership",
-				"local": "Seniūnija"
-			}
-		}
-	},
-	{
-		"code": "LU",
-		"iso3": "LUX",
-		"name": "Luxembourg",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:L-)?\\d{4}$",
-		"languages": [
-			"lb",
-			"de-LU",
-			"fr-LU"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Canton",
-				"local": "Kanton"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Gemeng"
-			}
-		}
-	},
-	{
-		"code": "LV",
-		"iso3": "LVA",
-		"name": "Latvia",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:LV)*(\\d{4})$",
-		"languages": [
-			"lv",
-			"ru",
-			"lt"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Novads"
-			},
-			"level2": {
-				"en": "Parish",
-				"local": "Pagasts"
-			}
-		}
-	},
-	{
-		"code": "LY",
-		"iso3": "LBY",
-		"name": "Libya",
-		"continent": "AF",
-		"currencyCode": "LYD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-LY",
-			"it",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "شعبية"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MA",
-		"iso3": "MAR",
-		"name": "Morocco",
-		"continent": "AF",
-		"currencyCode": "MAD",
-		"currencyName": "Dirham",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-MA",
-			"ber",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "جهة"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "إقليم"
-			}
-		}
-	},
-	{
-		"code": "MC",
-		"iso3": "MCO",
-		"name": "Monaco",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-MC",
-			"en",
-			"it"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MD",
-		"iso3": "MDA",
-		"name": "Moldova",
-		"continent": "EU",
-		"currencyCode": "MDL",
-		"currencyName": "Leu",
-		"postalCodeRegex": "^MD-\\d{4}$",
-		"languages": [
-			"ro",
-			"ru",
-			"gag",
-			"tr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Raion"
-			},
-			"level2": {
-				"en": "Village",
-				"local": "Sat"
-			}
-		}
-	},
-	{
-		"code": "ME",
-		"iso3": "MNE",
-		"name": "Montenegro",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"sr",
-			"hu",
-			"bs",
-			"sq",
-			"hr",
-			"rom"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Општина"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MF",
-		"iso3": "MAF",
-		"name": "Saint Martin",
-		"continent": "NA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "MG",
-		"iso3": "MDG",
-		"name": "Madagascar",
-		"continent": "AF",
-		"currencyCode": "MGA",
-		"currencyName": "Ariary",
-		"postalCodeRegex": "^(\\d{3})$",
-		"languages": [
-			"fr-MG",
-			"mg"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": {
-				"en": "District",
-				"local": "District"
-			}
-		}
-	},
-	{
-		"code": "MH",
-		"iso3": "MHL",
-		"name": "Marshall Islands",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^969\\d{2}(-\\d{4})$",
-		"languages": [
-			"mh",
-			"en-MH"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Reef island",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MK",
-		"iso3": "MKD",
-		"name": "North Macedonia",
-		"continent": "EU",
-		"currencyCode": "MKD",
-		"currencyName": "Denar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"mk",
-			"sq",
-			"tr",
-			"rmm",
-			"sr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Општина"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Општина"
-			}
-		}
-	},
-	{
-		"code": "ML",
-		"iso3": "MLI",
-		"name": "Mali",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-ML",
-			"bm"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Régions"
-			},
-			"level2": {
-				"en": "Human settlement",
-				"local": "Établissement humain"
-			}
-		}
-	},
-	{
-		"code": "MM",
-		"iso3": "MMR",
-		"name": "Myanmar",
-		"continent": "AS",
-		"currencyCode": "MMK",
-		"currencyName": "Kyat",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"my"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "တိုင်းဒေသကြီး"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MN",
-		"iso3": "MNG",
-		"name": "Mongolia",
-		"continent": "AS",
-		"currencyCode": "MNT",
-		"currencyName": "Tugrik",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"mn",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Аймаг"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Сум"
-			}
-		}
-	},
-	{
-		"code": "MO",
-		"iso3": "MAC",
-		"name": "Macao",
-		"continent": "AS",
-		"currencyCode": "MOP",
-		"currencyName": "Pataca",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"zh",
-			"zh-MO",
-			"pt"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "MP",
-		"iso3": "MNP",
-		"name": "Northern Mariana Islands",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^9695\\d{1}$",
-		"languages": [
-			"fil",
-			"tl",
-			"zh",
-			"ch-MP",
-			"en-MP"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MQ",
-		"iso3": "MTQ",
-		"name": "Martinique",
-		"continent": "NA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-MQ"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Canton"
-			}
-		}
-	},
-	{
-		"code": "MR",
-		"iso3": "MRT",
-		"name": "Mauritania",
-		"continent": "AF",
-		"currencyCode": "MRU",
-		"currencyName": "Ouguiya",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-MR",
-			"fuc",
-			"snk",
-			"fr",
-			"mey",
-			"wo"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "ولاية"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "مقاطعة"
-			}
-		}
-	},
-	{
-		"code": "MS",
-		"iso3": "MSR",
-		"name": "Montserrat",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-MS"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "MT",
-		"iso3": "MLT",
-		"name": "Malta",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^[A-Z]{3}\\s?\\d{4}$",
-		"languages": [
-			"mt",
-			"en-MT"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Reġjuni ta"
-			},
-			"level2": {
-				"en": "Town",
-				"local": "Raħal"
-			}
-		}
-	},
-	{
-		"code": "MU",
-		"iso3": "MUS",
-		"name": "Mauritius",
-		"continent": "AF",
-		"currencyCode": "MUR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-MU",
-			"bho",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MV",
-		"iso3": "MDV",
-		"name": "Maldives",
-		"continent": "AS",
-		"currencyCode": "MVR",
-		"currencyName": "Rufiyaa",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"dv",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Atoll",
-				"local": "އަތޮޅުތައް"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "MW",
-		"iso3": "MWI",
-		"name": "Malawi",
-		"continent": "AF",
-		"currencyCode": "MWK",
-		"currencyName": "Kwacha",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"ny",
-			"yao",
-			"tum",
-			"swk"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": ""
-			},
-			"level2": {
-				"en": "District",
-				"local": "Madera"
-			}
-		}
-	},
-	{
-		"code": "MX",
-		"iso3": "MEX",
-		"name": "Mexico",
-		"continent": "NA",
-		"currencyCode": "MXN",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-MX"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "Estado"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "MY",
-		"iso3": "MYS",
-		"name": "Malaysia",
-		"continent": "AS",
-		"currencyCode": "MYR",
-		"currencyName": "Ringgit",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ms-MY",
-			"en",
-			"zh",
-			"ta",
-			"te",
-			"ml",
-			"pa",
-			"th"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "Negeri"
-			},
-			"level2": {
-				"en": "Division",
-				"local": "Bahagian"
-			}
-		}
-	},
-	{
-		"code": "MZ",
-		"iso3": "MOZ",
-		"name": "Mozambique",
-		"continent": "AF",
-		"currencyCode": "MZN",
-		"currencyName": "Metical",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"pt-MZ",
-			"vmw"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Província"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Distritos"
-			}
-		}
-	},
-	{
-		"code": "NA",
-		"iso3": "NAM",
-		"name": "Namibia",
-		"continent": "AF",
-		"currencyCode": "NAD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-NA",
-			"af",
-			"de",
-			"hz",
-			"naq"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": {
-				"en": "Constituency",
-				"local": "Constituency"
-			}
-		}
-	},
-	{
-		"code": "NC",
-		"iso3": "NCL",
-		"name": "New Caledonia",
-		"continent": "OC",
-		"currencyCode": "XPF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-NC"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "NE",
-		"iso3": "NER",
-		"name": "Niger",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"fr-NE",
-			"ha",
-			"kr",
-			"dje"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Département"
-			}
-		}
-	},
-	{
-		"code": "NF",
-		"iso3": "NFK",
-		"name": "Norfolk Island",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"en-NF"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "NG",
-		"iso3": "NGA",
-		"name": "Nigeria",
-		"continent": "AF",
-		"currencyCode": "NGN",
-		"currencyName": "Naira",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"en-NG",
-			"ha",
-			"yo",
-			"ig",
-			"ff"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "State"
-			},
-			"level2": {
-				"en": "Local government area",
-				"local": "Local government area"
-			}
-		}
-	},
-	{
-		"code": "NI",
-		"iso3": "NIC",
-		"name": "Nicaragua",
-		"continent": "NA",
-		"currencyCode": "NIO",
-		"currencyName": "Cordoba",
-		"postalCodeRegex": "^(\\d{7})$",
-		"languages": [
-			"es-NI",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "NL",
-		"iso3": "NLD",
-		"name": "The Netherlands",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{4}\\s?[a-zA-Z]{2})$",
-		"languages": [
-			"nl-NL",
-			"fy-NL"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Country",
-				"local": "Land"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincie"
-			}
-		}
-	},
-	{
-		"code": "NO",
-		"iso3": "NOR",
-		"name": "Norway",
-		"continent": "EU",
-		"currencyCode": "NOK",
-		"currencyName": "Krone",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"no",
-			"nb",
-			"nn",
-			"se",
-			"fi"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": ""
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "NP",
-		"iso3": "NPL",
-		"name": "Nepal",
-		"continent": "AS",
-		"currencyCode": "NPR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ne",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "प्रदेश"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "NR",
-		"iso3": "NRU",
-		"name": "Nauru",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "NRU68",
-		"languages": [
-			"na",
-			"en-NR"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "NU",
-		"iso3": "NIU",
-		"name": "Niue",
-		"continent": "OC",
-		"currencyCode": "NZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"niu",
-			"en-NU"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "NZ",
-		"iso3": "NZL",
-		"name": "New Zealand",
-		"continent": "OC",
-		"currencyCode": "NZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"en-NZ",
-			"mi"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": {
-				"en": "District",
-				"local": "District"
-			}
-		}
-	},
-	{
-		"code": "OM",
-		"iso3": "OMN",
-		"name": "Oman",
-		"continent": "AS",
-		"currencyCode": "OMR",
-		"currencyName": "Rial",
-		"postalCodeRegex": "^(\\d{3})$",
-		"languages": [
-			"ar-OM",
-			"en",
-			"bal",
-			"ur"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "PA",
-		"iso3": "PAN",
-		"name": "Panama",
-		"continent": "NA",
-		"currencyCode": "PAB",
-		"currencyName": "Balboa",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-PA",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provincia"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Distrito"
-			}
-		}
-	},
-	{
-		"code": "PE",
-		"iso3": "PER",
-		"name": "Peru",
-		"continent": "SA",
-		"currencyCode": "PEN",
-		"currencyName": "Sol",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-PE",
-			"qu",
-			"ay"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departmento"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Provincia"
-			}
-		}
-	},
-	{
-		"code": "PF",
-		"iso3": "PYF",
-		"name": "French Polynesia",
-		"continent": "OC",
-		"currencyCode": "XPF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^((97|98)7\\d{2})$",
-		"languages": [
-			"fr-PF",
-			"ty"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Commune"
-			}
-		}
-	},
-	{
-		"code": "PG",
-		"iso3": "PNG",
-		"name": "Papua New Guinea",
-		"continent": "OC",
-		"currencyCode": "PGK",
-		"currencyName": "Kina",
-		"postalCodeRegex": "^(\\d{3})$",
-		"languages": [
-			"en-PG",
-			"ho",
-			"meu",
-			"tpi"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": {
-				"en": "District",
-				"local": "District"
-			}
-		}
-	},
-	{
-		"code": "PH",
-		"iso3": "PHL",
-		"name": "Philippines",
-		"continent": "AS",
-		"currencyCode": "PHP",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"tl",
-			"en-PH",
-			"fil",
-			"ceb",
-			"ilo",
-			"hil",
-			"war",
-			"pam",
-			"bik",
-			"bcl",
-			"pag",
-			"mrw",
-			"tsg",
-			"mdh",
-			"cbk",
-			"krj",
-			"sgd",
-			"msb",
-			"akl",
-			"ibg",
-			"yka",
-			"mta",
-			"abx"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Rehiyon"
-			},
-			"level2": {
-				"en": "Province",
-				"local": "Lalawigan"
-			}
-		}
-	},
-	{
-		"code": "PK",
-		"iso3": "PAK",
-		"name": "Pakistan",
-		"continent": "AS",
-		"currencyCode": "PKR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ur-PK",
-			"en-PK",
-			"pa",
-			"sd",
-			"ps",
-			"brh"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "صوبہ"
-			},
-			"level2": {
-				"en": "Division",
-				"local": "ڈویژن"
-			}
-		}
-	},
-	{
-		"code": "PL",
-		"iso3": "POL",
-		"name": "Poland",
-		"continent": "EU",
-		"currencyCode": "PLN",
-		"currencyName": "Zloty",
-		"postalCodeRegex": "^\\d{2}-\\d{3}$",
-		"languages": [
-			"pl"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Voivodeship",
-				"local": "Województwo"
-			},
-			"level2": {
-				"en": "Powiat",
-				"local": "Powiat"
-			}
-		}
-	},
-	{
-		"code": "PM",
-		"iso3": "SPM",
-		"name": "Saint Pierre and Miquelon",
-		"continent": "NA",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(97500)$",
-		"languages": [
-			"fr-PM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Commune",
-				"local": "Commune"
-			},
-			"level2": {
-				"en": "Island",
-				"local": "Île"
-			}
-		}
-	},
-	{
-		"code": "PN",
-		"iso3": "PCN",
-		"name": "Pitcairn",
-		"continent": "OC",
-		"currencyCode": "NZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "PCRN 1ZZ",
-		"languages": [
-			"en-PN"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "PR",
-		"iso3": "PRI",
-		"name": "Puerto Rico",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^00[679]\\d{2}(?:-\\d{4})?$",
-		"languages": [
-			"en-PR",
-			"es-PR"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Municipality"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "PS",
-		"iso3": "PSE",
-		"name": "Palestinian Territory",
-		"continent": "AS",
-		"currencyCode": "ILS",
-		"currencyName": "Shekel",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-PS"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": {
-				"en": "Governorate",
-				"local": "محافظة"
-			}
-		}
-	},
-	{
-		"code": "PT",
-		"iso3": "PRT",
-		"name": "Portugal",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^\\d{4}-\\d{3}\\s?[a-zA-Z]{0,25}$",
-		"languages": [
-			"pt-PT",
-			"mwl"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Distrito"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Município"
-			}
-		}
-	},
-	{
-		"code": "PW",
-		"iso3": "PLW",
-		"name": "Palau",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(96940)$",
-		"languages": [
-			"pau",
-			"sov",
-			"en-PW",
-			"tox",
-			"ja",
-			"fil",
-			"zh"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "PY",
-		"iso3": "PRY",
-		"name": "Paraguay",
-		"continent": "SA",
-		"currencyCode": "PYG",
-		"currencyName": "Guarani",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"es-PY",
-			"gn"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "QA",
-		"iso3": "QAT",
-		"name": "Qatar",
-		"continent": "AS",
-		"currencyCode": "QAR",
-		"currencyName": "Rial",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-QA",
-			"es"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "بلدية"
-			},
-			"level2": {
-				"en": "Village",
-				"local": "قرية"
-			}
-		}
-	},
-	{
-		"code": "RE",
-		"iso3": "REU",
-		"name": "Reunion",
-		"continent": "AF",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^((97|98)(4|7|8)\\d{2})$",
-		"languages": [
-			"fr-RE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Arrondissement",
-				"local": "Arrondissement"
-			},
-			"level2": {
-				"en": "Canton",
-				"local": "Canton"
-			}
-		}
-	},
-	{
-		"code": "RO",
-		"iso3": "ROU",
-		"name": "Romania",
-		"continent": "EU",
-		"currencyCode": "RON",
-		"currencyName": "Leu",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"ro",
-			"hu",
-			"rom"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Județ"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Comună"
-			}
-		}
-	},
-	{
-		"code": "RS",
-		"iso3": "SRB",
-		"name": "Serbia",
-		"continent": "EU",
-		"currencyCode": "RSD",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"sr",
-			"hu",
-			"bs",
-			"rom"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "Округ"
-			},
-			"level2": {
-				"en": "Municipality / city",
-				"local": "Општина / град"
-			}
-		}
-	},
-	{
-		"code": "RU",
-		"iso3": "RUS",
-		"name": "Russia",
-		"continent": "EU",
-		"currencyCode": "RUB",
-		"currencyName": "Ruble",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"ru",
-			"tt",
-			"xal",
-			"cau",
-			"ady",
-			"kv",
-			"ce",
-			"tyv",
-			"cv",
-			"udm",
-			"tut",
-			"mns",
-			"bua",
-			"myv",
-			"mdf",
-			"chm",
-			"ba",
-			"inh",
-			"kbd",
-			"krc",
-			"av",
-			"sah",
-			"nog"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Federal subject",
-				"local": "Субъект"
-			},
-			"level2": {
-				"en": "Municipal district",
-				"local": "Муниципальный район"
-			}
-		}
-	},
-	{
-		"code": "RW",
-		"iso3": "RWA",
-		"name": "Rwanda",
-		"continent": "AF",
-		"currencyCode": "RWF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"rw",
-			"en-RW",
-			"fr-RW",
-			"sw"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Intara"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Uturere tw"
-			}
-		}
-	},
-	{
-		"code": "SA",
-		"iso3": "SAU",
-		"name": "Saudi Arabia",
-		"continent": "AS",
-		"currencyCode": "SAR",
-		"currencyName": "Rial",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-SA"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "منطقة"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SB",
-		"iso3": "SLB",
-		"name": "Solomon Islands",
-		"continent": "OC",
-		"currencyCode": "SBD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-SB",
-			"tpi"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SC",
-		"iso3": "SYC",
-		"name": "Seychelles",
-		"continent": "AF",
-		"currencyCode": "SCR",
-		"currencyName": "Rupee",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-SC",
-			"fr-SC"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SD",
-		"iso3": "SDN",
-		"name": "Sudan",
-		"continent": "AF",
-		"currencyCode": "SDG",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"ar-SD",
-			"en",
-			"fia"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "ولاية"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SE",
-		"iso3": "SWE",
-		"name": "Sweden",
-		"continent": "EU",
-		"currencyCode": "SEK",
-		"currencyName": "Krona",
-		"postalCodeRegex": "^(?:SE)?\\d{3}\\s\\d{2}$",
-		"languages": [
-			"sv-SE",
-			"se",
-			"sma",
-			"fi-SE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "County",
-				"local": "Län"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Kommun"
-			}
-		}
-	},
-	{
-		"code": "SG",
-		"iso3": "SGP",
-		"name": "Singapore",
-		"continent": "AS",
-		"currencyCode": "SGD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"cmn",
-			"en-SG",
-			"ms-SG",
-			"ta-SG",
-			"zh-SG"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "SH",
-		"iso3": "SHN",
-		"name": "Saint Helena",
-		"continent": "AF",
-		"currencyCode": "SHP",
-		"currencyName": "Pound",
-		"postalCodeRegex": "^(STHL1ZZ)$",
-		"languages": [
-			"en-SH"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Island",
-				"local": "Island"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SI",
-		"iso3": "SVN",
-		"name": "Slovenia",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(?:SI)*(\\d{4})$",
-		"languages": [
-			"sl",
-			"sh"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Občina"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SJ",
-		"iso3": "SJM",
-		"name": "Svalbard and Jan Mayen",
-		"continent": "EU",
-		"currencyCode": "NOK",
-		"currencyName": "Krone",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"no",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "SK",
-		"iso3": "SVK",
-		"name": "Slovakia",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^\\d{3}\\s?\\d{2}$",
-		"languages": [
-			"sk",
-			"hu"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Kraje"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Okres"
-			}
-		}
-	},
-	{
-		"code": "SL",
-		"iso3": "SLE",
-		"name": "Sierra Leone",
-		"continent": "AF",
-		"currencyCode": "SLE",
-		"currencyName": "Leone",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-SL",
-			"men",
-			"tem"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SM",
-		"iso3": "SMR",
-		"name": "San Marino",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(4789\\d)$",
-		"languages": [
-			"it-SM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Castelli"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "SN",
-		"iso3": "SEN",
-		"name": "Senegal",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-SN",
-			"wo",
-			"fuc",
-			"mnk"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Département"
-			}
-		}
-	},
-	{
-		"code": "SO",
-		"iso3": "SOM",
-		"name": "Somalia",
-		"continent": "AF",
-		"currencyCode": "SOS",
-		"currencyName": "Shilling",
-		"postalCodeRegex": "^([A-Z]{2}\\d{5})$",
-		"languages": [
-			"so-SO",
-			"ar-SO",
-			"it",
-			"en-SO"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Gobolada"
-			},
-			"level2": {
-				"en": "District",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "SR",
-		"iso3": "SUR",
-		"name": "Suriname",
-		"continent": "SA",
-		"currencyCode": "SRD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"nl-SR",
-			"en",
-			"srn",
-			"hns",
-			"jv"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": {
-				"en": "Ressort",
-				"local": "Ressort"
-			}
-		}
-	},
-	{
-		"code": "SS",
-		"iso3": "SSD",
-		"name": "South Sudan",
-		"continent": "AF",
-		"currencyCode": "SSP",
-		"currencyName": "Pound",
-		"postalCodeRegex": null,
-		"languages": [
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "State"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "ST",
-		"iso3": "STP",
-		"name": "Sao Tome and Principe",
-		"continent": "AF",
-		"currencyCode": "STN",
-		"currencyName": "Dobra",
-		"postalCodeRegex": null,
-		"languages": [
-			"pt-ST"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Electoral unit",
-				"local": "Círculo eleitoral"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Distritos"
-			}
-		}
-	},
-	{
-		"code": "SV",
-		"iso3": "SLV",
-		"name": "El Salvador",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(?:CP)*(\\d{4})$",
-		"languages": [
-			"es-SV"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "SX",
-		"iso3": "SXM",
-		"name": "Sint Maarten",
-		"continent": "NA",
-		"currencyCode": "XCG",
-		"currencyName": "Guilder",
-		"postalCodeRegex": null,
-		"languages": [
-			"nl",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "SY",
-		"iso3": "SYR",
-		"name": "Syria",
-		"continent": "AS",
-		"currencyCode": "SYP",
-		"currencyName": "Pound",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-SY",
-			"ku",
-			"hy",
-			"arc",
-			"fr",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": {
-				"en": "District",
-				"local": "منطقة"
-			}
-		}
-	},
-	{
-		"code": "SZ",
-		"iso3": "SWZ",
-		"name": "Eswatini",
-		"continent": "AF",
-		"currencyCode": "SZL",
-		"currencyName": "Lilangeni",
-		"postalCodeRegex": "^([A-Z]\\d{3})$",
-		"languages": [
-			"en-SZ",
-			"ss-SZ"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Region"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "TC",
-		"iso3": "TCA",
-		"name": "Turks and Caicos Islands",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(TKCA 1ZZ)$",
-		"languages": [
-			"en-TC"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "TD",
-		"iso3": "TCD",
-		"name": "Chad",
-		"continent": "AF",
-		"currencyCode": "XAF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(TKCA 1ZZ)$",
-		"languages": [
-			"fr-TD",
-			"ar-TD",
-			"sre"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Department",
-				"local": "Départements"
-			}
-		}
-	},
-	{
-		"code": "TF",
-		"iso3": "ATF",
-		"name": "French Southern Territories",
-		"continent": "AN",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": {
-				"en": "Island",
-				"local": "Île"
-			}
-		}
-	},
-	{
-		"code": "TG",
-		"iso3": "TGO",
-		"name": "Togo",
-		"continent": "AF",
-		"currencyCode": "XOF",
-		"currencyName": "Franc",
-		"postalCodeRegex": null,
-		"languages": [
-			"fr-TG",
-			"ee",
-			"hna",
-			"kbp",
-			"dag",
-			"ha"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Région"
-			},
-			"level2": {
-				"en": "Prefecture",
-				"local": "Préfecture"
-			}
-		}
-	},
-	{
-		"code": "TH",
-		"iso3": "THA",
-		"name": "Thailand",
-		"continent": "AS",
-		"currencyCode": "THB",
-		"currencyName": "Baht",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"th",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "จังหวัด"
-			},
-			"level2": {
-				"en": "Amphoe",
-				"local": "อำเภอ"
-			}
-		}
-	},
-	{
-		"code": "TJ",
-		"iso3": "TJK",
-		"name": "Tajikistan",
-		"continent": "AS",
-		"currencyCode": "TJS",
-		"currencyName": "Somoni",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"tg",
-			"ru"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Вилоят"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Ноҳия"
-			}
-		}
-	},
-	{
-		"code": "TK",
-		"iso3": "TKL",
-		"name": "Tokelau",
-		"continent": "OC",
-		"currencyCode": "NZD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"tkl",
-			"en-TK"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "TL",
-		"iso3": "TLS",
-		"name": "Timor Leste",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"tet",
-			"pt-TL",
-			"id",
-			"en"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Munisipiu"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "TM",
-		"iso3": "TKM",
-		"name": "Turkmenistan",
-		"continent": "AS",
-		"currencyCode": "TMT",
-		"currencyName": "Manat",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"tk",
-			"ru",
-			"uz"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Welaýatlary"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Etraplar we şäherler"
-			}
-		}
-	},
-	{
-		"code": "TN",
-		"iso3": "TUN",
-		"name": "Tunisia",
-		"continent": "AF",
-		"currencyCode": "TND",
-		"currencyName": "Dinar",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"ar-TN",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "ولاية"
-			},
-			"level2": {
-				"en": "Delegation",
-				"local": "معتمدية"
-			}
-		}
-	},
-	{
-		"code": "TO",
-		"iso3": "TON",
-		"name": "Tonga",
-		"continent": "OC",
-		"currencyCode": "TOP",
-		"currencyName": "Pa'anga",
-		"postalCodeRegex": null,
-		"languages": [
-			"to",
-			"en-TO"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Division",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "TR",
-		"iso3": "TUR",
-		"name": "Turkey",
-		"continent": "AS",
-		"currencyCode": "TRY",
-		"currencyName": "Lira",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"tr-TR",
-			"ku",
-			"diq",
-			"az",
-			"av"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Il"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Ilçe"
-			}
-		}
-	},
-	{
-		"code": "TT",
-		"iso3": "TTO",
-		"name": "Trinidad and Tobago",
-		"continent": "NA",
-		"currencyCode": "TTD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-TT",
-			"hns",
-			"fr",
-			"es",
-			"zh"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Regional corporation",
-				"local": "Regional corporation"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "TV",
-		"iso3": "TUV",
-		"name": "Tuvalu",
-		"continent": "OC",
-		"currencyCode": "AUD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"tvl",
-			"en",
-			"sm",
-			"gil"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "TW",
-		"iso3": "TWN",
-		"name": "Taiwan",
-		"continent": "AS",
-		"currencyCode": "TWD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"zh-TW",
-			"zh",
-			"nan",
-			"hak"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "City",
-				"local": "城市"
-			},
-			"level2": {
-				"en": "District",
-				"local": "區"
-			}
-		}
-	},
-	{
-		"code": "TZ",
-		"iso3": "TZA",
-		"name": "Tanzania",
-		"continent": "AF",
-		"currencyCode": "TZS",
-		"currencyName": "Shilling",
-		"postalCodeRegex": null,
-		"languages": [
-			"sw-TZ",
-			"en",
-			"ar"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Mikoa"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Wilaya za"
-			}
-		}
-	},
-	{
-		"code": "UA",
-		"iso3": "UKR",
-		"name": "Ukraine",
-		"continent": "EU",
-		"currencyCode": "UAH",
-		"currencyName": "Hryvnia",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"uk",
-			"ru-UA",
-			"rom",
-			"pl",
-			"hu"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Oblast",
-				"local": "Область"
-			},
-			"level2": {
-				"en": "Raion",
-				"local": "Район"
-			}
-		}
-	},
-	{
-		"code": "UG",
-		"iso3": "UGA",
-		"name": "Uganda",
-		"continent": "AF",
-		"currencyCode": "UGX",
-		"currencyName": "Shilling",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-UG",
-			"lg",
-			"sw",
-			"ar"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": "District"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "UM",
-		"iso3": "UMI",
-		"name": "United States Minor Outlying Islands",
-		"continent": "OC",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-UM"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Insular area",
-				"local": "Insular area"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "US",
-		"iso3": "USA",
-		"name": "United States",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^\\d{5}(-\\d{4})?$",
-		"languages": [
-			"en-US",
-			"es-US",
-			"haw",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "State"
-			},
-			"level2": {
-				"en": "County",
-				"local": "County"
-			}
-		}
-	},
-	{
-		"code": "UY",
-		"iso3": "URY",
-		"name": "Uruguay",
-		"continent": "SA",
-		"currencyCode": "UYU",
-		"currencyName": "Peso",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"es-UY"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Department",
-				"local": "Departamento"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "UZ",
-		"iso3": "UZB",
-		"name": "Uzbekistan",
-		"continent": "AS",
-		"currencyCode": "UZS",
-		"currencyName": "Som",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"uz",
-			"ru",
-			"tg"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Region",
-				"local": "Viloyatlari"
-			},
-			"level2": {
-				"en": "District",
-				"local": "Tuman"
-			}
-		}
-	},
-	{
-		"code": "VA",
-		"iso3": "VAT",
-		"name": "Vatican",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"la",
-			"it",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "VC",
-		"iso3": "VCT",
-		"name": "Saint Vincent and the Grenadines",
-		"continent": "NA",
-		"currencyCode": "XCD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-VC",
-			"fr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Parish",
-				"local": "Parish"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "VE",
-		"iso3": "VEN",
-		"name": "Venezuela",
-		"continent": "SA",
-		"currencyCode": "VES",
-		"currencyName": "Bolivar Soberano",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"es-VE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "State",
-				"local": "Estado"
-			},
-			"level2": {
-				"en": "Municipality",
-				"local": "Municipio"
-			}
-		}
-	},
-	{
-		"code": "VG",
-		"iso3": "VGB",
-		"name": "British Virgin Islands",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-VG"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "VI",
-		"iso3": "VIR",
-		"name": "U.S. Virgin Islands",
-		"continent": "NA",
-		"currencyCode": "USD",
-		"currencyName": "Dollar",
-		"postalCodeRegex": "^008\\d{2}(?:-\\d{4})?$",
-		"languages": [
-			"en-VI"
-		],
-		"administrativeLabels": {
-			"level1": null,
-			"level2": null
-		}
-	},
-	{
-		"code": "VN",
-		"iso3": "VNM",
-		"name": "Vietnam",
-		"continent": "AS",
-		"currencyCode": "VND",
-		"currencyName": "Dong",
-		"postalCodeRegex": "^(\\d{6})$",
-		"languages": [
-			"vi",
-			"en",
-			"fr",
-			"zh",
-			"km"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Tỉnh"
-			},
-			"level2": {
-				"en": "Rural district",
-				"local": "Huyện"
-			}
-		}
-	},
-	{
-		"code": "VU",
-		"iso3": "VUT",
-		"name": "Vanuatu",
-		"continent": "OC",
-		"currencyCode": "VUV",
-		"currencyName": "Vatu",
-		"postalCodeRegex": null,
-		"languages": [
-			"bi",
-			"en-VU",
-			"fr-VU"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Provens"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "WF",
-		"iso3": "WLF",
-		"name": "Wallis and Futuna",
-		"continent": "OC",
-		"currencyCode": "XPF",
-		"currencyName": "Franc",
-		"postalCodeRegex": "^(986\\d{2})$",
-		"languages": [
-			"wls",
-			"fud",
-			"fr-WF"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Customary kingdom",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "WS",
-		"iso3": "WSM",
-		"name": "Samoa",
-		"continent": "OC",
-		"currencyCode": "WST",
-		"currencyName": "Tala",
-		"postalCodeRegex": "AS 96799",
-		"languages": [
-			"sm",
-			"en-WS"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "District",
-				"local": ""
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "XK",
-		"iso3": "XKX",
-		"name": "Kosovo",
-		"continent": "EU",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": null,
-		"languages": [
-			"sq",
-			"sr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Municipality",
-				"local": "Komunat"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "YE",
-		"iso3": "YEM",
-		"name": "Yemen",
-		"continent": "AS",
-		"currencyCode": "YER",
-		"currencyName": "Rial",
-		"postalCodeRegex": null,
-		"languages": [
-			"ar-YE"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Governorate",
-				"local": "محافظة"
-			},
-			"level2": {
-				"en": "District",
-				"local": "مديرية"
-			}
-		}
-	},
-	{
-		"code": "YT",
-		"iso3": "MYT",
-		"name": "Mayotte",
-		"continent": "AF",
-		"currencyCode": "EUR",
-		"currencyName": "Euro",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"fr-YT"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Canton",
-				"local": "Canton"
-			},
-			"level2": {
-				"en": "Commune",
-				"local": "Commune"
-			}
-		}
-	},
-	{
-		"code": "ZA",
-		"iso3": "ZAF",
-		"name": "South Africa",
-		"continent": "AF",
-		"currencyCode": "ZAR",
-		"currencyName": "Rand",
-		"postalCodeRegex": "^(\\d{4})$",
-		"languages": [
-			"zu",
-			"xh",
-			"af",
-			"nso",
-			"en-ZA",
-			"tn",
-			"st",
-			"ts",
-			"ss",
-			"ve",
-			"nr"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Izifundazwe zaseNingizimu"
-			},
-			"level2": {
-				"en": "District municipality",
-				"local": ""
-			}
-		}
-	},
-	{
-		"code": "ZM",
-		"iso3": "ZMB",
-		"name": "Zambia",
-		"continent": "AF",
-		"currencyCode": "ZMW",
-		"currencyName": "Kwacha",
-		"postalCodeRegex": "^(\\d{5})$",
-		"languages": [
-			"en-ZM",
-			"bem",
-			"loz",
-			"lun",
-			"lue",
-			"ny",
-			"toi"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	},
-	{
-		"code": "ZW",
-		"iso3": "ZWE",
-		"name": "Zimbabwe",
-		"continent": "AF",
-		"currencyCode": "ZWG",
-		"currencyName": "Zimbabwe Gold",
-		"postalCodeRegex": null,
-		"languages": [
-			"en-ZW",
-			"sn",
-			"nr",
-			"nd"
-		],
-		"administrativeLabels": {
-			"level1": {
-				"en": "Province",
-				"local": "Province"
-			},
-			"level2": null
-		}
-	}
+  {
+    "code": "AD",
+    "iso3": "AND",
+    "name": "Andorra",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:AD)*(\\d{3})$",
+    "languages": ["ca"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parròquia"
+      },
+      "level2": {
+        "en": "Settlement",
+        "local": "Ciutat"
+      }
+    }
+  },
+  {
+    "code": "AE",
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "continent": "AS",
+    "currencyCode": "AED",
+    "currencyName": "Dirham",
+    "postalCodeRegex": "^\\d{5}-\\d{5}$",
+    "languages": ["ar-AE", "fa", "en", "hi", "ur"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Emirate",
+        "local": "إمارة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "AF",
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "continent": "AS",
+    "currencyCode": "AFN",
+    "currencyName": "Afghani",
+    "postalCodeRegex": null,
+    "languages": ["fa-AF", "ps", "uz-AF", "tk"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "ولایت"
+      },
+      "level2": {
+        "en": "District",
+        "local": "ولسوالی"
+      }
+    }
+  },
+  {
+    "code": "AG",
+    "iso3": "ATG",
+    "name": "Antigua and Barbuda",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-AG"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "AI",
+    "iso3": "AIA",
+    "name": "Anguilla",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(?:AZ)*(\\d{4})$",
+    "languages": ["en-AI"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "AL",
+    "iso3": "ALB",
+    "name": "Albania",
+    "continent": "EU",
+    "currencyCode": "ALL",
+    "currencyName": "Lek",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["sq", "el"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Qarku"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Rrethet"
+      }
+    }
+  },
+  {
+    "code": "AM",
+    "iso3": "ARM",
+    "name": "Armenia",
+    "continent": "AS",
+    "currencyCode": "AMD",
+    "currencyName": "Dram",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["hy"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Մարզ"
+      },
+      "level2": {
+        "en": "Village",
+        "local": "Գյուղ"
+      }
+    }
+  },
+  {
+    "code": "AO",
+    "iso3": "AGO",
+    "name": "Angola",
+    "continent": "AF",
+    "currencyCode": "AOA",
+    "currencyName": "Kwanza",
+    "postalCodeRegex": null,
+    "languages": ["pt-AO"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Província"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Município"
+      }
+    }
+  },
+  {
+    "code": "AQ",
+    "iso3": "ATA",
+    "name": "Antarctica",
+    "continent": "AN",
+    "currencyCode": "",
+    "currencyName": "",
+    "postalCodeRegex": null,
+    "languages": [],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "AR",
+    "iso3": "ARG",
+    "name": "Argentina",
+    "continent": "SA",
+    "currencyCode": "ARS",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^[A-Z]?\\d{4}[A-Z]{0,3}$",
+    "languages": ["es-AR", "en", "it", "de", "fr", "gn"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Departamento"
+      }
+    }
+  },
+  {
+    "code": "AS",
+    "iso3": "ASM",
+    "name": "American Samoa",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "96799",
+    "languages": ["en-AS", "sm", "to"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": {
+        "en": "County",
+        "local": "County"
+      }
+    }
+  },
+  {
+    "code": "AT",
+    "iso3": "AUT",
+    "name": "Austria",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["de-AT", "hr", "hu", "sl"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Federal state",
+        "local": "Bundesland"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Bezirk"
+      }
+    }
+  },
+  {
+    "code": "AU",
+    "iso3": "AUS",
+    "name": "Australia",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["en-AU"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "External territory",
+        "local": "External territory"
+      },
+      "level2": {
+        "en": "Local government area",
+        "local": "Local government area"
+      }
+    }
+  },
+  {
+    "code": "AW",
+    "iso3": "ABW",
+    "name": "Aruba",
+    "continent": "NA",
+    "currencyCode": "AWG",
+    "currencyName": "Guilder",
+    "postalCodeRegex": null,
+    "languages": ["nl-AW", "pap", "es", "en"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "AX",
+    "iso3": "ALA",
+    "name": "Aland Islands",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:FI)*(\\d{5})$",
+    "languages": ["sv-AX"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "AZ",
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "continent": "AS",
+    "currencyCode": "AZN",
+    "currencyName": "Manat",
+    "postalCodeRegex": "^(?:AZ )*(\\d{4})$",
+    "languages": ["az", "ru", "hy"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Rayonu"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BA",
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "continent": "EU",
+    "currencyCode": "BAM",
+    "currencyName": "Marka",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["bs", "hr-BA", "sr-BA"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Political division",
+        "local": "Administrativna podjela"
+      },
+      "level2": {
+        "en": "Region",
+        "local": "Regije Republike Srpske"
+      }
+    }
+  },
+  {
+    "code": "BB",
+    "iso3": "BRB",
+    "name": "Barbados",
+    "continent": "NA",
+    "currencyCode": "BBD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(?:BB)*(\\d{5})$",
+    "languages": ["en-BB"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BD",
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "continent": "AS",
+    "currencyCode": "BDT",
+    "currencyName": "Taka",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["bn-BD", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Division",
+        "local": "বিভাগ"
+      },
+      "level2": {
+        "en": "District",
+        "local": "জেলা"
+      }
+    }
+  },
+  {
+    "code": "BE",
+    "iso3": "BEL",
+    "name": "Belgium",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["nl-BE", "fr-BE", "de-BE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Gewest"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincie"
+      }
+    }
+  },
+  {
+    "code": "BF",
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-BF", "mos"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Province"
+      }
+    }
+  },
+  {
+    "code": "BG",
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "continent": "EU",
+    "currencyCode": "BGN",
+    "currencyName": "Lev",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["bg", "tr-BG", "rom"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Oblast",
+        "local": "Oбласт"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Община"
+      }
+    }
+  },
+  {
+    "code": "BH",
+    "iso3": "BHR",
+    "name": "Bahrain",
+    "continent": "AS",
+    "currencyCode": "BHD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{3}\\d?)$",
+    "languages": ["ar-BH", "en", "fa", "ur"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BI",
+    "iso3": "BDI",
+    "name": "Burundi",
+    "continent": "AF",
+    "currencyCode": "BIF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-BI", "rn"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Commune"
+      }
+    }
+  },
+  {
+    "code": "BJ",
+    "iso3": "BEN",
+    "name": "Benin",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-BJ"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Département"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Commune"
+      }
+    }
+  },
+  {
+    "code": "BL",
+    "iso3": "BLM",
+    "name": "Saint Barthelemy",
+    "continent": "NA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "BM",
+    "iso3": "BMU",
+    "name": "Bermuda",
+    "continent": "NA",
+    "currencyCode": "BMD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^([A-Z]{2}\\d{2})$",
+    "languages": ["en-BM", "pt"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BN",
+    "iso3": "BRN",
+    "name": "Brunei",
+    "continent": "AS",
+    "currencyCode": "BND",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^([A-Z]{2}\\d{4})$",
+    "languages": ["ms-BN", "en-BN"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Daerah"
+      },
+      "level2": {
+        "en": "Mukim",
+        "local": "Mukim Negara"
+      }
+    }
+  },
+  {
+    "code": "BO",
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "continent": "SA",
+    "currencyCode": "BOB",
+    "currencyName": "Boliviano",
+    "postalCodeRegex": null,
+    "languages": ["es-BO", "qu", "ay"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincia"
+      }
+    }
+  },
+  {
+    "code": "BQ",
+    "iso3": "BES",
+    "name": "Bonaire, Saint Eustatius and Saba ",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["nl", "pap", "en"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "BR",
+    "iso3": "BRA",
+    "name": "Brazil",
+    "continent": "SA",
+    "currencyCode": "BRL",
+    "currencyName": "Real",
+    "postalCodeRegex": "^\\d{5}-\\d{3}$",
+    "languages": ["pt-BR", "es", "en", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Federative unit",
+        "local": "Unidade federativa"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Município"
+      }
+    }
+  },
+  {
+    "code": "BS",
+    "iso3": "BHS",
+    "name": "Bahamas",
+    "continent": "NA",
+    "currencyCode": "BSD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-BS"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BT",
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "continent": "AS",
+    "currencyCode": "BTN",
+    "currencyName": "Ngultrum",
+    "postalCodeRegex": null,
+    "languages": ["dz"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "རྫོང་ཁག"
+      },
+      "level2": {
+        "en": "Gewog",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "BV",
+    "iso3": "BVT",
+    "name": "Bouvet Island",
+    "continent": "AN",
+    "currencyCode": "NOK",
+    "currencyName": "Krone",
+    "postalCodeRegex": null,
+    "languages": [],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "BW",
+    "iso3": "BWA",
+    "name": "Botswana",
+    "continent": "AF",
+    "currencyCode": "BWP",
+    "currencyName": "Pula",
+    "postalCodeRegex": null,
+    "languages": ["en-BW", "tn-BW"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "BY",
+    "iso3": "BLR",
+    "name": "Belarus",
+    "continent": "EU",
+    "currencyCode": "BYN",
+    "currencyName": "Belarusian ruble",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["be", "ru"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Вобласць"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Раён"
+      }
+    }
+  },
+  {
+    "code": "BZ",
+    "iso3": "BLZ",
+    "name": "Belize",
+    "continent": "NA",
+    "currencyCode": "BZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-BZ", "es"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "CA",
+    "iso3": "CAN",
+    "name": "Canada",
+    "continent": "NA",
+    "currencyCode": "CAD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^([ABCEGHJKLMNPRSTVXY]\\d[ABCEGHJKLMNPRSTVWXYZ]) ?(\\d[ABCEGHJKLMNPRSTVWXYZ]\\d)$ ",
+    "languages": ["en-CA", "fr-CA", "iu"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": {
+        "en": "Regional district",
+        "local": "Regional district"
+      }
+    }
+  },
+  {
+    "code": "CC",
+    "iso3": "CCK",
+    "name": "Cocos Islands",
+    "continent": "AS",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["ms-CC", "en"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "CD",
+    "iso3": "COD",
+    "name": "Democratic Republic of the Congo",
+    "continent": "AF",
+    "currencyCode": "CDF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-CD", "ln", "ktu", "kg", "sw", "lua"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provinces"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Commune"
+      }
+    }
+  },
+  {
+    "code": "CF",
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-CF", "sg", "ln", "kg"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Prefecture",
+        "local": "Préfecture"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "CG",
+    "iso3": "COG",
+    "name": "Republic of the Congo",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-CG", "kg", "ln-CG"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Département"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "CH",
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "continent": "EU",
+    "currencyCode": "CHF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["de-CH", "fr-CH", "it-CH", "rm"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Canton",
+        "local": "Kanton"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Gemeinde"
+      }
+    }
+  },
+  {
+    "code": "CI",
+    "iso3": "CIV",
+    "name": "Ivory Coast",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-CI"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "CK",
+    "iso3": "COK",
+    "name": "Cook Islands",
+    "continent": "OC",
+    "currencyCode": "NZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-CK", "mi"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "CL",
+    "iso3": "CHL",
+    "name": "Chile",
+    "continent": "SA",
+    "currencyCode": "CLP",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{7})$",
+    "languages": ["es-CL"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Región"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincia"
+      }
+    }
+  },
+  {
+    "code": "CM",
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["en-CM", "fr-CM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Electoral unit",
+        "local": "Electoral unit"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Department"
+      }
+    }
+  },
+  {
+    "code": "CN",
+    "iso3": "CHN",
+    "name": "China",
+    "continent": "AS",
+    "currencyCode": "CNY",
+    "currencyName": "Yuan Renminbi",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["zh-CN", "yue", "wuu", "dta", "ug", "za"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "省"
+      },
+      "level2": {
+        "en": "Prefecture-level city",
+        "local": "地级市"
+      }
+    }
+  },
+  {
+    "code": "CO",
+    "iso3": "COL",
+    "name": "Colombia",
+    "continent": "SA",
+    "currencyCode": "COP",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["es-CO"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "CR",
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "continent": "NA",
+    "currencyCode": "CRC",
+    "currencyName": "Colon",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-CR", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Electoral unit",
+        "local": "Circunscripción electoral"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Cantón"
+      }
+    }
+  },
+  {
+    "code": "CU",
+    "iso3": "CUB",
+    "name": "Cuba",
+    "continent": "NA",
+    "currencyCode": "CUP",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(?:CP)*(\\d{5})$",
+    "languages": ["es-CU", "pap"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "CV",
+    "iso3": "CPV",
+    "name": "Cabo Verde",
+    "continent": "AF",
+    "currencyCode": "CVE",
+    "currencyName": "Escudo",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["pt-CV"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Concelho",
+        "local": "Municipio"
+      },
+      "level2": {
+        "en": "Freguesia",
+        "local": "Freguesia"
+      }
+    }
+  },
+  {
+    "code": "CW",
+    "iso3": "CUW",
+    "name": "Curacao",
+    "continent": "NA",
+    "currencyCode": "XCG",
+    "currencyName": "Guilder",
+    "postalCodeRegex": null,
+    "languages": ["nl", "pap"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "CX",
+    "iso3": "CXR",
+    "name": "Christmas Island",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["en", "zh", "ms-CX"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "CY",
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["el-CY", "tr-CY", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Επαρχία"
+      },
+      "level2": {
+        "en": "Community",
+        "local": "Κοινότητα"
+      }
+    }
+  },
+  {
+    "code": "CZ",
+    "iso3": "CZE",
+    "name": "Czechia",
+    "continent": "EU",
+    "currencyCode": "CZK",
+    "currencyName": "Koruna",
+    "postalCodeRegex": "^\\d{3}\\s?\\d{2}$",
+    "languages": ["cs", "sk"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Kraj"
+      },
+      "level2": {
+        "en": "Municipal part",
+        "local": "Část obce"
+      }
+    }
+  },
+  {
+    "code": "DE",
+    "iso3": "DEU",
+    "name": "Germany",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["de"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Federated state",
+        "local": "Bundesland"
+      },
+      "level2": {
+        "en": "Urban municipality",
+        "local": "Stadt"
+      }
+    }
+  },
+  {
+    "code": "DJ",
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "continent": "AF",
+    "currencyCode": "DJF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-DJ", "ar", "so-DJ", "aa"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Sub-prefecture",
+        "local": "Sous-préfecture"
+      }
+    }
+  },
+  {
+    "code": "DK",
+    "iso3": "DNK",
+    "name": "Denmark",
+    "continent": "EU",
+    "currencyCode": "DKK",
+    "currencyName": "Krone",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["da-DK", "en", "fo", "de-DK"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Dansk amt"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Kommune"
+      }
+    }
+  },
+  {
+    "code": "DM",
+    "iso3": "DMA",
+    "name": "Dominica",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-DM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "DO",
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "continent": "NA",
+    "currencyCode": "DOP",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-DO"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "DZ",
+    "iso3": "DZA",
+    "name": "Algeria",
+    "continent": "AF",
+    "currencyCode": "DZD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-DZ"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "ولاية"
+      },
+      "level2": {
+        "en": "District",
+        "local": "دائرة"
+      }
+    }
+  },
+  {
+    "code": "EC",
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "continent": "SA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^([a-zA-Z]\\d{4}[a-zA-Z])$",
+    "languages": ["es-EC"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Cantón"
+      }
+    }
+  },
+  {
+    "code": "EE",
+    "iso3": "EST",
+    "name": "Estonia",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["et", "ru"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Maakond"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "EG",
+    "iso3": "EGY",
+    "name": "Egypt",
+    "continent": "AF",
+    "currencyCode": "EGP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-EG", "en", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": {
+        "en": "Marka",
+        "local": "مركز"
+      }
+    }
+  },
+  {
+    "code": "EH",
+    "iso3": "ESH",
+    "name": "Western Sahara",
+    "continent": "AF",
+    "currencyCode": "MAD",
+    "currencyName": "Dirham",
+    "postalCodeRegex": null,
+    "languages": ["ar", "mey"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "ER",
+    "iso3": "ERI",
+    "name": "Eritrea",
+    "continent": "AF",
+    "currencyCode": "ERN",
+    "currencyName": "Nakfa",
+    "postalCodeRegex": null,
+    "languages": ["aa-ER", "ar", "tig", "kun", "ti-ER"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "ES",
+    "iso3": "ESP",
+    "name": "Spain",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-ES", "ca", "gl", "eu", "oc"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Autonomous community",
+        "local": "Comunidad autónoma"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincia"
+      }
+    }
+  },
+  {
+    "code": "ET",
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "continent": "AF",
+    "currencyCode": "ETB",
+    "currencyName": "Birr",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["am", "en-ET", "om-ET", "ti-ET", "so-ET", "sid"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": ""
+      },
+      "level2": {
+        "en": "District",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "FI",
+    "iso3": "FIN",
+    "name": "Finland",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:FI)*(\\d{5})$",
+    "languages": ["fi-FI", "sv-FI", "smn"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Maakunta"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Kunta"
+      }
+    }
+  },
+  {
+    "code": "FJ",
+    "iso3": "FJI",
+    "name": "Fiji",
+    "continent": "OC",
+    "currencyCode": "FJD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-FJ", "fj"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Division",
+        "local": "Division"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "FK",
+    "iso3": "FLK",
+    "name": "Falkland Islands",
+    "continent": "SA",
+    "currencyCode": "FKP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "FIQQ 1ZZ",
+    "languages": ["en-FK"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "FM",
+    "iso3": "FSM",
+    "name": "Micronesia",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["en-FM", "chk", "pon", "yap", "kos", "uli", "woe", "nkr", "kpg"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "State"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "FO",
+    "iso3": "FRO",
+    "name": "Faroe Islands",
+    "continent": "EU",
+    "currencyCode": "DKK",
+    "currencyName": "Krone",
+    "postalCodeRegex": "^(?:FO)*(\\d{3})$",
+    "languages": ["fo", "da-FO"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "FR",
+    "iso3": "FRA",
+    "name": "France",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-FR", "frp", "br", "co", "ca", "eu", "oc"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Département"
+      }
+    }
+  },
+  {
+    "code": "GA",
+    "iso3": "GAB",
+    "name": "Gabon",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-GA"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GB",
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "continent": "EU",
+    "currencyCode": "GBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^([Gg][Ii][Rr]\\s?0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9]?[A-Za-z]))))\\s?[0-9][A-Za-z]{2})$",
+    "languages": ["en-GB", "cy-GB", "gd"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Constituent country",
+        "local": "Constituent country"
+      },
+      "level2": {
+        "en": "Council area",
+        "local": "Council area"
+      }
+    }
+  },
+  {
+    "code": "GD",
+    "iso3": "GRD",
+    "name": "Grenada",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-GD"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GE",
+    "iso3": "GEO",
+    "name": "Georgia",
+    "continent": "AS",
+    "currencyCode": "GEL",
+    "currencyName": "Lari",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["ka", "ru", "hy", "az"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Mkhare",
+        "local": "Მხარე"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Მუნიციპალიტეტი"
+      }
+    }
+  },
+  {
+    "code": "GF",
+    "iso3": "GUF",
+    "name": "French Guiana",
+    "continent": "SA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^((97|98)3\\d{2})$",
+    "languages": ["fr-GF"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Arrondissement",
+        "local": "Arrondissement"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Canton"
+      }
+    }
+  },
+  {
+    "code": "GG",
+    "iso3": "GGY",
+    "name": "Guernsey",
+    "continent": "EU",
+    "currencyCode": "GBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
+    "languages": ["en", "nrf"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Island",
+        "local": "Island"
+      },
+      "level2": {
+        "en": "Parish",
+        "local": "Parish"
+      }
+    }
+  },
+  {
+    "code": "GH",
+    "iso3": "GHA",
+    "name": "Ghana",
+    "continent": "AF",
+    "currencyCode": "GHS",
+    "currencyName": "Cedi",
+    "postalCodeRegex": null,
+    "languages": ["en-GH", "ak", "ee", "tw"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": {
+        "en": "District",
+        "local": "District"
+      }
+    }
+  },
+  {
+    "code": "GI",
+    "iso3": "GIB",
+    "name": "Gibraltar",
+    "continent": "EU",
+    "currencyCode": "GIP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "GX11 1AA",
+    "languages": ["en-GI", "es", "it", "pt"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "GL",
+    "iso3": "GRL",
+    "name": "Greenland",
+    "continent": "NA",
+    "currencyCode": "DKK",
+    "currencyName": "Krone",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["kl", "da-GL", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GM",
+    "iso3": "GMB",
+    "name": "Gambia",
+    "continent": "AF",
+    "currencyCode": "GMD",
+    "currencyName": "Dalasi",
+    "postalCodeRegex": null,
+    "languages": ["en-GM", "mnk", "wof", "wo", "ff"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GN",
+    "iso3": "GIN",
+    "name": "Guinea",
+    "continent": "AF",
+    "currencyCode": "GNF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-GN"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Prefecture",
+        "local": "Préfecture"
+      }
+    }
+  },
+  {
+    "code": "GP",
+    "iso3": "GLP",
+    "name": "Guadeloupe",
+    "continent": "NA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^((97|98)\\d{3})$",
+    "languages": ["fr-GP"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Canton"
+      }
+    }
+  },
+  {
+    "code": "GQ",
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["es-GQ", "fr", "pt"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GR",
+    "iso3": "GRC",
+    "name": "Greece",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["el-GR", "en", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Monastic community",
+        "local": "Μοναστική κοινότητα"
+      },
+      "level2": {
+        "en": "Regional unit",
+        "local": "Περιφερειακή ενότητα"
+      }
+    }
+  },
+  {
+    "code": "GS",
+    "iso3": "SGS",
+    "name": "South Georgia and the South Sandwich Islands",
+    "continent": "AN",
+    "currencyCode": "GBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "SIQQ 1ZZ",
+    "languages": ["en"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "GT",
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "continent": "NA",
+    "currencyCode": "GTQ",
+    "currencyName": "Quetzal",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-GT"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "GU",
+    "iso3": "GUM",
+    "name": "Guam",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(969\\d{2})$",
+    "languages": ["en-GU", "ch-GU"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Village",
+        "local": "Village"
+      },
+      "level2": {
+        "en": "Village",
+        "local": "Village"
+      }
+    }
+  },
+  {
+    "code": "GW",
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["pt-GW", "pov"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Região"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "GY",
+    "iso3": "GUY",
+    "name": "Guyana",
+    "continent": "SA",
+    "currencyCode": "GYD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-GY"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "HK",
+    "iso3": "HKG",
+    "name": "Hong Kong",
+    "continent": "AS",
+    "currencyCode": "HKD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["zh-HK", "yue", "zh", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "香港政區"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "HM",
+    "iso3": "HMD",
+    "name": "Heard Island and McDonald Islands",
+    "continent": "AN",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": [],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "HN",
+    "iso3": "HND",
+    "name": "Honduras",
+    "continent": "NA",
+    "currencyCode": "HNL",
+    "currencyName": "Lempira",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["es-HN", "cab", "miq"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "HR",
+    "iso3": "HRV",
+    "name": "Croatia",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:HR)*(\\d{5})$",
+    "languages": ["hr-HR", "sr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Županija"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Općina"
+      }
+    }
+  },
+  {
+    "code": "HT",
+    "iso3": "HTI",
+    "name": "Haiti",
+    "continent": "NA",
+    "currencyCode": "HTG",
+    "currencyName": "Gourde",
+    "postalCodeRegex": "^(?:HT)*(\\d{4})$",
+    "languages": ["ht", "fr-HT"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Depatman"
+      },
+      "level2": {
+        "en": "Arrondissement",
+        "local": "Lis awondisman"
+      }
+    }
+  },
+  {
+    "code": "HU",
+    "iso3": "HUN",
+    "name": "Hungary",
+    "continent": "EU",
+    "currencyCode": "HUF",
+    "currencyName": "Forint",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["hu-HU"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Vármegye"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Járás"
+      }
+    }
+  },
+  {
+    "code": "ID",
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "continent": "AS",
+    "currencyCode": "IDR",
+    "currencyName": "Rupiah",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["id", "en", "nl", "jv"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provinsi"
+      },
+      "level2": {
+        "en": "Regency",
+        "local": "Kabupaten"
+      }
+    }
+  },
+  {
+    "code": "IE",
+    "iso3": "IRL",
+    "name": "Ireland",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(D6W|[AC-FHKNPRTV-Y][0-9]{2})\\s?([AC-FHKNPRTV-Y0-9]{4})",
+    "languages": ["en-IE", "ga-IE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "County"
+      },
+      "level2": {
+        "en": "Municipal district",
+        "local": "Municipal district"
+      }
+    }
+  },
+  {
+    "code": "IL",
+    "iso3": "ISR",
+    "name": "Israel",
+    "continent": "AS",
+    "currencyCode": "ILS",
+    "currencyName": "Shekel",
+    "postalCodeRegex": "^(\\d{7}|\\d{5})$",
+    "languages": ["he", "ar-IL", "en-IL", ""],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "מחוז"
+      },
+      "level2": {
+        "en": "Settlement",
+        "local": "התנחלות"
+      }
+    }
+  },
+  {
+    "code": "IM",
+    "iso3": "IMN",
+    "name": "Isle of Man",
+    "continent": "EU",
+    "currencyCode": "GBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
+    "languages": ["en", "gv"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "IN",
+    "iso3": "IND",
+    "name": "India",
+    "continent": "AS",
+    "currencyCode": "INR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": [
+      "en-IN",
+      "hi",
+      "bn",
+      "te",
+      "mr",
+      "ta",
+      "ur",
+      "gu",
+      "kn",
+      "ml",
+      "or",
+      "pa",
+      "as",
+      "bh",
+      "sat",
+      "ks",
+      "ne",
+      "sd",
+      "kok",
+      "doi",
+      "mni",
+      "sit",
+      "sa",
+      "fr",
+      "lus",
+      "inc"
+    ],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "State"
+      },
+      "level2": {
+        "en": "District",
+        "local": "District"
+      }
+    }
+  },
+  {
+    "code": "IO",
+    "iso3": "IOT",
+    "name": "British Indian Ocean Territory",
+    "continent": "AS",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "BBND 1ZZ",
+    "languages": ["en-IO"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "IQ",
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "continent": "AS",
+    "currencyCode": "IQD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-IQ", "ku", "hy"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": {
+        "en": "District",
+        "local": "قضاء"
+      }
+    }
+  },
+  {
+    "code": "IR",
+    "iso3": "IRN",
+    "name": "Iran",
+    "continent": "AS",
+    "currencyCode": "IRR",
+    "currencyName": "Rial",
+    "postalCodeRegex": "^(\\d{10})$",
+    "languages": ["fa-IR", "ku"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "استان"
+      },
+      "level2": {
+        "en": "County",
+        "local": "شهرستان"
+      }
+    }
+  },
+  {
+    "code": "IS",
+    "iso3": "ISL",
+    "name": "Iceland",
+    "continent": "EU",
+    "currencyCode": "ISK",
+    "currencyName": "Krona",
+    "postalCodeRegex": "^(\\d{3})$",
+    "languages": ["is", "en", "de", "da", "sv", "no"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Constituency",
+        "local": "Kjördæmi"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "IT",
+    "iso3": "ITA",
+    "name": "Italy",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["it-IT", "de-IT", "fr-IT", "sc", "ca", "co", "sl"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Regione"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincia"
+      }
+    }
+  },
+  {
+    "code": "JE",
+    "iso3": "JEY",
+    "name": "Jersey",
+    "continent": "EU",
+    "currencyCode": "GBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^((?:(?:[A-PR-UWYZ][A-HK-Y]\\d[ABEHMNPRV-Y0-9]|[A-PR-UWYZ]\\d[A-HJKPS-UW0-9])\\s\\d[ABD-HJLNP-UW-Z]{2})|GIR\\s?0AA)$",
+    "languages": ["en", "fr", "nrf"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "JM",
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "continent": "NA",
+    "currencyCode": "JMD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-JM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "County"
+      },
+      "level2": {
+        "en": "Parish",
+        "local": "Parish"
+      }
+    }
+  },
+  {
+    "code": "JO",
+    "iso3": "JOR",
+    "name": "Jordan",
+    "continent": "AS",
+    "currencyCode": "JOD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-JO", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "JP",
+    "iso3": "JPN",
+    "name": "Japan",
+    "continent": "AS",
+    "currencyCode": "JPY",
+    "currencyName": "Yen",
+    "postalCodeRegex": "^\\d{3}-\\d{4}$",
+    "languages": ["ja"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Prefecture",
+        "local": "都道府県"
+      },
+      "level2": {
+        "en": "City",
+        "local": "日本の市"
+      }
+    }
+  },
+  {
+    "code": "KE",
+    "iso3": "KEN",
+    "name": "Kenya",
+    "continent": "AF",
+    "currencyCode": "KES",
+    "currencyName": "Shilling",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["en-KE", "sw-KE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "KG",
+    "iso3": "KGZ",
+    "name": "Kyrgyzstan",
+    "continent": "AS",
+    "currencyCode": "KGS",
+    "currencyName": "Som",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["ky", "uz", "ru"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "KH",
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "continent": "AS",
+    "currencyCode": "KHR",
+    "currencyName": "Riels",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["km", "fr", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "ខេត្តនៃកម្ពុជា"
+      },
+      "level2": {
+        "en": "District",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "KI",
+    "iso3": "KIR",
+    "name": "Kiribati",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-KI", "gil"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "KM",
+    "iso3": "COM",
+    "name": "Comoros",
+    "continent": "AF",
+    "currencyCode": "KMF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["ar", "fr-KM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Volcanic island",
+        "local": "جزيرة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "KN",
+    "iso3": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-KN"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "KP",
+    "iso3": "PRK",
+    "name": "North Korea",
+    "continent": "AS",
+    "currencyCode": "KPW",
+    "currencyName": "Won",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["ko-KP"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "도"
+      },
+      "level2": {
+        "en": "County",
+        "local": "군"
+      }
+    }
+  },
+  {
+    "code": "KR",
+    "iso3": "KOR",
+    "name": "South Korea",
+    "continent": "AS",
+    "currencyCode": "KRW",
+    "currencyName": "Won",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ko-KR", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Metropolitan city",
+        "local": "광역시"
+      },
+      "level2": {
+        "en": "County",
+        "local": "군"
+      }
+    }
+  },
+  {
+    "code": "KW",
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "continent": "AS",
+    "currencyCode": "KWD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-KW", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "KY",
+    "iso3": "CYM",
+    "name": "Cayman Islands",
+    "continent": "NA",
+    "currencyCode": "KYD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-KY"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "KZ",
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "continent": "AS",
+    "currencyCode": "KZT",
+    "currencyName": "Tenge",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["kk", "ru"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Облыс"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LA",
+    "iso3": "LAO",
+    "name": "Laos",
+    "continent": "AS",
+    "currencyCode": "LAK",
+    "currencyName": "Kip",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["lo", "fr", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "ແຂວງຂອງປະເທດລາວ"
+      },
+      "level2": {
+        "en": "District",
+        "local": "ເມືອງ"
+      }
+    }
+  },
+  {
+    "code": "LB",
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "continent": "AS",
+    "currencyCode": "LBP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^(\\d{4}(\\d{4})?)$",
+    "languages": ["ar-LB", "fr-LB", "en", "hy"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LC",
+    "iso3": "LCA",
+    "name": "Saint Lucia",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-LC"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Quarter",
+        "local": "Quarter"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LI",
+    "iso3": "LIE",
+    "name": "Liechtenstein",
+    "continent": "EU",
+    "currencyCode": "CHF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["de-LI"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Gemeinde"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LK",
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "continent": "AS",
+    "currencyCode": "LKR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["si", "ta", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "පළාත"
+      },
+      "level2": {
+        "en": "District",
+        "local": "පරිපාලන දිස්ත්රික්කය"
+      }
+    }
+  },
+  {
+    "code": "LR",
+    "iso3": "LBR",
+    "name": "Liberia",
+    "continent": "AF",
+    "currencyCode": "LRD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["en-LR"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "County"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LS",
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "continent": "AF",
+    "currencyCode": "LSL",
+    "currencyName": "Loti",
+    "postalCodeRegex": "^(\\d{3})$",
+    "languages": ["en-LS", "st", "zu", "xh"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "LT",
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:LT)*(\\d{5})$",
+    "languages": ["lt", "ru", "pl"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District municipality",
+        "local": "Rajono savivaldybė"
+      },
+      "level2": {
+        "en": "Eldership",
+        "local": "Seniūnija"
+      }
+    }
+  },
+  {
+    "code": "LU",
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:L-)?\\d{4}$",
+    "languages": ["lb", "de-LU", "fr-LU"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Canton",
+        "local": "Kanton"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Gemeng"
+      }
+    }
+  },
+  {
+    "code": "LV",
+    "iso3": "LVA",
+    "name": "Latvia",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:LV)*(\\d{4})$",
+    "languages": ["lv", "ru", "lt"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Novads"
+      },
+      "level2": {
+        "en": "Parish",
+        "local": "Pagasts"
+      }
+    }
+  },
+  {
+    "code": "LY",
+    "iso3": "LBY",
+    "name": "Libya",
+    "continent": "AF",
+    "currencyCode": "LYD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": null,
+    "languages": ["ar-LY", "it", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "شعبية"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MA",
+    "iso3": "MAR",
+    "name": "Morocco",
+    "continent": "AF",
+    "currencyCode": "MAD",
+    "currencyName": "Dirham",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-MA", "ber", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "جهة"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "إقليم"
+      }
+    }
+  },
+  {
+    "code": "MC",
+    "iso3": "MCO",
+    "name": "Monaco",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-MC", "en", "it"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MD",
+    "iso3": "MDA",
+    "name": "Moldova",
+    "continent": "EU",
+    "currencyCode": "MDL",
+    "currencyName": "Leu",
+    "postalCodeRegex": "^MD-\\d{4}$",
+    "languages": ["ro", "ru", "gag", "tr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Raion"
+      },
+      "level2": {
+        "en": "Village",
+        "local": "Sat"
+      }
+    }
+  },
+  {
+    "code": "ME",
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["sr", "hu", "bs", "sq", "hr", "rom"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Општина"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MF",
+    "iso3": "MAF",
+    "name": "Saint Martin",
+    "continent": "NA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "MG",
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "continent": "AF",
+    "currencyCode": "MGA",
+    "currencyName": "Ariary",
+    "postalCodeRegex": "^(\\d{3})$",
+    "languages": ["fr-MG", "mg"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": {
+        "en": "District",
+        "local": "District"
+      }
+    }
+  },
+  {
+    "code": "MH",
+    "iso3": "MHL",
+    "name": "Marshall Islands",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^969\\d{2}(-\\d{4})$",
+    "languages": ["mh", "en-MH"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Reef island",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MK",
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "continent": "EU",
+    "currencyCode": "MKD",
+    "currencyName": "Denar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["mk", "sq", "tr", "rmm", "sr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Општина"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Општина"
+      }
+    }
+  },
+  {
+    "code": "ML",
+    "iso3": "MLI",
+    "name": "Mali",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-ML", "bm"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Régions"
+      },
+      "level2": {
+        "en": "Human settlement",
+        "local": "Établissement humain"
+      }
+    }
+  },
+  {
+    "code": "MM",
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "continent": "AS",
+    "currencyCode": "MMK",
+    "currencyName": "Kyat",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["my"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "တိုင်းဒေသကြီး"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MN",
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "continent": "AS",
+    "currencyCode": "MNT",
+    "currencyName": "Tugrik",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["mn", "ru"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Аймаг"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Сум"
+      }
+    }
+  },
+  {
+    "code": "MO",
+    "iso3": "MAC",
+    "name": "Macao",
+    "continent": "AS",
+    "currencyCode": "MOP",
+    "currencyName": "Pataca",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["zh", "zh-MO", "pt"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "MP",
+    "iso3": "MNP",
+    "name": "Northern Mariana Islands",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^9695\\d{1}$",
+    "languages": ["fil", "tl", "zh", "ch-MP", "en-MP"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MQ",
+    "iso3": "MTQ",
+    "name": "Martinique",
+    "continent": "NA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-MQ"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Canton"
+      }
+    }
+  },
+  {
+    "code": "MR",
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "continent": "AF",
+    "currencyCode": "MRU",
+    "currencyName": "Ouguiya",
+    "postalCodeRegex": null,
+    "languages": ["ar-MR", "fuc", "snk", "fr", "mey", "wo"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "ولاية"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "مقاطعة"
+      }
+    }
+  },
+  {
+    "code": "MS",
+    "iso3": "MSR",
+    "name": "Montserrat",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-MS"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "MT",
+    "iso3": "MLT",
+    "name": "Malta",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^[A-Z]{3}\\s?\\d{4}$",
+    "languages": ["mt", "en-MT"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Reġjuni ta"
+      },
+      "level2": {
+        "en": "Town",
+        "local": "Raħal"
+      }
+    }
+  },
+  {
+    "code": "MU",
+    "iso3": "MUS",
+    "name": "Mauritius",
+    "continent": "AF",
+    "currencyCode": "MUR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": null,
+    "languages": ["en-MU", "bho", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MV",
+    "iso3": "MDV",
+    "name": "Maldives",
+    "continent": "AS",
+    "currencyCode": "MVR",
+    "currencyName": "Rufiyaa",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["dv", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Atoll",
+        "local": "އަތޮޅުތައް"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "MW",
+    "iso3": "MWI",
+    "name": "Malawi",
+    "continent": "AF",
+    "currencyCode": "MWK",
+    "currencyName": "Kwacha",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["ny", "yao", "tum", "swk"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": ""
+      },
+      "level2": {
+        "en": "District",
+        "local": "Madera"
+      }
+    }
+  },
+  {
+    "code": "MX",
+    "iso3": "MEX",
+    "name": "Mexico",
+    "continent": "NA",
+    "currencyCode": "MXN",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-MX"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "Estado"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "MY",
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "continent": "AS",
+    "currencyCode": "MYR",
+    "currencyName": "Ringgit",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ms-MY", "en", "zh", "ta", "te", "ml", "pa", "th"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "Negeri"
+      },
+      "level2": {
+        "en": "Division",
+        "local": "Bahagian"
+      }
+    }
+  },
+  {
+    "code": "MZ",
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "continent": "AF",
+    "currencyCode": "MZN",
+    "currencyName": "Metical",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["pt-MZ", "vmw"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Província"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Distritos"
+      }
+    }
+  },
+  {
+    "code": "NA",
+    "iso3": "NAM",
+    "name": "Namibia",
+    "continent": "AF",
+    "currencyCode": "NAD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-NA", "af", "de", "hz", "naq"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": {
+        "en": "Constituency",
+        "local": "Constituency"
+      }
+    }
+  },
+  {
+    "code": "NC",
+    "iso3": "NCL",
+    "name": "New Caledonia",
+    "continent": "OC",
+    "currencyCode": "XPF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-NC"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "NE",
+    "iso3": "NER",
+    "name": "Niger",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["fr-NE", "ha", "kr", "dje"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Département"
+      }
+    }
+  },
+  {
+    "code": "NF",
+    "iso3": "NFK",
+    "name": "Norfolk Island",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["en-NF"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "NG",
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "continent": "AF",
+    "currencyCode": "NGN",
+    "currencyName": "Naira",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["en-NG", "ha", "yo", "ig", "ff"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "State"
+      },
+      "level2": {
+        "en": "Local government area",
+        "local": "Local government area"
+      }
+    }
+  },
+  {
+    "code": "NI",
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "continent": "NA",
+    "currencyCode": "NIO",
+    "currencyName": "Cordoba",
+    "postalCodeRegex": "^(\\d{7})$",
+    "languages": ["es-NI", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "NL",
+    "iso3": "NLD",
+    "name": "The Netherlands",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{4}\\s?[a-zA-Z]{2})$",
+    "languages": ["nl-NL", "fy-NL"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Country",
+        "local": "Land"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincie"
+      }
+    }
+  },
+  {
+    "code": "NO",
+    "iso3": "NOR",
+    "name": "Norway",
+    "continent": "EU",
+    "currencyCode": "NOK",
+    "currencyName": "Krone",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["no", "nb", "nn", "se", "fi"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": ""
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "NP",
+    "iso3": "NPL",
+    "name": "Nepal",
+    "continent": "AS",
+    "currencyCode": "NPR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ne", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "प्रदेश"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "NR",
+    "iso3": "NRU",
+    "name": "Nauru",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "NRU68",
+    "languages": ["na", "en-NR"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "NU",
+    "iso3": "NIU",
+    "name": "Niue",
+    "continent": "OC",
+    "currencyCode": "NZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["niu", "en-NU"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "NZ",
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "continent": "OC",
+    "currencyCode": "NZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["en-NZ", "mi"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": {
+        "en": "District",
+        "local": "District"
+      }
+    }
+  },
+  {
+    "code": "OM",
+    "iso3": "OMN",
+    "name": "Oman",
+    "continent": "AS",
+    "currencyCode": "OMR",
+    "currencyName": "Rial",
+    "postalCodeRegex": "^(\\d{3})$",
+    "languages": ["ar-OM", "en", "bal", "ur"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "PA",
+    "iso3": "PAN",
+    "name": "Panama",
+    "continent": "NA",
+    "currencyCode": "PAB",
+    "currencyName": "Balboa",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-PA", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provincia"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Distrito"
+      }
+    }
+  },
+  {
+    "code": "PE",
+    "iso3": "PER",
+    "name": "Peru",
+    "continent": "SA",
+    "currencyCode": "PEN",
+    "currencyName": "Sol",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-PE", "qu", "ay"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departmento"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Provincia"
+      }
+    }
+  },
+  {
+    "code": "PF",
+    "iso3": "PYF",
+    "name": "French Polynesia",
+    "continent": "OC",
+    "currencyCode": "XPF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^((97|98)7\\d{2})$",
+    "languages": ["fr-PF", "ty"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Commune"
+      }
+    }
+  },
+  {
+    "code": "PG",
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "continent": "OC",
+    "currencyCode": "PGK",
+    "currencyName": "Kina",
+    "postalCodeRegex": "^(\\d{3})$",
+    "languages": ["en-PG", "ho", "meu", "tpi"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": {
+        "en": "District",
+        "local": "District"
+      }
+    }
+  },
+  {
+    "code": "PH",
+    "iso3": "PHL",
+    "name": "Philippines",
+    "continent": "AS",
+    "currencyCode": "PHP",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": [
+      "tl",
+      "en-PH",
+      "fil",
+      "ceb",
+      "ilo",
+      "hil",
+      "war",
+      "pam",
+      "bik",
+      "bcl",
+      "pag",
+      "mrw",
+      "tsg",
+      "mdh",
+      "cbk",
+      "krj",
+      "sgd",
+      "msb",
+      "akl",
+      "ibg",
+      "yka",
+      "mta",
+      "abx"
+    ],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Rehiyon"
+      },
+      "level2": {
+        "en": "Province",
+        "local": "Lalawigan"
+      }
+    }
+  },
+  {
+    "code": "PK",
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "continent": "AS",
+    "currencyCode": "PKR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ur-PK", "en-PK", "pa", "sd", "ps", "brh"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "صوبہ"
+      },
+      "level2": {
+        "en": "Division",
+        "local": "ڈویژن"
+      }
+    }
+  },
+  {
+    "code": "PL",
+    "iso3": "POL",
+    "name": "Poland",
+    "continent": "EU",
+    "currencyCode": "PLN",
+    "currencyName": "Zloty",
+    "postalCodeRegex": "^\\d{2}-\\d{3}$",
+    "languages": ["pl"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Voivodeship",
+        "local": "Województwo"
+      },
+      "level2": {
+        "en": "Powiat",
+        "local": "Powiat"
+      }
+    }
+  },
+  {
+    "code": "PM",
+    "iso3": "SPM",
+    "name": "Saint Pierre and Miquelon",
+    "continent": "NA",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(97500)$",
+    "languages": ["fr-PM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Commune",
+        "local": "Commune"
+      },
+      "level2": {
+        "en": "Island",
+        "local": "Île"
+      }
+    }
+  },
+  {
+    "code": "PN",
+    "iso3": "PCN",
+    "name": "Pitcairn",
+    "continent": "OC",
+    "currencyCode": "NZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "PCRN 1ZZ",
+    "languages": ["en-PN"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "PR",
+    "iso3": "PRI",
+    "name": "Puerto Rico",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^00[679]\\d{2}(?:-\\d{4})?$",
+    "languages": ["en-PR", "es-PR"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Municipality"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "PS",
+    "iso3": "PSE",
+    "name": "Palestinian Territory",
+    "continent": "AS",
+    "currencyCode": "ILS",
+    "currencyName": "Shekel",
+    "postalCodeRegex": null,
+    "languages": ["ar-PS"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": {
+        "en": "Governorate",
+        "local": "محافظة"
+      }
+    }
+  },
+  {
+    "code": "PT",
+    "iso3": "PRT",
+    "name": "Portugal",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^\\d{4}-\\d{3}\\s?[a-zA-Z]{0,25}$",
+    "languages": ["pt-PT", "mwl"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Distrito"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Município"
+      }
+    }
+  },
+  {
+    "code": "PW",
+    "iso3": "PLW",
+    "name": "Palau",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(96940)$",
+    "languages": ["pau", "sov", "en-PW", "tox", "ja", "fil", "zh"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "PY",
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "continent": "SA",
+    "currencyCode": "PYG",
+    "currencyName": "Guarani",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["es-PY", "gn"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "QA",
+    "iso3": "QAT",
+    "name": "Qatar",
+    "continent": "AS",
+    "currencyCode": "QAR",
+    "currencyName": "Rial",
+    "postalCodeRegex": null,
+    "languages": ["ar-QA", "es"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "بلدية"
+      },
+      "level2": {
+        "en": "Village",
+        "local": "قرية"
+      }
+    }
+  },
+  {
+    "code": "RE",
+    "iso3": "REU",
+    "name": "Reunion",
+    "continent": "AF",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^((97|98)(4|7|8)\\d{2})$",
+    "languages": ["fr-RE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Arrondissement",
+        "local": "Arrondissement"
+      },
+      "level2": {
+        "en": "Canton",
+        "local": "Canton"
+      }
+    }
+  },
+  {
+    "code": "RO",
+    "iso3": "ROU",
+    "name": "Romania",
+    "continent": "EU",
+    "currencyCode": "RON",
+    "currencyName": "Leu",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["ro", "hu", "rom"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Județ"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Comună"
+      }
+    }
+  },
+  {
+    "code": "RS",
+    "iso3": "SRB",
+    "name": "Serbia",
+    "continent": "EU",
+    "currencyCode": "RSD",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["sr", "hu", "bs", "rom"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "Округ"
+      },
+      "level2": {
+        "en": "Municipality / city",
+        "local": "Општина / град"
+      }
+    }
+  },
+  {
+    "code": "RU",
+    "iso3": "RUS",
+    "name": "Russia",
+    "continent": "EU",
+    "currencyCode": "RUB",
+    "currencyName": "Ruble",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": [
+      "ru",
+      "tt",
+      "xal",
+      "cau",
+      "ady",
+      "kv",
+      "ce",
+      "tyv",
+      "cv",
+      "udm",
+      "tut",
+      "mns",
+      "bua",
+      "myv",
+      "mdf",
+      "chm",
+      "ba",
+      "inh",
+      "kbd",
+      "krc",
+      "av",
+      "sah",
+      "nog"
+    ],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Federal subject",
+        "local": "Субъект"
+      },
+      "level2": {
+        "en": "Municipal district",
+        "local": "Муниципальный район"
+      }
+    }
+  },
+  {
+    "code": "RW",
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "continent": "AF",
+    "currencyCode": "RWF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["rw", "en-RW", "fr-RW", "sw"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Intara"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Uturere tw"
+      }
+    }
+  },
+  {
+    "code": "SA",
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "continent": "AS",
+    "currencyCode": "SAR",
+    "currencyName": "Rial",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-SA"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "منطقة"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SB",
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "continent": "OC",
+    "currencyCode": "SBD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-SB", "tpi"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SC",
+    "iso3": "SYC",
+    "name": "Seychelles",
+    "continent": "AF",
+    "currencyCode": "SCR",
+    "currencyName": "Rupee",
+    "postalCodeRegex": null,
+    "languages": ["en-SC", "fr-SC"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SD",
+    "iso3": "SDN",
+    "name": "Sudan",
+    "continent": "AF",
+    "currencyCode": "SDG",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["ar-SD", "en", "fia"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "ولاية"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SE",
+    "iso3": "SWE",
+    "name": "Sweden",
+    "continent": "EU",
+    "currencyCode": "SEK",
+    "currencyName": "Krona",
+    "postalCodeRegex": "^(?:SE)?\\d{3}\\s\\d{2}$",
+    "languages": ["sv-SE", "se", "sma", "fi-SE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "County",
+        "local": "Län"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Kommun"
+      }
+    }
+  },
+  {
+    "code": "SG",
+    "iso3": "SGP",
+    "name": "Singapore",
+    "continent": "AS",
+    "currencyCode": "SGD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["cmn", "en-SG", "ms-SG", "ta-SG", "zh-SG"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "SH",
+    "iso3": "SHN",
+    "name": "Saint Helena",
+    "continent": "AF",
+    "currencyCode": "SHP",
+    "currencyName": "Pound",
+    "postalCodeRegex": "^(STHL1ZZ)$",
+    "languages": ["en-SH"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Island",
+        "local": "Island"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SI",
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(?:SI)*(\\d{4})$",
+    "languages": ["sl", "sh"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Občina"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SJ",
+    "iso3": "SJM",
+    "name": "Svalbard and Jan Mayen",
+    "continent": "EU",
+    "currencyCode": "NOK",
+    "currencyName": "Krone",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["no", "ru"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "SK",
+    "iso3": "SVK",
+    "name": "Slovakia",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^\\d{3}\\s?\\d{2}$",
+    "languages": ["sk", "hu"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Kraje"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Okres"
+      }
+    }
+  },
+  {
+    "code": "SL",
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "continent": "AF",
+    "currencyCode": "SLE",
+    "currencyName": "Leone",
+    "postalCodeRegex": null,
+    "languages": ["en-SL", "men", "tem"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SM",
+    "iso3": "SMR",
+    "name": "San Marino",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(4789\\d)$",
+    "languages": ["it-SM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Castelli"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "SN",
+    "iso3": "SEN",
+    "name": "Senegal",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-SN", "wo", "fuc", "mnk"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Département"
+      }
+    }
+  },
+  {
+    "code": "SO",
+    "iso3": "SOM",
+    "name": "Somalia",
+    "continent": "AF",
+    "currencyCode": "SOS",
+    "currencyName": "Shilling",
+    "postalCodeRegex": "^([A-Z]{2}\\d{5})$",
+    "languages": ["so-SO", "ar-SO", "it", "en-SO"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Gobolada"
+      },
+      "level2": {
+        "en": "District",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "SR",
+    "iso3": "SUR",
+    "name": "Suriname",
+    "continent": "SA",
+    "currencyCode": "SRD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["nl-SR", "en", "srn", "hns", "jv"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": {
+        "en": "Ressort",
+        "local": "Ressort"
+      }
+    }
+  },
+  {
+    "code": "SS",
+    "iso3": "SSD",
+    "name": "South Sudan",
+    "continent": "AF",
+    "currencyCode": "SSP",
+    "currencyName": "Pound",
+    "postalCodeRegex": null,
+    "languages": ["en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "State"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "ST",
+    "iso3": "STP",
+    "name": "Sao Tome and Principe",
+    "continent": "AF",
+    "currencyCode": "STN",
+    "currencyName": "Dobra",
+    "postalCodeRegex": null,
+    "languages": ["pt-ST"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Electoral unit",
+        "local": "Círculo eleitoral"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Distritos"
+      }
+    }
+  },
+  {
+    "code": "SV",
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(?:CP)*(\\d{4})$",
+    "languages": ["es-SV"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "SX",
+    "iso3": "SXM",
+    "name": "Sint Maarten",
+    "continent": "NA",
+    "currencyCode": "XCG",
+    "currencyName": "Guilder",
+    "postalCodeRegex": null,
+    "languages": ["nl", "en"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "SY",
+    "iso3": "SYR",
+    "name": "Syria",
+    "continent": "AS",
+    "currencyCode": "SYP",
+    "currencyName": "Pound",
+    "postalCodeRegex": null,
+    "languages": ["ar-SY", "ku", "hy", "arc", "fr", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": {
+        "en": "District",
+        "local": "منطقة"
+      }
+    }
+  },
+  {
+    "code": "SZ",
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "continent": "AF",
+    "currencyCode": "SZL",
+    "currencyName": "Lilangeni",
+    "postalCodeRegex": "^([A-Z]\\d{3})$",
+    "languages": ["en-SZ", "ss-SZ"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Region"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "TC",
+    "iso3": "TCA",
+    "name": "Turks and Caicos Islands",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(TKCA 1ZZ)$",
+    "languages": ["en-TC"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "TD",
+    "iso3": "TCD",
+    "name": "Chad",
+    "continent": "AF",
+    "currencyCode": "XAF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(TKCA 1ZZ)$",
+    "languages": ["fr-TD", "ar-TD", "sre"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Department",
+        "local": "Départements"
+      }
+    }
+  },
+  {
+    "code": "TF",
+    "iso3": "ATF",
+    "name": "French Southern Territories",
+    "continent": "AN",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": null,
+    "languages": ["fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": {
+        "en": "Island",
+        "local": "Île"
+      }
+    }
+  },
+  {
+    "code": "TG",
+    "iso3": "TGO",
+    "name": "Togo",
+    "continent": "AF",
+    "currencyCode": "XOF",
+    "currencyName": "Franc",
+    "postalCodeRegex": null,
+    "languages": ["fr-TG", "ee", "hna", "kbp", "dag", "ha"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Région"
+      },
+      "level2": {
+        "en": "Prefecture",
+        "local": "Préfecture"
+      }
+    }
+  },
+  {
+    "code": "TH",
+    "iso3": "THA",
+    "name": "Thailand",
+    "continent": "AS",
+    "currencyCode": "THB",
+    "currencyName": "Baht",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["th", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "จังหวัด"
+      },
+      "level2": {
+        "en": "Amphoe",
+        "local": "อำเภอ"
+      }
+    }
+  },
+  {
+    "code": "TJ",
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "continent": "AS",
+    "currencyCode": "TJS",
+    "currencyName": "Somoni",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["tg", "ru"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Вилоят"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Ноҳия"
+      }
+    }
+  },
+  {
+    "code": "TK",
+    "iso3": "TKL",
+    "name": "Tokelau",
+    "continent": "OC",
+    "currencyCode": "NZD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["tkl", "en-TK"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "TL",
+    "iso3": "TLS",
+    "name": "Timor Leste",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["tet", "pt-TL", "id", "en"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Munisipiu"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "TM",
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "continent": "AS",
+    "currencyCode": "TMT",
+    "currencyName": "Manat",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["tk", "ru", "uz"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Welaýatlary"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Etraplar we şäherler"
+      }
+    }
+  },
+  {
+    "code": "TN",
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "continent": "AF",
+    "currencyCode": "TND",
+    "currencyName": "Dinar",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["ar-TN", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "ولاية"
+      },
+      "level2": {
+        "en": "Delegation",
+        "local": "معتمدية"
+      }
+    }
+  },
+  {
+    "code": "TO",
+    "iso3": "TON",
+    "name": "Tonga",
+    "continent": "OC",
+    "currencyCode": "TOP",
+    "currencyName": "Pa'anga",
+    "postalCodeRegex": null,
+    "languages": ["to", "en-TO"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Division",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "TR",
+    "iso3": "TUR",
+    "name": "Turkey",
+    "continent": "AS",
+    "currencyCode": "TRY",
+    "currencyName": "Lira",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["tr-TR", "ku", "diq", "az", "av"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Il"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Ilçe"
+      }
+    }
+  },
+  {
+    "code": "TT",
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "continent": "NA",
+    "currencyCode": "TTD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-TT", "hns", "fr", "es", "zh"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Regional corporation",
+        "local": "Regional corporation"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "TV",
+    "iso3": "TUV",
+    "name": "Tuvalu",
+    "continent": "OC",
+    "currencyCode": "AUD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["tvl", "en", "sm", "gil"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "TW",
+    "iso3": "TWN",
+    "name": "Taiwan",
+    "continent": "AS",
+    "currencyCode": "TWD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["zh-TW", "zh", "nan", "hak"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "City",
+        "local": "城市"
+      },
+      "level2": {
+        "en": "District",
+        "local": "區"
+      }
+    }
+  },
+  {
+    "code": "TZ",
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "continent": "AF",
+    "currencyCode": "TZS",
+    "currencyName": "Shilling",
+    "postalCodeRegex": null,
+    "languages": ["sw-TZ", "en", "ar"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Mikoa"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Wilaya za"
+      }
+    }
+  },
+  {
+    "code": "UA",
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "continent": "EU",
+    "currencyCode": "UAH",
+    "currencyName": "Hryvnia",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["uk", "ru-UA", "rom", "pl", "hu"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Oblast",
+        "local": "Область"
+      },
+      "level2": {
+        "en": "Raion",
+        "local": "Район"
+      }
+    }
+  },
+  {
+    "code": "UG",
+    "iso3": "UGA",
+    "name": "Uganda",
+    "continent": "AF",
+    "currencyCode": "UGX",
+    "currencyName": "Shilling",
+    "postalCodeRegex": null,
+    "languages": ["en-UG", "lg", "sw", "ar"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": "District"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "UM",
+    "iso3": "UMI",
+    "name": "United States Minor Outlying Islands",
+    "continent": "OC",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-UM"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Insular area",
+        "local": "Insular area"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "US",
+    "iso3": "USA",
+    "name": "United States",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^\\d{5}(-\\d{4})?$",
+    "languages": ["en-US", "es-US", "haw", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "State"
+      },
+      "level2": {
+        "en": "County",
+        "local": "County"
+      }
+    }
+  },
+  {
+    "code": "UY",
+    "iso3": "URY",
+    "name": "Uruguay",
+    "continent": "SA",
+    "currencyCode": "UYU",
+    "currencyName": "Peso",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["es-UY"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Department",
+        "local": "Departamento"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "UZ",
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "continent": "AS",
+    "currencyCode": "UZS",
+    "currencyName": "Som",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["uz", "ru", "tg"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Region",
+        "local": "Viloyatlari"
+      },
+      "level2": {
+        "en": "District",
+        "local": "Tuman"
+      }
+    }
+  },
+  {
+    "code": "VA",
+    "iso3": "VAT",
+    "name": "Vatican",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["la", "it", "fr"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "VC",
+    "iso3": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "continent": "NA",
+    "currencyCode": "XCD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-VC", "fr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Parish",
+        "local": "Parish"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "VE",
+    "iso3": "VEN",
+    "name": "Venezuela",
+    "continent": "SA",
+    "currencyCode": "VES",
+    "currencyName": "Bolivar Soberano",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["es-VE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "State",
+        "local": "Estado"
+      },
+      "level2": {
+        "en": "Municipality",
+        "local": "Municipio"
+      }
+    }
+  },
+  {
+    "code": "VG",
+    "iso3": "VGB",
+    "name": "British Virgin Islands",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": null,
+    "languages": ["en-VG"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "VI",
+    "iso3": "VIR",
+    "name": "U.S. Virgin Islands",
+    "continent": "NA",
+    "currencyCode": "USD",
+    "currencyName": "Dollar",
+    "postalCodeRegex": "^008\\d{2}(?:-\\d{4})?$",
+    "languages": ["en-VI"],
+    "administrativeLabels": {
+      "level1": null,
+      "level2": null
+    }
+  },
+  {
+    "code": "VN",
+    "iso3": "VNM",
+    "name": "Vietnam",
+    "continent": "AS",
+    "currencyCode": "VND",
+    "currencyName": "Dong",
+    "postalCodeRegex": "^(\\d{6})$",
+    "languages": ["vi", "en", "fr", "zh", "km"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Tỉnh"
+      },
+      "level2": {
+        "en": "Rural district",
+        "local": "Huyện"
+      }
+    }
+  },
+  {
+    "code": "VU",
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "continent": "OC",
+    "currencyCode": "VUV",
+    "currencyName": "Vatu",
+    "postalCodeRegex": null,
+    "languages": ["bi", "en-VU", "fr-VU"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Provens"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "WF",
+    "iso3": "WLF",
+    "name": "Wallis and Futuna",
+    "continent": "OC",
+    "currencyCode": "XPF",
+    "currencyName": "Franc",
+    "postalCodeRegex": "^(986\\d{2})$",
+    "languages": ["wls", "fud", "fr-WF"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Customary kingdom",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "WS",
+    "iso3": "WSM",
+    "name": "Samoa",
+    "continent": "OC",
+    "currencyCode": "WST",
+    "currencyName": "Tala",
+    "postalCodeRegex": "AS 96799",
+    "languages": ["sm", "en-WS"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "District",
+        "local": ""
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "XK",
+    "iso3": "XKX",
+    "name": "Kosovo",
+    "continent": "EU",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": null,
+    "languages": ["sq", "sr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Municipality",
+        "local": "Komunat"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "YE",
+    "iso3": "YEM",
+    "name": "Yemen",
+    "continent": "AS",
+    "currencyCode": "YER",
+    "currencyName": "Rial",
+    "postalCodeRegex": null,
+    "languages": ["ar-YE"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Governorate",
+        "local": "محافظة"
+      },
+      "level2": {
+        "en": "District",
+        "local": "مديرية"
+      }
+    }
+  },
+  {
+    "code": "YT",
+    "iso3": "MYT",
+    "name": "Mayotte",
+    "continent": "AF",
+    "currencyCode": "EUR",
+    "currencyName": "Euro",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["fr-YT"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Canton",
+        "local": "Canton"
+      },
+      "level2": {
+        "en": "Commune",
+        "local": "Commune"
+      }
+    }
+  },
+  {
+    "code": "ZA",
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "continent": "AF",
+    "currencyCode": "ZAR",
+    "currencyName": "Rand",
+    "postalCodeRegex": "^(\\d{4})$",
+    "languages": ["zu", "xh", "af", "nso", "en-ZA", "tn", "st", "ts", "ss", "ve", "nr"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Izifundazwe zaseNingizimu"
+      },
+      "level2": {
+        "en": "District municipality",
+        "local": ""
+      }
+    }
+  },
+  {
+    "code": "ZM",
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "continent": "AF",
+    "currencyCode": "ZMW",
+    "currencyName": "Kwacha",
+    "postalCodeRegex": "^(\\d{5})$",
+    "languages": ["en-ZM", "bem", "loz", "lun", "lue", "ny", "toi"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  },
+  {
+    "code": "ZW",
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "continent": "AF",
+    "currencyCode": "ZWG",
+    "currencyName": "Zimbabwe Gold",
+    "postalCodeRegex": null,
+    "languages": ["en-ZW", "sn", "nr", "nd"],
+    "administrativeLabels": {
+      "level1": {
+        "en": "Province",
+        "local": "Province"
+      },
+      "level2": null
+    }
+  }
 ]

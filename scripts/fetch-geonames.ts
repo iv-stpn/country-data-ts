@@ -11,19 +11,20 @@
 // administrative-local-names for that data.
 //
 // Run with: bun run fetch-geonames
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { mkdir, writeFile } from 'node:fs/promises';
+import { dirname, resolve } from 'node:path';
+import process from 'node:process';
+import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const outDir = resolve(__dirname, "../data");
+const outDir = resolve(__dirname, '../data');
 
-const BASE = "https://download.geonames.org/export/dump";
-const WIKIDATA_SPARQL = "https://query.wikidata.org/sparql";
-const USER_AGENT = "country-data-ts-fetch-geonames/1.0 (data refresh)";
+const BASE = 'https://download.geonames.org/export/dump';
+const WIKIDATA_SPARQL = 'https://query.wikidata.org/sparql';
+const USER_AGENT = 'country-data-ts-fetch-geonames/1.0 (data refresh)';
 
 // Defunct ISO 3166-1 alpha-2 codes still present in some GeoNames data.
-const DEFUNCT_COUNTRY_CODES = new Set(["AN", "CS"]);
+const DEFUNCT_COUNTRY_CODES = new Set(['AN', 'CS']);
 
 // ---------------------------------------------------------------------------
 // GeoNames TSV helpers
@@ -36,9 +37,9 @@ async function fetchTsv(file: string): Promise<string[][]> {
   if (!res.ok) throw new Error(`failed to fetch ${file}: ${res.status} ${res.statusText}`);
   const text = await res.text();
   return text
-    .split("\n")
-    .filter((line) => line.length > 0 && !line.startsWith("#"))
-    .map((line) => line.split("\t"));
+    .split('\n')
+    .filter((line) => line.length > 0 && !line.startsWith('#'))
+    .map((line) => line.split('\t'));
 }
 
 // ---------------------------------------------------------------------------
@@ -48,35 +49,38 @@ async function fetchTsv(file: string): Promise<string[][]> {
 const wait = async (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
 
 const sparqlHeaders = {
-  Accept: "text/tab-separated-values",
-  "User-Agent": USER_AGENT,
+  Accept: 'text/tab-separated-values',
+  'User-Agent': USER_AGENT,
 };
+
+const LANGUAGE_TAG_REGEX = /@[\w-]+$/;
+const QUOTE_REGEX = /^"|"$/g;
 
 // Run a SPARQL query against WDQS, returning data rows (TSV, header dropped).
 // WDQS is flaky under load (502s / timeouts), so retry with exponential backoff.
 async function sparql(query: string): Promise<string[][]> {
   const url = `${WIKIDATA_SPARQL}?query=${encodeURIComponent(query)}`;
-  for (let attempt = 1; ; attempt++) {
+  for (let attempt = 1; ; attempt += 1)
     try {
+      // biome-ignore lint/performance/noAwaitInLoops: retry loop
       const res = await fetch(url, { headers: sparqlHeaders });
       const text = await res.text();
-      if (!res.ok || text.startsWith("<")) throw new Error(`status ${res.status}`);
+      if (!res.ok || text.startsWith('<')) throw new Error(`status ${res.status}`);
       return text
-        .split("\n")
+        .split('\n')
         .slice(1)
         .filter((line) => line.length > 0)
-        .map((line) => line.split("\t").map((v) => v.replace(/@[\w-]+$/, "").replace(/^"|"$/g, "")));
+        .map((line) => line.split('\t').map((v) => v.replace(LANGUAGE_TAG_REGEX, '').replace(QUOTE_REGEX, '')));
     } catch (err) {
       if (attempt >= 3) throw err;
       await wait(500 * 2 ** attempt);
     }
-  }
 }
 
 // One Wikidata query maps every GeoNames ID that has an ISO 3166-2 code:
 //   P1566 = GeoNames ID, P300 = ISO 3166-2 code.
 async function fetchOfficialCodes(): Promise<Map<string, string>> {
-  const rows = await sparql("SELECT ?gnid ?iso WHERE { ?item wdt:P300 ?iso ; wdt:P1566 ?gnid . }");
+  const rows = await sparql('SELECT ?gnid ?iso WHERE { ?item wdt:P300 ?iso ; wdt:P1566 ?gnid . }');
   const map = new Map<string, string>();
   for (const [gnid, iso] of rows) {
     if (gnid && iso) map.set(gnid, iso);
@@ -130,11 +134,11 @@ function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
 // ---------------------------------------------------------------------------
 
 async function main() {
-  console.log("fetching GeoNames TSV files and Wikidata official codes…");
+  console.log('fetching GeoNames TSV files and Wikidata official codes…');
   const [countryRows, level1AdminRows, level2AdminCodeRows, officialCodes] = await Promise.all([
-    fetchTsv("countryInfo.txt"),
-    fetchTsv("admin1CodesASCII.txt"),
-    fetchTsv("admin2Codes.txt"),
+    fetchTsv('countryInfo.txt'),
+    fetchTsv('admin1CodesASCII.txt'),
+    fetchTsv('admin2Codes.txt'),
     fetchOfficialCodes(),
   ]);
   console.log(`wikidata: ${officialCodes.size} ISO 3166-2 codes fetched`);
@@ -146,14 +150,14 @@ async function main() {
   // 16 geonameid  17 neighbours  18 EquivalentFipsCode
   const countries: Country[] = countryRows
     .map((c) => ({
-      code: c[0] ?? "",
-      iso3: c[1] ?? "",
-      name: c[4] ?? "",
-      continent: c[8] ?? "",
-      currencyCode: c[10] ?? "",
-      currencyName: c[11] ?? "",
+      code: c[0] ?? '',
+      iso3: c[1] ?? '',
+      name: c[4] ?? '',
+      continent: c[8] ?? '',
+      currencyCode: c[10] ?? '',
+      currencyName: c[11] ?? '',
       postalCodeRegex: c[14] ? c[14] : null,
-      languages: c[15] ? c[15].split(",") : [],
+      languages: c[15] ? c[15].split(',') : [],
       // Localized division-type labels are not computed by this script; they
       // are derived separately via the Wikidata P150 chain queries.
       administrativeLabels: { level1: null, level2: null },
@@ -168,42 +172,48 @@ async function main() {
   // officialCode comes from the Wikidata GeoNames-ID → P300 join.
   const level1: Record<string, AdministrativeDivision[]> = {};
   for (const [fullCode, name, , geonameId] of level1AdminRows) {
-    if (!fullCode || !geonameId) continue;
-    const [country, code] = fullCode.split(".");
-    if (!country || !code) continue;
-    (level1[country] ??= []).push({
-      code: `${country}-${code}`,
-      name: name ?? "",
-      officialCode: officialCodes.get(geonameId) ?? null,
-    });
+    if (fullCode && geonameId) {
+      const [country, code] = fullCode.split('.');
+      if (country && code) {
+        level1[country] ??= [];
+        level1[country].push({
+          code: `${country}-${code}`,
+          name: name ?? '',
+          officialCode: officialCodes.get(geonameId) ?? null,
+        });
+      }
+    }
   }
 
   // admin2Codes.txt columns: "CC.A1.A2" \t name \t asciiName \t geonameid
   const level2: Record<string, Level2AdministrativeDivision[]> = {};
   for (const [fullCode, name, , geonameId] of level2AdminCodeRows) {
-    if (!fullCode || !geonameId) continue;
-    const [country, level1AdminCode, code] = fullCode.split(".");
-    if (!country || !level1AdminCode || !code) continue;
-    (level2[country] ??= []).push({
-      level1AdminCode: `${country}-${level1AdminCode}`,
-      code: `${country}-${code}`,
-      name: name ?? "",
-      officialCode: officialCodes.get(geonameId) ?? null,
-    });
+    if (fullCode && geonameId) {
+      const [country, level1AdminCode, code] = fullCode.split('.');
+      if (country && level1AdminCode && code) {
+        level2[country] ??= [];
+        level2[country].push({
+          level1AdminCode: `${country}-${level1AdminCode}`,
+          code: `${country}-${code}`,
+          name: name ?? '',
+          officialCode: officialCodes.get(geonameId) ?? null,
+        });
+      }
+    }
   }
 
   // Sort within each country alphabetically by name, then sort country keys.
   const sort = <T extends { name: string }>(list: T[]): T[] => [...list].sort((a, b) => a.name.localeCompare(b.name));
   const level1Out: Record<string, AdministrativeDivision[]> = {};
   const level2Out: Record<string, Level2AdministrativeDivision[]> = {};
-  for (const [cc, list] of Object.entries(level1)) level1Out[cc] = sort(list);
-  for (const [cc, list] of Object.entries(level2)) level2Out[cc] = sort(list);
+  for (const [countryCode, list] of Object.entries(level1)) level1Out[countryCode] = sort(list);
+  for (const [countryCode, list] of Object.entries(level2)) level2Out[countryCode] = sort(list);
 
   await mkdir(outDir, { recursive: true });
   await Promise.all([
-    writeFile(resolve(outDir, "countries.json"), `${JSON.stringify(countries, null, "\t")}\n`),
-    writeFile(resolve(outDir, "level1-administrative-codes.json"), `${JSON.stringify(sortKeys(level1Out), null, "\t")}\n`),
-    writeFile(resolve(outDir, "level2-administrative-codes.json"), `${JSON.stringify(sortKeys(level2Out), null, "\t")}\n`),
+    writeFile(resolve(outDir, 'countries.json'), `${JSON.stringify(countries, null, '\t')}\n`),
+    writeFile(resolve(outDir, 'level1-administrative-codes.json'), `${JSON.stringify(sortKeys(level1Out), null, '\t')}\n`),
+    writeFile(resolve(outDir, 'level2-administrative-codes.json'), `${JSON.stringify(sortKeys(level2Out), null, '\t')}\n`),
   ]);
 
   const l1Total = Object.values(level1Out).reduce((n, l) => n + l.length, 0);
@@ -211,7 +221,7 @@ async function main() {
   console.log(`countries.json: ${countries.length} countries`);
   console.log(`level1-administrative-codes.json: ${l1Total} divisions across ${Object.keys(level1Out).length} countries`);
   console.log(`level2-administrative-codes.json: ${l2Total} divisions across ${Object.keys(level2Out).length} countries`);
-  console.log("done. Re-run gen:level1 + gen:level2 + gen:countries to regenerate the TypeScript source files.");
+  console.log('done. Re-run gen:level1 + gen:level2 + gen:countries to regenerate the TypeScript source files.');
 }
 
 main().catch((err) => {

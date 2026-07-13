@@ -3,25 +3,22 @@
 // formatting. The mask formatter correctly emits leading literals (e.g. the "("
 // in the US "([000]) [000]-[0000]" mask) instead of dropping them.
 
-import { COUNTRY_CODES, type CountryCode, isCountryCode } from "./data/countries";
+import { type CountryCode, isCountryCode } from './data/countries';
 import {
   CALLING_CODE_AREA_PREFIXES,
   CALLING_CODE_DEFAULTS,
   COUNTRY_PHONE_DATA,
   type CountryPhoneConfig,
-} from "./data/phone-data";
+} from './data/phone-data';
 
-export { COUNTRY_CODES, type CountryCode, isCountryCode } from "./data/countries";
-export {
-  CALLING_CODE_AREA_PREFIXES,
-  CALLING_CODE_DEFAULTS,
-  COUNTRY_PHONE_DATA,
-  type CountryPhoneConfig,
-  NANP_AREA_CODE_TO_COUNTRY,
-} from "./data/phone-data";
+// Hoisted so the pattern is compiled once at module load rather than on every
+// call (these helpers run on every keystroke of a controlled phone field).
+const NON_DIGIT_RE = /\D/g;
+const LOCALE_SEPARATOR_RE = /[-_]/;
+const TRAILING_WHITESPACE_RE = /\s+$/;
 
 /** Returns the default (biggest) country for a shared calling code, if any. */
-export function getDefaultCountryForCallingCode(callingCode: string): CountryCode | undefined {
+function getDefaultCountryForCallingCode(callingCode: string): CountryCode | undefined {
   return CALLING_CODE_DEFAULTS.get(callingCode);
 }
 
@@ -41,9 +38,9 @@ export function getDefaultCountryForCallingCode(callingCode: string): CountryCod
  * Callers use this to show the area code beside the calling code in the picker
  * and to prefill the national field when such a country is selected.
  */
-export function getUniqueAreaCode(config: CountryPhoneConfig): string | undefined {
+function getUniqueAreaCode(config: CountryPhoneConfig): string | undefined {
   const prefixes = CALLING_CODE_AREA_PREFIXES.get(config.callingCode);
-  if (!prefixes) return undefined;
+  if (!prefixes) return;
 
   let matchCount = 0;
   let prefix: string | undefined;
@@ -64,9 +61,9 @@ export function getUniqueAreaCode(config: CountryPhoneConfig): string | undefine
  */
 function resolveAreaCountry(callingCode: string, nationalDigits: string): CountryCode | undefined {
   const prefixes = CALLING_CODE_AREA_PREFIXES.get(callingCode);
-  if (!prefixes) return undefined;
+  if (!prefixes) return;
 
-  let bestPrefix = "";
+  let bestPrefix = '';
   let bestCode: CountryCode | undefined;
   for (const [prefix, code] of prefixes) {
     if (prefix.length > bestPrefix.length && nationalDigits.startsWith(prefix)) {
@@ -88,7 +85,7 @@ function resolveAreaCountry(callingCode: string, nationalDigits: string): Countr
  * "+1 (684)" (American Samoa) is entered does not belong to Canada, so the
  * field is reset rather than carrying a foreign area code over.
  */
-export function nationalBelongsToCountry(callingCode: string, nationalDigits: string, country: CountryCode): boolean {
+function nationalBelongsToCountry(callingCode: string, nationalDigits: string, country: CountryCode): boolean {
   // Unshared calling code: no area-code disambiguation, so the digits can't
   // carry a foreign area code — they belong to the country that owns the code.
   const prefixes = CALLING_CODE_AREA_PREFIXES.get(callingCode);
@@ -108,21 +105,21 @@ const catalog: readonly CountryPhoneConfig[] = COUNTRY_PHONE_DATA;
 const CONFIG_BY_CODE: ReadonlyMap<CountryCode, CountryPhoneConfig> = new Map(catalog.map((config) => [config.code, config]));
 
 /** Returns the phone config for a country code, or `undefined` when unknown. */
-export function getCountryPhoneConfig(code: CountryCode): CountryPhoneConfig | undefined {
+function getCountryPhoneConfig(code: CountryCode): CountryPhoneConfig | undefined {
   return CONFIG_BY_CODE.get(code);
 }
 
 function getCallingCodeDigits(callingCode: string) {
-  return callingCode.replace(/\D/g, "");
+  return callingCode.replace(NON_DIGIT_RE, '');
 }
 
 /** Strips every non-digit character, leaving only `0-9`. */
-export function normalizeNationalDigits(value: string) {
-  return value.replace(/\D/g, "");
+function normalizeNationalDigits(value: string) {
+  return value.replace(NON_DIGIT_RE, '');
 }
 
 function trimTrunkPrefix(value: string, trunkPrefix: string | null) {
-  if (!trunkPrefix || !value.startsWith(trunkPrefix)) return value;
+  if (!(trunkPrefix && value.startsWith(trunkPrefix))) return value;
   return value.slice(trunkPrefix.length);
 }
 
@@ -131,7 +128,7 @@ function trimTrunkPrefix(value: string, trunkPrefix: string | null) {
  * (preserving the caller's order when a list is given, otherwise the built-in
  * alphabetical-by-code order of the dataset).
  */
-export function getCountryPhoneCatalog(allowedCountries?: readonly CountryCode[]): readonly CountryPhoneConfig[] {
+function getCountryPhoneCatalog(allowedCountries?: readonly CountryCode[]): readonly CountryPhoneConfig[] {
   if (!allowedCountries || allowedCountries.length === 0) return catalog;
 
   const configs: CountryPhoneConfig[] = [];
@@ -143,8 +140,8 @@ export function getCountryPhoneCatalog(allowedCountries?: readonly CountryCode[]
 }
 
 /** Extracts the ISO country from a BCP-47 locale (e.g. "en-US" → "US"), or null. */
-export function getCountryFromLocale(locale: string): CountryCode | null {
-  const segments = locale.split(/[-_]/);
+function getCountryFromLocale(locale: string): CountryCode | null {
+  const segments = locale.split(LOCALE_SEPARATOR_RE);
   // The region subtag follows the language (and optional script): skip the
   // language tag, then take the first 2-letter segment — that's the ISO region.
   // Handles 3-segment locales like "zh-Hans-CN" and "en-Latn-US", which the old
@@ -184,37 +181,47 @@ function sortByCallingCodeLength(countries: readonly CountryPhoneConfig[]): Coun
   return sorted;
 }
 
-export function parseCountryFromE164(
+// When the currently-selected country already shares the typed calling code,
+// keep it — many countries share a code (every NANP "+1" country, +44 for GB
+// and its crown dependencies, +7 for Russia and Kazakhstan), and without this
+// the parser would flip the selection mid-type. Area-code recognition is
+// allowed to override the sticky preference: typing "+1 204…" while US is
+// selected switches to Canada, because the area code unambiguously belongs to
+// Canada. Returns null when the preference doesn't apply (no/unknown preferred
+// country, or its calling code isn't the one typed).
+function resolvePreferredMatch(
+  digits: string,
+  countries: readonly CountryPhoneConfig[],
+  preferred: CountryCode | null | undefined,
+): CountryPhoneConfig | null {
+  if (!preferred) return null;
+  const preferredConfig = countries.find((country) => country.code === preferred);
+  if (!preferredConfig) return null;
+
+  const ccDigits = getCallingCodeDigits(preferredConfig.callingCode);
+  if (!digits.startsWith(ccDigits)) return null;
+
+  const areaCountry = resolveAreaCountry(preferredConfig.callingCode, digits.slice(ccDigits.length));
+  if (areaCountry && areaCountry !== preferred) {
+    const override = countries.find((country) => country.code === areaCountry);
+    if (override) return override;
+  }
+  return preferredConfig;
+}
+
+function parseCountryFromE164(
   value: string,
   countries: readonly CountryPhoneConfig[],
   preferred?: CountryCode | null,
 ): CountryPhoneConfig | null {
   const normalized = value.trim();
-  if (!normalized.startsWith("+")) return null;
+  if (!normalized.startsWith('+')) return null;
 
   const digits = normalizeNationalDigits(normalized);
   if (!digits) return null;
 
-  // When the currently-selected country already shares this calling code, keep
-  // it — many countries share a code (every NANP "+1" country, +44 for GB and
-  // its crown dependencies, +7 for Russia and Kazakhstan), and without this the
-  // parser would flip the selection mid-type. Area-code recognition is allowed
-  // to override the sticky preference: typing "+1 204…" while US is selected
-  // switches to Canada, because the area code unambiguously belongs to Canada.
-  if (preferred) {
-    const preferredConfig = countries.find((country) => country.code === preferred);
-    if (preferredConfig) {
-      const ccDigits = getCallingCodeDigits(preferredConfig.callingCode);
-      if (digits.startsWith(ccDigits)) {
-        const areaCountry = resolveAreaCountry(preferredConfig.callingCode, digits.slice(ccDigits.length));
-        if (areaCountry && areaCountry !== preferred) {
-          const override = countries.find((country) => country.code === areaCountry);
-          if (override) return override;
-        }
-        return preferredConfig;
-      }
-    }
-  }
+  const preferredMatch = resolvePreferredMatch(digits, countries, preferred);
+  if (preferredMatch) return preferredMatch;
 
   const sorted = sortByCallingCodeLength(countries);
 
@@ -259,9 +266,9 @@ function disambiguateSharedCode(
  * national number. The country's trunk prefix (e.g. the leading "0" many
  * countries dial nationally) is dropped, since E.164 never includes it.
  */
-export function toE164(extractedNational: string, country: CountryPhoneConfig) {
+function toE164(extractedNational: string, country: CountryPhoneConfig) {
   const national = normalizeNationalDigits(extractedNational);
-  if (!national) return "";
+  if (!national) return '';
 
   return `${country.callingCode}${trimTrunkPrefix(national, country.trunkPrefix)}`;
 }
@@ -270,9 +277,9 @@ export function toE164(extractedNational: string, country: CountryPhoneConfig) {
  * Recovers the national digit string from an E.164 value by stripping the
  * country's calling code. Any leading trunk prefix is preserved as typed.
  */
-export function nationalFromE164(e164Value: string, country: CountryPhoneConfig) {
+function nationalFromE164(e164Value: string, country: CountryPhoneConfig) {
   const digits = normalizeNationalDigits(e164Value);
-  if (!digits) return "";
+  if (!digits) return '';
 
   const callingCodeDigits = getCallingCodeDigits(country.callingCode);
   if (digits.startsWith(callingCodeDigits)) return digits.slice(callingCodeDigits.length);
@@ -285,7 +292,7 @@ export function nationalFromE164(e164Value: string, country: CountryPhoneConfig)
  * whose pattern expects the trunk prefix (e.g. AU's `^0?...`) are matched both
  * with and without the prefix, so a number typed either way validates.
  */
-export function validateExtractedPhone(extractedNational: string, country: CountryPhoneConfig) {
+function validateExtractedPhone(extractedNational: string, country: CountryPhoneConfig) {
   const national = normalizeNationalDigits(extractedNational);
   if (!national) return false;
 
@@ -316,7 +323,7 @@ function getValidator(country: CountryPhoneConfig): RegExp {
  * the national portion. Masks store the whole thing (e.g. "+1 ([000]) [000]-[0000]")
  * but the national TextInput only formats the part after the calling code.
  */
-export function getNationalMask(config: CountryPhoneConfig) {
+function getNationalMask(config: CountryPhoneConfig) {
   const prefix = `${config.callingCode} `;
   if (config.mask.startsWith(prefix)) return config.mask.slice(prefix.length);
   return config.mask;
@@ -327,14 +334,14 @@ export function getNationalMask(config: CountryPhoneConfig) {
  * (`9`). Used to detect when a national number is fully entered so validation
  * can auto-fire.
  */
-export function countRequiredMaskDigits(mask: string) {
+function countRequiredMaskDigits(mask: string) {
   let count = 0;
   let inBracket = false;
 
   for (const char of mask) {
-    if (char === "[") inBracket = true;
-    else if (char === "]") inBracket = false;
-    else if (inBracket && char === "0") count += 1;
+    if (char === '[') inBracket = true;
+    else if (char === ']') inBracket = false;
+    else if (inBracket && char === '0') count += 1;
   }
 
   return count;
@@ -346,23 +353,23 @@ export function countRequiredMaskDigits(mask: string) {
  * national field from accepting more digits than it can format (so the stored
  * value never diverges from what the user sees).
  */
-export function countMaskDigitSlots(mask: string) {
+function countMaskDigitSlots(mask: string) {
   let count = 0;
   let inBracket = false;
 
   for (const char of mask) {
-    if (char === "[") inBracket = true;
-    else if (char === "]") inBracket = false;
-    else if (inBracket && (char === "0" || char === "9")) count += 1;
+    if (char === '[') inBracket = true;
+    else if (char === ']') inBracket = false;
+    else if (inBracket && (char === '0' || char === '9')) count += 1;
   }
 
   return count;
 }
 
 /** Normalizes free-form calling-code input into `+<digits>` (or bare `+` when empty). */
-export function normalizeCallingCode(value: string) {
-  const digits = value.replace(/\D/g, "");
-  return digits ? `+${digits}` : "+";
+function normalizeCallingCode(value: string) {
+  const digits = value.replace(NON_DIGIT_RE, '');
+  return digits ? `+${digits}` : '+';
 }
 
 /**
@@ -382,7 +389,7 @@ export function normalizeCallingCode(value: string) {
  * `inputDigits` are stripped first, so the result matches what `conformToMask`
  * produces for the same digit sequence.
  */
-export function applyPhoneMask(mask: string, inputDigits: string) {
+function applyPhoneMask(mask: string, inputDigits: string) {
   return conformToMask(mask, normalizeNationalDigits(inputDigits));
 }
 
@@ -398,52 +405,110 @@ export function applyPhoneMask(mask: string, inputDigits: string) {
  * the picker never shows a dangling space. For masks with no separators around
  * the prefix (e.g. Guernsey's "[0000000000]") the result is just the digits.
  */
-export function formatAreaCode(nationalMask: string, areaCode: string): string {
-  const digits = normalizeNationalDigits(areaCode);
-  if (!digits) return "";
+function isDigitSlot(slot: string | undefined): boolean {
+  return slot === '0' || slot === '9';
+}
 
-  let result = "";
-  let pending = "";
-  let digitIdx = 0;
+type AreaFill = { result: string; pending: string; digitIdx: number };
+
+// Consumes one `[...]` token, emitting a buffered literal + digit for each slot
+// until the token or the digit supply is exhausted.
+function fillAreaToken(token: string, digits: string, state: AreaFill): AreaFill {
+  let { result, pending, digitIdx } = state;
+  for (let slotIdx = 0; slotIdx < token.length && digitIdx < digits.length; slotIdx += 1) {
+    if (isDigitSlot(token[slotIdx])) {
+      result += pending + digits[digitIdx];
+      pending = '';
+      digitIdx += 1;
+    }
+  }
+  return { result, pending, digitIdx };
+}
+
+function formatAreaCode(nationalMask: string, areaCode: string): string {
+  const digits = normalizeNationalDigits(areaCode);
+  if (!digits) return '';
+
+  let state: AreaFill = { result: '', pending: '', digitIdx: 0 };
   let maskIdx = 0;
 
-  while (maskIdx < nationalMask.length) {
+  while (maskIdx < nationalMask.length && state.digitIdx < digits.length) {
     const ch = nationalMask[maskIdx];
-
-    if (ch === "[") {
-      const closeIndex = nationalMask.indexOf("]", maskIdx);
+    if (ch === '[') {
+      const closeIndex = nationalMask.indexOf(']', maskIdx);
       if (closeIndex === -1) break;
-      const token = nationalMask.slice(maskIdx + 1, closeIndex);
-
-      for (let slotIdx = 0; slotIdx < token.length && digitIdx < digits.length; slotIdx += 1) {
-        const slot = token[slotIdx];
-        if (slot === "0" || slot === "9") {
-          result += pending + digits[digitIdx];
-          pending = "";
-          digitIdx += 1;
-        }
-      }
+      state = fillAreaToken(nationalMask.slice(maskIdx + 1, closeIndex), digits, state);
       maskIdx = closeIndex + 1;
-      if (digitIdx >= digits.length) break;
-      continue;
+    } else {
+      state = { ...state, pending: state.pending + ch };
+      maskIdx += 1;
     }
-
-    pending += ch;
-    maskIdx += 1;
   }
 
   // Flush the literal run right after the last consumed digit so a wrapping
   // delimiter (")") is revealed, then drop any trailing whitespace.
-  result += pending;
-  while (maskIdx < nationalMask.length && nationalMask[maskIdx] !== "[") {
+  let result = state.result + state.pending;
+  while (maskIdx < nationalMask.length && nationalMask[maskIdx] !== '[') {
     result += nationalMask[maskIdx];
     maskIdx += 1;
   }
-  return result.replace(/\s+$/, "");
+  return result.replace(TRAILING_WHITESPACE_RE, '');
 }
 
 function isDigitChar(char: string): boolean {
-  return char >= "0" && char <= "9";
+  return char >= '0' && char <= '9';
+}
+
+type MaskState = { result: string; pendingLiterals: string; emitted: number; textIdx: number };
+
+// Consumes one `[...]` token against the raw text. A required slot met by a
+// non-digit drops the char and stays on the slot; an optional slot with no
+// digit is skipped; digit emission halts at `maxDigits`.
+function conformToken(token: string, text: string, maxDigits: number, state: MaskState): MaskState {
+  let { result, pendingLiterals, emitted, textIdx } = state;
+  for (let slotIdx = 0; slotIdx < token.length && textIdx < text.length; ) {
+    const slot = token[slotIdx];
+    const char = text[textIdx];
+    if (char === undefined) break;
+
+    if (slot !== '0' && slot !== '9') {
+      slotIdx += 1; // non-slot char inside a token (shouldn't occur in the dataset)
+    } else if (isDigitChar(char)) {
+      if (emitted >= maxDigits) {
+        textIdx = text.length;
+        break;
+      }
+      result += pendingLiterals + char;
+      pendingLiterals = '';
+      emitted += 1;
+      textIdx += 1;
+      slotIdx += 1;
+    } else if (slot === '9') {
+      slotIdx += 1; // optional slot, no digit available: skip it
+    } else {
+      textIdx += 1; // required slot met by a non-digit: drop the char, keep the slot
+    }
+  }
+  return { result, pendingLiterals, emitted, textIdx };
+}
+
+type LiteralStep = { state: MaskState; advanceMask: boolean };
+
+// Handles one literal mask char. A matching typed char reveals it at once; a
+// digit buffers the literal until a slot consumes it; anything else is dropped.
+function conformLiteral(maskChar: string, char: string, state: MaskState): LiteralStep {
+  if (char === maskChar)
+    return {
+      state: {
+        ...state,
+        result: state.result + state.pendingLiterals + maskChar,
+        pendingLiterals: '',
+        textIdx: state.textIdx + 1,
+      },
+      advanceMask: true,
+    };
+  if (isDigitChar(char)) return { state: { ...state, pendingLiterals: state.pendingLiterals + maskChar }, advanceMask: true };
+  return { state: { ...state, textIdx: state.textIdx + 1 }, advanceMask: false };
 }
 
 /**
@@ -469,80 +534,43 @@ function isDigitChar(char: string): boolean {
  *
  * For digit-only input the result is identical to `applyPhoneMask`.
  */
-export function conformToMask(mask: string, text: string, maxDigits = Infinity): string {
-  if (!text) return "";
+type MaskStep = { state: MaskState; maskIdx: number; done: boolean };
 
-  let result = "";
-  let pendingLiterals = "";
-  let emitted = 0;
-  let textIdx = 0;
+// Invariant inputs for a single conform walk (constant across every step).
+type MaskWalk = { mask: string; text: string; maxDigits: number };
+
+// Advances one mask position — a `[...]` token or a single literal — returning
+// the updated state, the next mask index, and whether the walk must stop.
+function stepMask(walk: MaskWalk, maskIdx: number, state: MaskState): MaskStep {
+  const { mask, text, maxDigits } = walk;
+  const maskChar = mask[maskIdx];
+  if (maskChar === '[') {
+    const closeIndex = mask.indexOf(']', maskIdx);
+    if (closeIndex === -1) return { state, maskIdx, done: true };
+    const filled = conformToken(mask.slice(maskIdx + 1, closeIndex), text, maxDigits, state);
+    return { state: filled, maskIdx: closeIndex + 1, done: false };
+  }
+  const char = text[state.textIdx];
+  if (char === undefined || maskChar === undefined) return { state, maskIdx, done: true };
+  const step = conformLiteral(maskChar, char, state);
+  return { state: step.state, maskIdx: step.advanceMask ? maskIdx + 1 : maskIdx, done: false };
+}
+
+function conformToMask(mask: string, text: string, maxDigits = Number.POSITIVE_INFINITY): string {
+  if (!text) return '';
+
+  const walk: MaskWalk = { mask, text, maxDigits };
+  let state: MaskState = { result: '', pendingLiterals: '', emitted: 0, textIdx: 0 };
   let maskIdx = 0;
 
-  while (maskIdx < mask.length && textIdx < text.length) {
-    const maskChar = mask[maskIdx];
-
-    if (maskChar === "[") {
-      const closeIndex = mask.indexOf("]", maskIdx);
-      if (closeIndex === -1) break;
-      const token = mask.slice(maskIdx + 1, closeIndex);
-
-      let slotIdx = 0;
-      while (slotIdx < token.length && textIdx < text.length) {
-        const slot = token[slotIdx];
-        const char = text[textIdx];
-        if (char === undefined) break;
-
-        if (slot !== "0" && slot !== "9") {
-          slotIdx += 1;
-          continue;
-        }
-
-        if (isDigitChar(char)) {
-          if (emitted >= maxDigits) {
-            textIdx = text.length;
-            break;
-          }
-          result += pendingLiterals + char;
-          pendingLiterals = "";
-          emitted += 1;
-          textIdx += 1;
-          slotIdx += 1;
-        } else if (slot === "9") {
-          // Optional slot with no digit available: skip it, leave the char for
-          // the next mask token to evaluate.
-          slotIdx += 1;
-        } else {
-          // Required slot met by a non-digit: drop the char, stay on the slot so
-          // the next digit still fills it (a misplaced "-" inside the area code
-          // must not shift later digits into the next group).
-          textIdx += 1;
-        }
-      }
-
-      maskIdx = closeIndex + 1;
-      continue;
-    }
-
-    // Literal separator.
-    const char = text[textIdx];
-    if (char === undefined) break;
-    if (char === maskChar) {
-      // The user typed this separator — reveal it immediately.
-      result += pendingLiterals + maskChar;
-      pendingLiterals = "";
-      textIdx += 1;
-      maskIdx += 1;
-    } else if (isDigitChar(char)) {
-      // A digit arrived — buffer the literal until the slot consumes it.
-      pendingLiterals += maskChar;
-      maskIdx += 1;
-    } else {
-      // Unrelated character — drop it.
-      textIdx += 1;
-    }
+  while (maskIdx < mask.length && state.textIdx < text.length) {
+    const step = stepMask(walk, maskIdx, state);
+    if (step.done) break;
+    state = step.state;
+    maskIdx = step.maskIdx;
   }
 
-  return result;
+  return state.result;
 }
 
 /**
@@ -569,14 +597,14 @@ function stripTrunkIfOverlong(national: string, config: CountryPhoneConfig): str
   return national;
 }
 
-export interface ResolvedPaste {
+type ResolvedPaste = {
   country: CountryCode;
   national: string;
   /** `true` when the text was transformed (country switched or trunk stripped);
    *  the caller should format `national` directly. `false` means "keep the raw
    *  text" so user-typed separators are preserved by `conformToMask`. */
   normalized: boolean;
-}
+};
 
 /**
  * Resolves the country and national digits implied by text pasted/typed into
@@ -589,21 +617,21 @@ export interface ResolvedPaste {
  * field is NOT misread as Egypt (`+20…`); it falls through to the default and is
  * treated as national digits for the current country.
  */
-export function resolvePastedNational(
+function resolvePastedNational(
   text: string,
   selected: CountryPhoneConfig,
   countries: readonly CountryPhoneConfig[],
   allowedSet: ReadonlySet<CountryCode>,
 ): ResolvedPaste {
   const digits = normalizeNationalDigits(text);
-  if (!digits) return { country: selected.code, national: "", normalized: false };
+  if (!digits) return { country: selected.code, national: '', normalized: false };
 
   const selectedMax = countMaskDigitSlots(getNationalMask(selected));
   const trimmed = text.trim();
 
   // 1) Explicit international format ("+…"). Parse the country (with the current
   //    selection as the sticky preference) and recover the national digits.
-  if (trimmed.startsWith("+")) {
+  if (trimmed.startsWith('+')) {
     const parsed = parseCountryFromE164(trimmed, countries, selected.code);
     if (parsed && allowedSet.has(parsed.code)) {
       const national = stripTrunkIfOverlong(nationalFromE164(trimmed, parsed), parsed);
@@ -651,3 +679,26 @@ export function resolvePastedNational(
   //    any separators the user typed are preserved.
   return { country: selected.code, national: digits, normalized: false };
 }
+
+export type { ResolvedPaste };
+export {
+  applyPhoneMask,
+  conformToMask,
+  countMaskDigitSlots,
+  countRequiredMaskDigits,
+  formatAreaCode,
+  getCountryFromLocale,
+  getCountryPhoneCatalog,
+  getCountryPhoneConfig,
+  getDefaultCountryForCallingCode,
+  getNationalMask,
+  getUniqueAreaCode,
+  nationalBelongsToCountry,
+  nationalFromE164,
+  normalizeCallingCode,
+  normalizeNationalDigits,
+  parseCountryFromE164,
+  resolvePastedNational,
+  toE164,
+  validateExtractedPhone,
+};

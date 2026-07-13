@@ -4,10 +4,7 @@
 // country that isn't imported here — the full world's worth of divisions never
 // reaches the published build for an app that only needs one country.
 
-import { type CountryCode, isCountryCode } from "./data/countries";
-
-export type { Level2DivisionOption } from "./data/level2-administrative-codes";
-
+import type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names';
 import {
   localNames_AD,
   localNames_AE,
@@ -232,12 +229,9 @@ import {
   localNames_ZA,
   localNames_ZM,
   localNames_ZW,
-} from "./data/administrative-local-names";
-
-export type { CountryLocalNames, DivisionLocalNames } from "./data/administrative-local-names";
-
-import type { CountryLocalNames, DivisionLocalNames } from "./data/administrative-local-names";
-import type { Level2DivisionOption } from "./data/level2-administrative-codes";
+} from './data/administrative-local-names';
+import { type CountryCode, isCountryCode } from './data/countries';
+import type { Level2DivisionOption } from './data/level2-administrative-codes';
 import {
   level2Admin_AE,
   level2Admin_AF,
@@ -428,15 +422,13 @@ import {
   level2Admin_ZA,
   level2Admin_ZM,
   level2Admin_ZW,
-} from "./data/level2-administrative-codes";
-
-export type { CountryCode };
+} from './data/level2-administrative-codes';
 
 // Level-2 <select> option lists, one entry per country that has division data.
 // The same per-country named-export pattern as LEVEL1_OPTIONS in address.ts:
 // only the countries explicitly imported above are bundled; unused ones
 // tree-shake out so a consumer that imports only `FR` gets just FR's data.
-const LEVEL2_OPTIONS: Partial<Record<CountryCode, ReadonlyArray<Level2DivisionOption>>> = {
+const LEVEL2_OPTIONS: Partial<Record<CountryCode, readonly Level2DivisionOption[]>> = {
   AE: level2Admin_AE,
   AF: level2Admin_AF,
   AL: level2Admin_AL,
@@ -646,7 +638,7 @@ const LEVEL2_OPTIONS: Partial<Record<CountryCode, ReadonlyArray<Level2DivisionOp
  * // Only New York State counties
  * getLevel2Options("US", "NY");
  */
-export function getLevel2Options(country: string, level1?: string): ReadonlyArray<Level2DivisionOption> {
+function getLevel2Options(country: string, level1?: string): readonly Level2DivisionOption[] {
   const code = isCountryCode(country) ? country : null;
   if (!code) return [];
   const all = LEVEL2_OPTIONS[code] ?? [];
@@ -657,7 +649,7 @@ export function getLevel2Options(country: string, level1?: string): ReadonlyArra
 /**
  * Whether level-2 division data is available for the given country code.
  */
-export function hasLevel2Options(country: string): boolean {
+function hasLevel2Options(country: string): boolean {
   const code = isCountryCode(country) ? country : null;
   if (!code) return false;
   return (LEVEL2_OPTIONS[code]?.length ?? 0) > 0;
@@ -895,7 +887,7 @@ const LOCAL_NAMES: Partial<Record<CountryCode, CountryLocalNames>> = {
 
 function countryLocalNames(country: string): CountryLocalNames | undefined {
   const code = isCountryCode(country) ? country : null;
-  if (!code) return undefined;
+  if (!code) return;
   return LOCAL_NAMES[code];
 }
 
@@ -911,7 +903,7 @@ function countryLocalNames(country: string): CountryLocalNames | undefined {
  * @example
  * getLevel1LocalNames("CH", "ZH"); // { de: "Zürich", fr: "Zurich", it: "Zurigo", rm: "Turitg" }
  */
-export function getLevel1LocalNames(country: string, level1Value: string): DivisionLocalNames | undefined {
+function getLevel1LocalNames(country: string, level1Value: string): DivisionLocalNames | undefined {
   return countryLocalNames(country)?.level1[level1Value];
 }
 
@@ -927,7 +919,7 @@ export function getLevel1LocalNames(country: string, level1Value: string): Divis
  * @example
  * getLevel2LocalNames("FR", "84", "01"); // { fr: "Ain", oc: "Ain", ... }
  */
-export function getLevel2LocalNames(country: string, level1Value: string, level2Value: string): DivisionLocalNames | undefined {
+function getLevel2LocalNames(country: string, level1Value: string, level2Value: string): DivisionLocalNames | undefined {
   return countryLocalNames(country)?.level2[level1Value]?.[level2Value];
 }
 
@@ -938,11 +930,7 @@ export function getLevel2LocalNames(country: string, level1Value: string, level2
  * @example
  * getLevel1LocalName("DE", "BY", ["fr", "de"]); // "Bayern" (no French name, falls back to German)
  */
-export function getLevel1LocalName(
-  country: string,
-  level1Value: string,
-  languages: string | ReadonlyArray<string>,
-): string | undefined {
+function getLevel1LocalName(country: string, level1Value: string, languages: string | readonly string[]): string | undefined {
   return pickLocalName(getLevel1LocalNames(country, level1Value), languages);
 }
 
@@ -953,11 +941,11 @@ export function getLevel1LocalName(
  * @example
  * getLevel2LocalName("FR", "84", "01", ["oc", "fr"]); // "Ain"
  */
-export function getLevel2LocalName(
+function getLevel2LocalName(
   country: string,
   level1Value: string,
   level2Value: string,
-  languages: string | ReadonlyArray<string>,
+  languages: string | readonly string[],
 ): string | undefined {
   return pickLocalName(getLevel2LocalNames(country, level1Value, level2Value), languages);
 }
@@ -965,7 +953,7 @@ export function getLevel2LocalName(
 /**
  * Whether localized division names are available for the given country code.
  */
-export function hasLocalNames(country: string): boolean {
+function hasLocalNames(country: string): boolean {
   const names = countryLocalNames(country);
   if (!names) return false;
   return Object.keys(names.level1).length > 0 || Object.keys(names.level2).length > 0;
@@ -976,15 +964,25 @@ export function hasLocalNames(country: string): boolean {
  * Accepts a single language code or an ordered preference list; returns
  * `undefined` when `names` is absent or none of the languages match.
  */
-export function pickLocalName(
-  names: DivisionLocalNames | undefined,
-  languages: string | ReadonlyArray<string>,
-): string | undefined {
-  if (!names) return undefined;
-  const prefs = typeof languages === "string" ? [languages] : languages;
+function pickLocalName(names: DivisionLocalNames | undefined, languages: string | readonly string[]): string | undefined {
+  if (!names) return;
+  const prefs = typeof languages === 'string' ? [languages] : languages;
   for (const lang of prefs) {
     const name = names[lang];
     if (name !== undefined) return name;
   }
-  return undefined;
 }
+
+export type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names';
+export type { Level2DivisionOption } from './data/level2-administrative-codes';
+
+export {
+  getLevel1LocalName,
+  getLevel1LocalNames,
+  getLevel2LocalName,
+  getLevel2LocalNames,
+  getLevel2Options,
+  hasLevel2Options,
+  hasLocalNames,
+  pickLocalName,
+};

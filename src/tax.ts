@@ -2,9 +2,9 @@
 // Types
 // ---------------------------------------------------------------------------
 
-import type { CountryCode } from "./data/countries";
+import { type CountryCode, isCountryCode } from './data/countries';
 
-export interface TaxValue {
+type TaxValue = {
   taxId?: string;
   /** True when the business is presumed to hold a valid consumption tax identifier. */
   hasIdentifier?: boolean;
@@ -23,18 +23,21 @@ export interface TaxValue {
   taxLabel?: string | null;
   /** Local name of the tax in the country's own language (e.g. "TVA", "MwSt", "消費税"), or null when the country has no consumption tax. */
   localTaxLabel?: string | null;
-}
+};
 
-export type TaxType = "business" | "individual" | "either";
+type TaxType = 'business' | 'individual' | 'either';
 
 /**
  * How a jurisdiction's consumption tax is collected:
  * - "oss": EU one-stop-shop — B2B with a valid tax id reverse-charges to 0%.
- * - "country-specific": a single rate (or per-region rate) applies locally.
+ * - "country-specific": a single flat rate applies nationally.
+ * - "region-specific": rate varies by state/province. A `state` code is required
+ *   to resolve {@link TaxConfig.baseConsumerTax}; without one, `baseTax` is null
+ *   and `flags.regionalRates` is set.
  */
-export type TaxSystem = "oss" | "country-specific";
+type TaxSystem = 'oss' | 'country-specific' | 'region-specific';
 
-export interface TaxConfig {
+type TaxConfig = {
   /** Standard consumer-facing rate; null = no consumption tax in this jurisdiction. */
   baseConsumerTax: number | null;
   taxSystem: TaxSystem;
@@ -48,7 +51,7 @@ export interface TaxConfig {
   taxPrefix?: string;
   taxPattern?: RegExp;
   taxExample?: string;
-}
+};
 
 /**
  * A country maps either to a single {@link TaxConfig}, or — for countries with
@@ -56,18 +59,18 @@ export interface TaxConfig {
  * code → config. Country-level fields are identical across a record's entries;
  * only `baseConsumerTax` varies by region.
  */
-export type CountryTaxEntry = TaxConfig | Record<string, TaxConfig>;
+type CountryTaxEntry = TaxConfig | Record<string, TaxConfig>;
 
-export interface TaxOutcomeFlags {
+type TaxOutcomeFlags = {
   /** Buyer self-accounts via reverse charge or self-assessment. */
   buyerSelfAccounts: boolean;
   /** Rate varies by state / province — needs regional selection. */
   regionalRates: boolean;
   /** Local / municipal rates may stack on top of the state rate (US). */
   localSurcharge: boolean;
-}
+};
 
-export interface TaxOutcome {
+type TaxOutcome = {
   /** Collection system of the resolved country, or null when no country applies. */
   taxSystem: TaxSystem | null;
   /** English name of the consumption tax (e.g. "VAT", "GST", "Sales Tax"), or null when the country has no consumption tax. */
@@ -90,7 +93,7 @@ export interface TaxOutcome {
    */
   effectiveTax: number | null;
   flags: TaxOutcomeFlags;
-}
+};
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -100,7 +103,7 @@ export interface TaxOutcome {
 function eu(rate: number): TaxConfig {
   return {
     baseConsumerTax: rate,
-    taxSystem: "oss",
+    taxSystem: 'oss',
     collectionThreshold: 0,
   };
 }
@@ -113,17 +116,17 @@ function eu(rate: number): TaxConfig {
 function flat(rate: number | null, collectionThreshold: number | null): TaxConfig {
   return {
     baseConsumerTax: rate,
-    taxSystem: "country-specific",
+    taxSystem: 'country-specific',
     collectionThreshold,
   };
 }
 
 /**
  * Build a region record for a country whose rate varies by state/province.
- * Country-level fields come from `base`"; each region's `baseConsumerTax` comes
+ * Country-level fields come from `base`; each region's `baseConsumerTax` comes
  * from `rates` (null = no tax in that region).
  */
-function regional(base: Omit<TaxConfig, "baseConsumerTax">, rates: Record<string, number | null>): Record<string, TaxConfig> {
+function regional(base: Omit<TaxConfig, 'baseConsumerTax'> & { taxSystem: 'region-specific' }, rates: Record<string, number | null>): Record<string, TaxConfig> {
   const out: Record<string, TaxConfig> = {};
   for (const [code, rate] of Object.entries(rates)) out[code] = { ...base, baseConsumerTax: rate };
   return out;
@@ -133,43 +136,43 @@ function regional(base: Omit<TaxConfig, "baseConsumerTax">, rates: Record<string
 // Main tax config table
 // ---------------------------------------------------------------------------
 
-export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
+const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   // ---- EU member states (all 27, standard VAT rates as of 2025) -----------
   AT: {
     ...eu(20),
-    taxPrefix: "ATU",
+    taxPrefix: 'ATU',
     taxPattern: /^ATU\d{8}$/,
-    taxExample: "ATU12345678",
+    taxExample: 'ATU12345678',
   },
   BE: {
     ...eu(21),
-    taxPrefix: "BE",
+    taxPrefix: 'BE',
     taxPattern: /^BE0\d{9}$/,
-    taxExample: "BE0123456789",
+    taxExample: 'BE0123456789',
   },
   BG: eu(20),
   CY: eu(19),
   CZ: eu(21),
   DE: {
     ...eu(19),
-    taxPrefix: "DE",
+    taxPrefix: 'DE',
     taxPattern: /^DE\d{9}$/,
-    taxExample: "DE123456789",
+    taxExample: 'DE123456789',
   },
   DK: eu(25),
   EE: eu(22),
   ES: {
     ...eu(21),
-    taxPrefix: "ES",
+    taxPrefix: 'ES',
     taxPattern: /^ES[A-Z0-9]\d{7}[A-Z0-9]$/,
-    taxExample: "ESA12345678",
+    taxExample: 'ESA12345678',
   },
   FI: eu(25.5),
   FR: {
     ...eu(20),
-    taxPrefix: "FR",
+    taxPrefix: 'FR',
     taxPattern: /^FR[A-Z0-9]{2}\d{9}$/,
-    taxExample: "FRXX123456789",
+    taxExample: 'FRXX123456789',
   },
   GR: eu(24),
   HR: eu(25),
@@ -177,9 +180,9 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   IE: eu(23),
   IT: {
     ...eu(22),
-    taxPrefix: "IT",
+    taxPrefix: 'IT',
     taxPattern: /^IT\d{11}$/,
-    taxExample: "IT12345678901",
+    taxExample: 'IT12345678901',
   },
   LT: eu(21),
   LU: eu(17),
@@ -187,15 +190,15 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   MT: eu(18),
   NL: {
     ...eu(21),
-    taxPrefix: "NL",
+    taxPrefix: 'NL',
     taxPattern: /^NL\d{9}B\d{2}$/,
-    taxExample: "NL123456789B01",
+    taxExample: 'NL123456789B01',
   },
   PL: {
     ...eu(23),
-    taxPrefix: "PL",
+    taxPrefix: 'PL',
     taxPattern: /^PL\d{10}$/,
-    taxExample: "PL1234567890",
+    taxExample: 'PL1234567890',
   },
   PT: eu(23),
   RO: eu(19),
@@ -208,33 +211,33 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   // export (reverse charge on buyer); B2C → also zero-rated (UK VAT buyer-side).
   GB: {
     baseConsumerTax: 20,
-    taxSystem: "country-specific",
+    taxSystem: 'country-specific',
     collectionThreshold: null,
     zeroRatedExport: true,
-    taxPrefix: "GB",
+    taxPrefix: 'GB',
     taxPattern: /^GB(\d{9}|\d{12}|(GD|HA)\d{3})$/,
-    taxExample: "GB123456789",
+    taxExample: 'GB123456789',
   },
 
   // ---- Switzerland ----------------------------------------------------------
   // Outside EU VAT area. Swiss MWST/TVA/IVA may apply on buyer's side.
   CH: {
     ...flat(8.1, 100_000),
-    taxPrefix: "CHE",
+    taxPrefix: 'CHE',
     taxPattern: /^CHE-\d{3}\.\d{3}\.\d{3}(MWST|TVA|IVA)?$/,
-    taxExample: "CHE-123.456.789MWST",
+    taxExample: 'CHE-123.456.789MWST',
   },
 
   // ---- United States --------------------------------------------------------
   // No federal sales tax. Rate varies by state; null = no state sales tax.
   US: regional(
     {
-      taxSystem: "country-specific",
+      taxSystem: 'region-specific',
       collectionThreshold: null,
       localSurcharge: true,
-      taxPrefix: "",
+      taxPrefix: '',
       taxPattern: /^\d{2}-\d{7}$/,
-      taxExample: "12-3456789",
+      taxExample: '12-3456789',
     },
     {
       AL: 4,
@@ -295,11 +298,11 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   // GST (5%) + provincial HST or PST. Rate given is the combined effective rate.
   CA: regional(
     {
-      taxSystem: "country-specific",
+      taxSystem: 'region-specific',
       collectionThreshold: 30_000,
-      taxPrefix: "",
+      taxPrefix: '',
       taxPattern: /^\d{9}RT\d{4}$/,
-      taxExample: "123456789RT0001",
+      taxExample: '123456789RT0001',
     },
     {
       AB: 5, // GST only
@@ -321,17 +324,17 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
   // ---- Australia ------------------------------------------------------------
   AU: {
     ...flat(10, 75_000),
-    taxPrefix: "",
+    taxPrefix: '',
     taxPattern: /^\d{11}$/,
-    taxExample: "12345678901",
+    taxExample: '12345678901',
   },
 
   // ---- Japan ----------------------------------------------------------------
   JP: {
     ...flat(10, 10_000_000),
-    taxPrefix: "T",
+    taxPrefix: 'T',
     taxPattern: /^T\d{13}$/,
-    taxExample: "T1234567890123",
+    taxExample: 'T1234567890123',
   },
 
   // ---- Other European countries (non-EU) ------------------------------------
@@ -573,12 +576,12 @@ export const TAX_CONFIG: Record<CountryCode, CountryTaxEntry> = {
 // Tax labels
 // ---------------------------------------------------------------------------
 
-export interface TaxLabels {
+type TaxLabels = {
   /** English name of the tax (e.g. "VAT", "GST", "Sales Tax"). */
   en: string;
   /** Local name of the tax as used in that jurisdiction (e.g. "TVA", "MwSt", "消費税"). */
   local: string;
-}
+};
 
 type CountryLabelEntry = TaxLabels & {
   /** Per-region label overrides (used when the tax name differs by province/state). */
@@ -593,234 +596,235 @@ type CountryLabelEntry = TaxLabels & {
  */
 const TAX_LABELS: Partial<Record<CountryCode, CountryLabelEntry>> = {
   // ---- EU member states -------------------------------------------------------
-  AT: { en: "VAT", local: "MwSt" },
-  BE: { en: "VAT", local: "BTW/TVA" },
-  BG: { en: "VAT", local: "DDS" },
-  CY: { en: "VAT", local: "FPA" },
-  CZ: { en: "VAT", local: "DPH" },
-  DE: { en: "VAT", local: "MwSt" },
-  DK: { en: "VAT", local: "Moms" },
-  EE: { en: "VAT", local: "KM" },
-  ES: { en: "VAT", local: "IVA" },
-  FI: { en: "VAT", local: "ALV" },
-  FR: { en: "VAT", local: "TVA" },
-  GR: { en: "VAT", local: "FPA" },
-  HR: { en: "VAT", local: "PDV" },
-  HU: { en: "VAT", local: "ÁFA" },
-  IE: { en: "VAT", local: "VAT" },
-  IT: { en: "VAT", local: "IVA" },
-  LT: { en: "VAT", local: "PVM" },
-  LU: { en: "VAT", local: "TVA" },
-  LV: { en: "VAT", local: "PVN" },
-  MT: { en: "VAT", local: "VAT" },
-  NL: { en: "VAT", local: "BTW" },
-  PL: { en: "VAT", local: "VAT" },
-  PT: { en: "VAT", local: "IVA" },
-  RO: { en: "VAT", local: "TVA" },
-  SE: { en: "VAT", local: "Moms" },
-  SI: { en: "VAT", local: "DDV" },
-  SK: { en: "VAT", local: "DPH" },
+  AT: { en: 'VAT', local: 'MwSt' },
+  BE: { en: 'VAT', local: 'BTW/TVA' },
+  BG: { en: 'VAT', local: 'DDS' },
+  CY: { en: 'VAT', local: 'FPA' },
+  CZ: { en: 'VAT', local: 'DPH' },
+  DE: { en: 'VAT', local: 'MwSt' },
+  DK: { en: 'VAT', local: 'Moms' },
+  EE: { en: 'VAT', local: 'KM' },
+  ES: { en: 'VAT', local: 'IVA' },
+  FI: { en: 'VAT', local: 'ALV' },
+  FR: { en: 'VAT', local: 'TVA' },
+  GR: { en: 'VAT', local: 'FPA' },
+  HR: { en: 'VAT', local: 'PDV' },
+  HU: { en: 'VAT', local: 'ÁFA' },
+  IE: { en: 'VAT', local: 'VAT' },
+  IT: { en: 'VAT', local: 'IVA' },
+  LT: { en: 'VAT', local: 'PVM' },
+  LU: { en: 'VAT', local: 'TVA' },
+  LV: { en: 'VAT', local: 'PVN' },
+  MT: { en: 'VAT', local: 'VAT' },
+  NL: { en: 'VAT', local: 'BTW' },
+  PL: { en: 'VAT', local: 'VAT' },
+  PT: { en: 'VAT', local: 'IVA' },
+  RO: { en: 'VAT', local: 'TVA' },
+  SE: { en: 'VAT', local: 'Moms' },
+  SI: { en: 'VAT', local: 'DDV' },
+  SK: { en: 'VAT', local: 'DPH' },
   // ---- United Kingdom ---------------------------------------------------------
-  GB: { en: "VAT", local: "VAT" },
+  GB: { en: 'VAT', local: 'VAT' },
   // ---- Switzerland ------------------------------------------------------------
-  CH: { en: "VAT", local: "MWST/TVA/IVA" },
+  CH: { en: 'VAT', local: 'MWST/TVA/IVA' },
   // ---- United States ----------------------------------------------------------
-  US: { en: "Sales Tax", local: "Sales Tax" },
+  US: { en: 'Sales Tax', local: 'Sales Tax' },
   // ---- Canada (region-specific) -----------------------------------------------
   CA: {
-    en: "GST/HST",
-    local: "GST/HST",
+    en: 'GST/HST',
+    local: 'GST/HST',
     byRegion: {
-      AB: { en: "GST", local: "GST" },
-      BC: { en: "GST + PST", local: "GST + PST" },
-      MB: { en: "GST + PST", local: "GST + RST" },
-      NB: { en: "HST", local: "HST" },
-      NL: { en: "HST", local: "HST" },
-      NS: { en: "HST", local: "HST" },
-      NT: { en: "GST", local: "GST" },
-      NU: { en: "GST", local: "GST" },
-      ON: { en: "HST", local: "HST" },
-      PE: { en: "HST", local: "HST" },
-      QC: { en: "GST + QST", local: "TPS + TVQ" },
-      SK: { en: "GST + PST", local: "GST + PST" },
-      YT: { en: "GST", local: "GST" },
+      AB: { en: 'GST', local: 'GST' },
+      BC: { en: 'GST + PST', local: 'GST + PST' },
+      MB: { en: 'GST + PST', local: 'GST + RST' },
+      NB: { en: 'HST', local: 'HST' },
+      NL: { en: 'HST', local: 'HST' },
+      NS: { en: 'HST', local: 'HST' },
+      NT: { en: 'GST', local: 'GST' },
+      NU: { en: 'GST', local: 'GST' },
+      ON: { en: 'HST', local: 'HST' },
+      PE: { en: 'HST', local: 'HST' },
+      QC: { en: 'GST + QST', local: 'TPS + TVQ' },
+      SK: { en: 'GST + PST', local: 'GST + PST' },
+      YT: { en: 'GST', local: 'GST' },
     },
   },
   // ---- Australia --------------------------------------------------------------
-  AU: { en: "GST", local: "GST" },
+  AU: { en: 'GST', local: 'GST' },
   // ---- Japan ------------------------------------------------------------------
-  JP: { en: "Consumption Tax", local: "消費税" },
+  JP: { en: 'Consumption Tax', local: '消費税' },
   // ---- Other European (non-EU) ------------------------------------------------
-  NO: { en: "VAT", local: "MVA" },
-  IS: { en: "VAT", local: "VSK" },
-  LI: { en: "VAT", local: "MWST" },
-  AD: { en: "VAT", local: "IGI" },
-  MC: { en: "VAT", local: "TVA" },
-  SM: { en: "VAT", local: "Imposta" },
-  AL: { en: "VAT", local: "TVSH" },
-  BA: { en: "VAT", local: "PDV" },
-  GE: { en: "VAT", local: "DGhG" },
-  MD: { en: "VAT", local: "TVA" },
-  ME: { en: "VAT", local: "PDV" },
-  MK: { en: "VAT", local: "DDV" },
-  RS: { en: "VAT", local: "PDV" },
-  TR: { en: "VAT", local: "KDV" },
-  UA: { en: "VAT", local: "PDV" },
-  XK: { en: "VAT", local: "TVSH" },
-  AX: { en: "VAT", local: "ALV" },
-  BY: { en: "VAT", local: "PDV" },
-  FO: { en: "VAT", local: "MVG" },
-  IM: { en: "VAT", local: "VAT" },
-  JE: { en: "GST", local: "GST" },
-  RU: { en: "VAT", local: "НДС" },
+  NO: { en: 'VAT', local: 'MVA' },
+  IS: { en: 'VAT', local: 'VSK' },
+  LI: { en: 'VAT', local: 'MWST' },
+  AD: { en: 'VAT', local: 'IGI' },
+  MC: { en: 'VAT', local: 'TVA' },
+  SM: { en: 'VAT', local: 'Imposta' },
+  AL: { en: 'VAT', local: 'TVSH' },
+  BA: { en: 'VAT', local: 'PDV' },
+  GE: { en: 'VAT', local: 'DGhG' },
+  MD: { en: 'VAT', local: 'TVA' },
+  ME: { en: 'VAT', local: 'PDV' },
+  MK: { en: 'VAT', local: 'DDV' },
+  RS: { en: 'VAT', local: 'PDV' },
+  TR: { en: 'VAT', local: 'KDV' },
+  UA: { en: 'VAT', local: 'PDV' },
+  XK: { en: 'VAT', local: 'TVSH' },
+  AX: { en: 'VAT', local: 'ALV' },
+  BY: { en: 'VAT', local: 'PDV' },
+  FO: { en: 'VAT', local: 'MVG' },
+  IM: { en: 'VAT', local: 'VAT' },
+  JE: { en: 'GST', local: 'GST' },
+  RU: { en: 'VAT', local: 'НДС' },
   // ---- Other developed economies ----------------------------------------------
-  NZ: { en: "GST", local: "GST" },
-  KR: { en: "VAT", local: "부가세" },
-  SG: { en: "GST", local: "GST" },
-  IL: { en: "VAT", local: 'מע"מ' },
-  TW: { en: "Business Tax", local: "營業稅" },
-  AE: { en: "VAT", local: "VAT" },
-  PH: { en: "VAT", local: "VAT" },
-  IN: { en: "GST", local: "GST" },
+  NZ: { en: 'GST', local: 'GST' },
+  KR: { en: 'VAT', local: '부가세' },
+  SG: { en: 'GST', local: 'GST' },
+  IL: { en: 'VAT', local: 'מע"מ' },
+  TW: { en: 'Business Tax', local: '營業稅' },
+  AE: { en: 'VAT', local: 'VAT' },
+  PH: { en: 'VAT', local: 'VAT' },
+  IN: { en: 'GST', local: 'GST' },
   // ---- Africa -----------------------------------------------------------------
-  AO: { en: "VAT", local: "IVA" },
-  BF: { en: "VAT", local: "TVA" },
-  BI: { en: "VAT", local: "TVA" },
-  BJ: { en: "VAT", local: "TVA" },
-  BW: { en: "VAT", local: "VAT" },
-  CD: { en: "VAT", local: "TVA" },
-  CF: { en: "VAT", local: "TVA" },
-  CG: { en: "VAT", local: "TVA" },
-  CI: { en: "VAT", local: "TVA" },
-  CM: { en: "VAT", local: "TVA" },
-  CV: { en: "VAT", local: "IVA" },
-  DJ: { en: "VAT", local: "TVA" },
-  DZ: { en: "VAT", local: "TVA" },
-  EG: { en: "VAT", local: "VAT" },
-  ET: { en: "VAT", local: "VAT" },
-  GA: { en: "VAT", local: "TVA" },
-  GH: { en: "VAT", local: "VAT" },
-  GM: { en: "VAT", local: "VAT" },
-  GN: { en: "VAT", local: "TVA" },
-  GQ: { en: "VAT", local: "IVA" },
-  GW: { en: "VAT", local: "IVA" },
-  KE: { en: "VAT", local: "VAT" },
-  LR: { en: "GST", local: "GST" },
-  LS: { en: "VAT", local: "VAT" },
-  MA: { en: "VAT", local: "TVA" },
-  MG: { en: "VAT", local: "TVA" },
-  ML: { en: "VAT", local: "TVA" },
-  MR: { en: "VAT", local: "TVA" },
-  MU: { en: "VAT", local: "VAT" },
-  MW: { en: "VAT", local: "VAT" },
-  MZ: { en: "VAT", local: "IVA" },
-  NA: { en: "VAT", local: "VAT" },
-  NE: { en: "VAT", local: "TVA" },
-  NG: { en: "VAT", local: "VAT" },
-  RE: { en: "VAT", local: "TVA" },
-  RW: { en: "VAT", local: "VAT" },
-  SC: { en: "VAT", local: "VAT" },
-  SD: { en: "VAT", local: "VAT" },
-  SL: { en: "GST", local: "GST" },
-  SN: { en: "VAT", local: "TVA" },
-  SS: { en: "VAT", local: "VAT" },
-  ST: { en: "VAT", local: "IVA" },
-  SZ: { en: "VAT", local: "VAT" },
-  TD: { en: "VAT", local: "TVA" },
-  TG: { en: "VAT", local: "TVA" },
-  TN: { en: "VAT", local: "TVA" },
-  TZ: { en: "VAT", local: "VAT" },
-  UG: { en: "VAT", local: "VAT" },
-  ZA: { en: "VAT", local: "VAT" },
-  ZM: { en: "VAT", local: "VAT" },
-  ZW: { en: "VAT", local: "VAT" },
+  AO: { en: 'VAT', local: 'IVA' },
+  BF: { en: 'VAT', local: 'TVA' },
+  BI: { en: 'VAT', local: 'TVA' },
+  BJ: { en: 'VAT', local: 'TVA' },
+  BW: { en: 'VAT', local: 'VAT' },
+  CD: { en: 'VAT', local: 'TVA' },
+  CF: { en: 'VAT', local: 'TVA' },
+  CG: { en: 'VAT', local: 'TVA' },
+  CI: { en: 'VAT', local: 'TVA' },
+  CM: { en: 'VAT', local: 'TVA' },
+  CV: { en: 'VAT', local: 'IVA' },
+  DJ: { en: 'VAT', local: 'TVA' },
+  DZ: { en: 'VAT', local: 'TVA' },
+  EG: { en: 'VAT', local: 'VAT' },
+  ET: { en: 'VAT', local: 'VAT' },
+  GA: { en: 'VAT', local: 'TVA' },
+  GH: { en: 'VAT', local: 'VAT' },
+  GM: { en: 'VAT', local: 'VAT' },
+  GN: { en: 'VAT', local: 'TVA' },
+  GQ: { en: 'VAT', local: 'IVA' },
+  GW: { en: 'VAT', local: 'IVA' },
+  KE: { en: 'VAT', local: 'VAT' },
+  LR: { en: 'GST', local: 'GST' },
+  LS: { en: 'VAT', local: 'VAT' },
+  MA: { en: 'VAT', local: 'TVA' },
+  MG: { en: 'VAT', local: 'TVA' },
+  ML: { en: 'VAT', local: 'TVA' },
+  MR: { en: 'VAT', local: 'TVA' },
+  MU: { en: 'VAT', local: 'VAT' },
+  MW: { en: 'VAT', local: 'VAT' },
+  MZ: { en: 'VAT', local: 'IVA' },
+  NA: { en: 'VAT', local: 'VAT' },
+  NE: { en: 'VAT', local: 'TVA' },
+  NG: { en: 'VAT', local: 'VAT' },
+  RE: { en: 'VAT', local: 'TVA' },
+  RW: { en: 'VAT', local: 'VAT' },
+  SC: { en: 'VAT', local: 'VAT' },
+  SD: { en: 'VAT', local: 'VAT' },
+  SL: { en: 'GST', local: 'GST' },
+  SN: { en: 'VAT', local: 'TVA' },
+  SS: { en: 'VAT', local: 'VAT' },
+  ST: { en: 'VAT', local: 'IVA' },
+  SZ: { en: 'VAT', local: 'VAT' },
+  TD: { en: 'VAT', local: 'TVA' },
+  TG: { en: 'VAT', local: 'TVA' },
+  TN: { en: 'VAT', local: 'TVA' },
+  TZ: { en: 'VAT', local: 'VAT' },
+  UG: { en: 'VAT', local: 'VAT' },
+  ZA: { en: 'VAT', local: 'VAT' },
+  ZM: { en: 'VAT', local: 'VAT' },
+  ZW: { en: 'VAT', local: 'VAT' },
   // ---- Asia -------------------------------------------------------------------
-  AM: { en: "VAT", local: "ԱԱՀ" },
-  AZ: { en: "VAT", local: "ƏDV" },
-  BD: { en: "VAT", local: "VAT" },
-  BH: { en: "VAT", local: "VAT" },
-  CN: { en: "VAT", local: "增值税" },
-  ID: { en: "VAT", local: "PPN" },
-  IR: { en: "VAT", local: "VAT" },
-  JO: { en: "GST", local: "GST" },
-  KG: { en: "VAT", local: "НДС" },
-  KH: { en: "VAT", local: "VAT" },
-  KZ: { en: "VAT", local: "ҚҚС" },
-  LA: { en: "VAT", local: "VAT" },
-  LB: { en: "VAT", local: "VAT" },
-  LK: { en: "VAT", local: "VAT" },
-  MM: { en: "Sales Tax", local: "CT" },
-  MN: { en: "VAT", local: "НӨАТ" },
-  MV: { en: "GST", local: "GST" },
-  MY: { en: "SST", local: "SST" },
-  NP: { en: "VAT", local: "VAT" },
-  OM: { en: "VAT", local: "VAT" },
-  PK: { en: "GST", local: "GST" },
-  PS: { en: "VAT", local: "VAT" },
-  SA: { en: "VAT", local: "VAT" },
-  TH: { en: "VAT", local: "VAT" },
-  TJ: { en: "VAT", local: "VAT" },
-  TM: { en: "VAT", local: "VAT" },
-  UZ: { en: "VAT", local: "QQS" },
-  VN: { en: "VAT", local: "VAT" },
-  YE: { en: "GST", local: "GST" },
+  AM: { en: 'VAT', local: 'ԱԱՀ' },
+  AZ: { en: 'VAT', local: 'ƏDV' },
+  BD: { en: 'VAT', local: 'VAT' },
+  BH: { en: 'VAT', local: 'VAT' },
+  CN: { en: 'VAT', local: '增值税' },
+  ID: { en: 'VAT', local: 'PPN' },
+  IR: { en: 'VAT', local: 'VAT' },
+  JO: { en: 'GST', local: 'GST' },
+  KG: { en: 'VAT', local: 'НДС' },
+  KH: { en: 'VAT', local: 'VAT' },
+  KZ: { en: 'VAT', local: 'ҚҚС' },
+  LA: { en: 'VAT', local: 'VAT' },
+  LB: { en: 'VAT', local: 'VAT' },
+  LK: { en: 'VAT', local: 'VAT' },
+  MM: { en: 'Sales Tax', local: 'CT' },
+  MN: { en: 'VAT', local: 'НӨАТ' },
+  MV: { en: 'GST', local: 'GST' },
+  MY: { en: 'SST', local: 'SST' },
+  NP: { en: 'VAT', local: 'VAT' },
+  OM: { en: 'VAT', local: 'VAT' },
+  PK: { en: 'GST', local: 'GST' },
+  PS: { en: 'VAT', local: 'VAT' },
+  SA: { en: 'VAT', local: 'VAT' },
+  TH: { en: 'VAT', local: 'VAT' },
+  TJ: { en: 'VAT', local: 'VAT' },
+  TM: { en: 'VAT', local: 'VAT' },
+  UZ: { en: 'VAT', local: 'QQS' },
+  VN: { en: 'VAT', local: 'VAT' },
+  YE: { en: 'GST', local: 'GST' },
   // ---- Americas (non-US/CA) ---------------------------------------------------
-  AG: { en: "VAT", local: "ABST" },
-  AI: { en: "GST", local: "GST" },
-  BB: { en: "VAT", local: "VAT" },
-  BS: { en: "VAT", local: "VAT" },
-  BZ: { en: "GST", local: "GST" },
-  CR: { en: "VAT", local: "IVA" },
-  CW: { en: "Sales Tax", local: "OB" },
-  DM: { en: "VAT", local: "VAT" },
-  DO: { en: "VAT", local: "ITBIS" },
-  GD: { en: "VAT", local: "VAT" },
-  GP: { en: "VAT", local: "TVA" },
-  GT: { en: "VAT", local: "IVA" },
-  HN: { en: "VAT", local: "ISV" },
-  HT: { en: "VAT", local: "TCA" },
-  JM: { en: "VAT", local: "GCT" },
-  KN: { en: "VAT", local: "VAT" },
-  LC: { en: "VAT", local: "VAT" },
-  MQ: { en: "VAT", local: "TVA" },
-  MX: { en: "VAT", local: "IVA" },
-  NI: { en: "VAT", local: "IVA" },
-  PA: { en: "VAT", local: "ITBMS" },
-  PR: { en: "Sales Tax", local: "IVU" },
-  SV: { en: "VAT", local: "IVA" },
-  SX: { en: "Sales Tax", local: "TOT" },
-  TT: { en: "VAT", local: "VAT" },
-  VC: { en: "VAT", local: "VAT" },
+  AG: { en: 'VAT', local: 'ABST' },
+  AI: { en: 'GST', local: 'GST' },
+  BB: { en: 'VAT', local: 'VAT' },
+  BS: { en: 'VAT', local: 'VAT' },
+  BZ: { en: 'GST', local: 'GST' },
+  CR: { en: 'VAT', local: 'IVA' },
+  CW: { en: 'Sales Tax', local: 'OB' },
+  DM: { en: 'VAT', local: 'VAT' },
+  DO: { en: 'VAT', local: 'ITBIS' },
+  GD: { en: 'VAT', local: 'VAT' },
+  GP: { en: 'VAT', local: 'TVA' },
+  GT: { en: 'VAT', local: 'IVA' },
+  HN: { en: 'VAT', local: 'ISV' },
+  HT: { en: 'VAT', local: 'TCA' },
+  JM: { en: 'VAT', local: 'GCT' },
+  KN: { en: 'VAT', local: 'VAT' },
+  LC: { en: 'VAT', local: 'VAT' },
+  MQ: { en: 'VAT', local: 'TVA' },
+  MX: { en: 'VAT', local: 'IVA' },
+  NI: { en: 'VAT', local: 'IVA' },
+  PA: { en: 'VAT', local: 'ITBMS' },
+  PR: { en: 'Sales Tax', local: 'IVU' },
+  SV: { en: 'VAT', local: 'IVA' },
+  SX: { en: 'Sales Tax', local: 'TOT' },
+  TT: { en: 'VAT', local: 'VAT' },
+  VC: { en: 'VAT', local: 'VAT' },
   // ---- South America ----------------------------------------------------------
-  AR: { en: "VAT", local: "IVA" },
-  BO: { en: "VAT", local: "IVA" },
-  BR: { en: "VAT", local: "ICMS" },
-  CL: { en: "VAT", local: "IVA" },
-  CO: { en: "VAT", local: "IVA" },
-  EC: { en: "VAT", local: "IVA" },
-  GY: { en: "VAT", local: "VAT" },
-  PE: { en: "VAT", local: "IGV" },
-  PY: { en: "VAT", local: "IVA" },
-  SR: { en: "VAT", local: "VAT" },
-  UY: { en: "VAT", local: "IVA" },
-  VE: { en: "VAT", local: "IVA" },
+  AR: { en: 'VAT', local: 'IVA' },
+  BO: { en: 'VAT', local: 'IVA' },
+  BR: { en: 'VAT', local: 'ICMS' },
+  CL: { en: 'VAT', local: 'IVA' },
+  CO: { en: 'VAT', local: 'IVA' },
+  EC: { en: 'VAT', local: 'IVA' },
+  GY: { en: 'VAT', local: 'VAT' },
+  PE: { en: 'VAT', local: 'IGV' },
+  PY: { en: 'VAT', local: 'IVA' },
+  SR: { en: 'VAT', local: 'VAT' },
+  UY: { en: 'VAT', local: 'IVA' },
+  VE: { en: 'VAT', local: 'IVA' },
   // ---- Oceania ----------------------------------------------------------------
-  CK: { en: "VAT", local: "VAT" },
-  FJ: { en: "VAT", local: "VAT" },
-  KI: { en: "VAT", local: "VAT" },
-  NC: { en: "VAT", local: "TGC" },
-  PF: { en: "VAT", local: "TVA" },
-  PG: { en: "GST", local: "GST" },
-  PW: { en: "GST", local: "PGST" },
-  SB: { en: "GST", local: "GST" },
-  TO: { en: "Consumption Tax", local: "CT" },
-  VU: { en: "VAT", local: "VAT" },
-  WS: { en: "VAT", local: "VAGST" },
+  CK: { en: 'VAT', local: 'VAT' },
+  FJ: { en: 'VAT', local: 'VAT' },
+  KI: { en: 'VAT', local: 'VAT' },
+  NC: { en: 'VAT', local: 'TGC' },
+  PF: { en: 'VAT', local: 'TVA' },
+  PG: { en: 'GST', local: 'GST' },
+  PW: { en: 'GST', local: 'PGST' },
+  SB: { en: 'GST', local: 'GST' },
+  TO: { en: 'Consumption Tax', local: 'CT' },
+  VU: { en: 'VAT', local: 'VAT' },
+  WS: { en: 'VAT', local: 'VAGST' },
 };
 
 /** English name of the consumption tax for a country (and optional region). Returns null for countries with no consumption tax. */
-export function getTaxLabel(countryCode: string, region?: string): string | null {
-  const entry = TAX_LABELS[countryCode.toUpperCase() as CountryCode];
+function getTaxLabel(countryCode: string, region?: string): string | null {
+  const code = countryCode.toUpperCase();
+  const entry = isCountryCode(code) ? TAX_LABELS[code] : undefined;
   if (!entry) return null;
   if (region) {
     const regionEntry = entry.byRegion?.[region.toUpperCase()];
@@ -830,8 +834,9 @@ export function getTaxLabel(countryCode: string, region?: string): string | null
 }
 
 /** Local name of the consumption tax for a country (and optional region). Returns null for countries with no consumption tax. */
-export function getLocalTaxLabel(countryCode: string, region?: string): string | null {
-  const entry = TAX_LABELS[countryCode.toUpperCase() as CountryCode];
+function getLocalTaxLabel(countryCode: string, region?: string): string | null {
+  const code = countryCode.toUpperCase();
+  const entry = isCountryCode(code) ? TAX_LABELS[code] : undefined;
   if (!entry) return null;
   if (region) {
     const regionEntry = entry.byRegion?.[region.toUpperCase()];
@@ -847,27 +852,29 @@ export function getLocalTaxLabel(countryCode: string, region?: string): string |
  */
 const BUSINESS_TAX_NUMBER_LABELS: Partial<Record<CountryCode, string>> = {
   // Jurisdiction-specific identifiers
-  AU: "ABN",
-  CA: "Business Number",
-  GB: "VAT Number",
-  JP: "Qualified Invoice Issuer Number",
-  US: "EIN",
-  CH: "UID",
-  NZ: "GST Number",
-  SG: "GST Registration Number",
-  IN: "GSTIN",
-  KR: "Business Registration Number",
-  CN: "Unified Social Credit Code",
-  MY: "SST Number",
+  AU: 'ABN',
+  CA: 'Business Number',
+  GB: 'VAT Number',
+  JP: 'Qualified Invoice Issuer Number',
+  US: 'EIN',
+  CH: 'UID',
+  NZ: 'GST Number',
+  SG: 'GST Registration Number',
+  IN: 'GSTIN',
+  KR: 'Business Registration Number',
+  CN: 'Unified Social Credit Code',
+  MY: 'SST Number',
   // EU countries use "VAT Number" (fall through to default below)
 };
 
-export function getBusinessTaxNumberLabel(countryCode: string): string | null {
-  const code = countryCode.toUpperCase() as CountryCode;
-  if (BUSINESS_TAX_NUMBER_LABELS[code] !== undefined) return BUSINESS_TAX_NUMBER_LABELS[code]!;
+function getBusinessTaxNumberLabel(countryCode: string): string | null {
+  const code = countryCode.toUpperCase();
+  if (!isCountryCode(code)) return null;
+  const specific = BUSINESS_TAX_NUMBER_LABELS[code];
+  if (specific !== undefined) return specific;
   // Countries with no consumption tax have no registration number
   if (!TAX_LABELS[code]) return null;
-  return "VAT Number";
+  return 'VAT Number';
 }
 
 // ---------------------------------------------------------------------------
@@ -876,36 +883,35 @@ export function getBusinessTaxNumberLabel(countryCode: string): string | null {
 
 /** A region record has no own `taxSystem` field; a plain TaxConfig does. */
 function isRegional(entry: CountryTaxEntry): entry is Record<string, TaxConfig> {
-  return !("taxSystem" in entry);
+  return !Object.hasOwn(entry, 'taxSystem');
+}
+
+/** Looks up a country's tax entry by (case-insensitive) code, or `undefined` when unknown. */
+function taxEntryFor(country: string): CountryTaxEntry | undefined {
+  const code = country.toUpperCase();
+  return isCountryCode(code) ? TAX_CONFIG[code] : undefined;
 }
 
 /** True when a country's tax rate varies by state/province. */
-export function hasRegionalTax(country: string): boolean {
-  const entry = TAX_CONFIG[country.toUpperCase() as CountryCode];
-  return !!entry && isRegional(entry);
+function hasRegionalTax(country: string): boolean {
+  const entry = taxEntryFor(country);
+  return entry !== undefined && isRegional(entry);
 }
-
-// `isEUCountry` (EU member state on the OSS one-stop-shop system) is defined in
-// ./address and re-exported here so the tax and address domains — and the root
-// barrel — expose one canonical symbol. Every OSS country in TAX_CONFIG is an
-// EU-27 member, so the set-based check in ./address and the OSS-based check are
-// equivalent.
-export { isEUCountry } from "./address";
 
 /**
  * Resolve a country to its (country-level) {@link TaxConfig}, exposing the
  * consumption-tax identifier metadata (prefix/pattern/example). For regional
  * countries these fields are identical across regions, so any entry serves.
  */
-export function getTaxConfig(country: string): TaxConfig | undefined {
-  const entry = TAX_CONFIG[country.toUpperCase() as CountryCode];
-  if (!entry) return undefined;
+function getTaxConfig(country: string): TaxConfig | undefined {
+  const entry = taxEntryFor(country);
+  if (!entry) return;
   return isRegional(entry) ? Object.values(entry)[0] : entry;
 }
 
 /** Normalizes a consumption-tax identifier: trims, uppercases, strips spaces. */
-export function normalizeTax(taxId: string): string {
-  return taxId.trim().toUpperCase().replace(/\s/g, "");
+function normalizeTax(taxId: string): string {
+  return taxId.trim().toUpperCase().replace(/\s/g, '');
 }
 
 /**
@@ -913,18 +919,29 @@ export function normalizeTax(taxId: string): string {
  * false for countries with no known tax-id pattern (see {@link TaxConfig.taxPattern}).
  * The id is normalized (trim/uppercase/strip spaces) before matching.
  */
-export function validateTax(taxId: string, countryCode: string): boolean {
+function validateTax(taxId: string, countryCode: string): boolean {
   const config = getTaxConfig(countryCode);
   if (!config?.taxPattern) return false;
   return config.taxPattern.test(normalizeTax(taxId));
 }
+
+type ResolvedTaxConfig = { config: TaxConfig; regionResolved: boolean };
+
+// Neutral no-tax config. Only reached if a region record were empty, which the
+// `regional()` builder never produces — it exists purely to keep `resolveConfig`
+// total without a type assertion.
+const EMPTY_REGION_CONFIG: TaxConfig = {
+  baseConsumerTax: null,
+  taxSystem: 'country-specific',
+  collectionThreshold: null,
+};
 
 /**
  * Resolve a country (and optional region) to a single {@link TaxConfig}.
  * For regional countries, returns the matching region's config, or any entry
  * (for country-level fields) when no/unknown region is supplied.
  */
-function resolveConfig(entry: CountryTaxEntry, state: string | undefined): { config: TaxConfig; regionResolved: boolean } {
+function resolveConfig(entry: CountryTaxEntry, state: string | undefined): ResolvedTaxConfig {
   if (!isRegional(entry)) return { config: entry, regionResolved: false };
 
   if (state) {
@@ -933,9 +950,11 @@ function resolveConfig(entry: CountryTaxEntry, state: string | undefined): { con
   }
   // No region selected (or unknown): fall back to the first entry for
   // country-level fields. Its `baseConsumerTax` is not authoritative.
-  // Region records are always non-empty (built via `regional`).
-  const fallback = Object.values(entry)[0];
-  return { config: fallback as TaxConfig, regionResolved: false };
+  // Region records are always non-empty (built via `regional`), so the first
+  // value is always present.
+  const [fallback] = Object.values(entry);
+  if (!fallback) return { config: EMPTY_REGION_CONFIG, regionResolved: false };
+  return { config: fallback, regionResolved: false };
 }
 
 // ---------------------------------------------------------------------------
@@ -965,24 +984,18 @@ const EMPTY_OUTCOME: TaxOutcome = {
 // Public API
 // ---------------------------------------------------------------------------
 
-export interface ComputeTaxOutcomeParams {
+type ComputeTaxOutcomeParams = {
   country: string;
   isBusiness: boolean;
   hasTaxId: boolean;
   hasNexus?: boolean;
   state?: string;
-}
+};
 
-export function computeTaxOutcome({
-  country,
-  isBusiness,
-  hasTaxId,
-  hasNexus = false,
-  state,
-}: ComputeTaxOutcomeParams): TaxOutcome {
+function computeTaxOutcome({ country, isBusiness, hasTaxId, hasNexus = false, state }: ComputeTaxOutcomeParams): TaxOutcome {
   if (!country) return EMPTY_OUTCOME;
 
-  const entry = TAX_CONFIG[country.toUpperCase() as CountryCode];
+  const entry = taxEntryFor(country);
   if (!entry) return EMPTY_OUTCOME;
 
   const { config, regionResolved } = resolveConfig(entry, state);
@@ -997,10 +1010,10 @@ export function computeTaxOutcome({
 
   // OSS (EU) jurisdictions always carry a seller obligation, so they count as
   // in-nexus regardless of the supplied `hasNexus` flag.
-  const sellerHasNexus = hasNexus || config.taxSystem === "oss";
+  const sellerHasNexus = hasNexus || config.taxSystem === 'oss';
 
   // `effectiveTax` is `baseTax` when the seller has nexus, else 0
-  const effective = (base: number | null): number | null => (sellerHasNexus ? base : 0);
+  const effective = (rate: number | null): number | null => (sellerHasNexus ? rate : 0);
 
   // If NOT a business (consumer), apply standard rates with exceptions
   if (!isBusiness) {
@@ -1023,14 +1036,14 @@ export function computeTaxOutcome({
       effectiveTax: effective(baseTax),
       flags: makeFlags({
         regionalRates: isRegionalCountry,
-        localSurcharge: !!config.localSurcharge,
+        localSurcharge: Boolean(config.localSurcharge),
       }),
     };
   }
 
   // Business transactions
   // OSS countries: B2B with valid tax ID → reverse charge (0%)
-  if (config.taxSystem === "oss" && hasTaxId) {
+  if (config.taxSystem === 'oss' && hasTaxId) {
     const baseTax = 0;
     return {
       ...base,
@@ -1059,16 +1072,16 @@ export function computeTaxOutcome({
     effectiveTax: effective(baseTax),
     flags: makeFlags({
       regionalRates: isRegionalCountry,
-      localSurcharge: !!config.localSurcharge,
+      localSurcharge: Boolean(config.localSurcharge),
     }),
   };
 }
 
-export interface ComputeConsumerTaxOutcomeParams {
+type ComputeConsumerTaxOutcomeParams = {
   country: string;
   hasNexus?: boolean;
   state?: string;
-}
+};
 
 /**
  * Compute consumption tax outcome for consumer (B2C) transactions.
@@ -1079,6 +1092,31 @@ export interface ComputeConsumerTaxOutcomeParams {
  * @param params.state - Optional state/province code for regional tax countries (US, CA)
  * @returns The computed tax outcome for a consumer transaction
  */
-export function computeConsumerTaxOutcome({ country, hasNexus = false, state }: ComputeConsumerTaxOutcomeParams): TaxOutcome {
+function computeConsumerTaxOutcome({ country, hasNexus = false, state }: ComputeConsumerTaxOutcomeParams): TaxOutcome {
   return computeTaxOutcome({ country, isBusiness: false, hasTaxId: false, hasNexus, state });
 }
+
+export type {
+  ComputeConsumerTaxOutcomeParams,
+  ComputeTaxOutcomeParams,
+  CountryTaxEntry,
+  TaxConfig,
+  TaxLabels,
+  TaxOutcome,
+  TaxOutcomeFlags,
+  TaxSystem,
+  TaxType,
+  TaxValue,
+};
+export {
+  computeConsumerTaxOutcome,
+  computeTaxOutcome,
+  getBusinessTaxNumberLabel,
+  getLocalTaxLabel,
+  getTaxConfig,
+  getTaxLabel,
+  hasRegionalTax,
+  normalizeTax,
+  TAX_CONFIG,
+  validateTax,
+};
