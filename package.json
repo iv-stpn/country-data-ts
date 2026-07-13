@@ -79,8 +79,14 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "LICENSE",
+    "README.md"
   ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "sideEffects": false,
   "scripts": {
     "build": "tsup",
@@ -92,12 +98,16 @@
     "lint:fix": "biome check . --write",
     "typecheck": "tsc --noEmit && tsc --noEmit -p scripts/tsconfig.json && tsc --noEmit -p src/__tests__/tsconfig.json",
     "prepublishOnly": "bun run build && bun run typecheck",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "bun run build && changeset publish",
     "gen:countries": "bun run scripts/gen-countries.ts",
     "gen:level1": "bun run scripts/gen-level1-codes.ts",
     "gen": "bun run gen:countries && bun run gen:level1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.2",
+    "@changesets/cli": "^2.31.0",
     "@types/bun": "latest",
     "@types/node": "^26",
     "tsup": "^8.5.1",
