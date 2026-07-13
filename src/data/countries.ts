@@ -3,7 +3,7 @@
 
 export type DivisionLabel = { en: string | null; local: string | null };
 
-export type CountryData = {
+export interface CountryData {
   code: string;
   iso3: string;
   name: string;
@@ -16,7 +16,7 @@ export type CountryData = {
     level1: DivisionLabel | null;
     level2: DivisionLabel | null;
   };
-};
+}
 
 // ISO 3166-1 alpha-2 code for every country GeoNames knows about.
 export const COUNTRY_CODES = [

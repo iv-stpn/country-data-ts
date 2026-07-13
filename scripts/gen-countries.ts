@@ -3,7 +3,9 @@
 // Emits a single fully-populated COUNTRY_DATA record (every country, not a
 // Partial subset) keyed by ISO 3166-1 alpha-2 code, carrying the reference
 // metadata GeoNames gives us — including the level-1/level-2 administrative code division-type labels
-// that drive level1 in src/address.ts.
+// that drive level1 in src/address.ts. Those labels are hand-curated and live
+// in data/administrative-local-labels.json (not in data/countries.json); they
+// are re-joined onto each country below.
 //
 // Run with: bun run scripts/gen-countries.ts
 import { spawn } from 'node:child_process';
@@ -35,10 +37,15 @@ function formatTs(source: string): Promise<string> {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const inFile = resolve(__dirname, '../data/countries.json');
+const labelsFile = resolve(__dirname, '../data/administrative-local-labels.json');
 const outFile = resolve(__dirname, '../src/data/countries.ts');
 
 type DivisionLabel = { en: string | null; local: string | null };
-type Country = {
+type AdministrativeLabels = { level1: DivisionLabel | null; level2: DivisionLabel | null };
+// data/countries.json no longer carries administrativeLabels — the hand-curated
+// division-type labels live in data/administrative-local-labels.json and are
+// re-joined onto each country here (see scripts/split-administrative-labels.ts).
+type RawCountry = {
   code: string;
   iso3: string;
   name: string;
@@ -47,13 +54,17 @@ type Country = {
   currencyName: string;
   postalCodeRegex: string | null;
   languages: string[];
-  administrativeLabels: {
-    level1: DivisionLabel | null;
-    level2: DivisionLabel | null;
-  };
 };
+type Country = RawCountry & { administrativeLabels: AdministrativeLabels };
 
-const countries: Country[] = JSON.parse(await readFile(inFile, 'utf8'));
+const rawCountries: RawCountry[] = JSON.parse(await readFile(inFile, 'utf8'));
+const labels: Record<string, AdministrativeLabels> = JSON.parse(await readFile(labelsFile, 'utf8'));
+
+// Re-join labels; countries absent from the labels file default to both null.
+const countries: Country[] = rawCountries.map((c) => ({
+  ...c,
+  administrativeLabels: labels[c.code] ?? { level1: null, level2: null },
+}));
 countries.sort((a, b) => a.code.localeCompare(b.code));
 
 // GeoNames reports a single dominant level1 category, but some countries mix

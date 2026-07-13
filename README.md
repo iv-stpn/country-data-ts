@@ -427,7 +427,7 @@ bun run gen:coverage # regenerate the coverage table in README.md
 
 > ❗ next to a code means its data changed since it was last verified — the country/region should be reverified.
 
-| Code | Country | Last verified | Calling code | Phone mask | Phone example | Address format | Postal code | Level 1 labels | Level 2 labels | Consumption tax | Nexus minimum | VAT name & format |
+| Code | Country | Last verified | Calling code | Phone mask | Phone example | Address format | Postal code | Level 1 labels | Level 2 labels | Consumption tax | Nexus minimum | Consumer tax |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | AD | Andorra | — | +376 | ✅ [000] [000] | ✅ 312 345 | ✅ | ✅ (AD500) | ✅ Parish / Parròquia | ✅ Settlement / Ciutat | 4.5% VAT (IGI) ✅ | EUR 40,000 | ❌ |
 | AE | United Arab Emirates | — | +971 | ✅ [00] [000] [0000] | ✅ 50 123 4567 | ✅ | ✅ (00000-00000) | ✅ Emirate / إمارة | ❌ | 5% VAT ✅ | AED 375,000 | ❌ |

@@ -12,6 +12,7 @@
 // it (typically while setting a new "Last verified" date).
 
 import { readFileSync, writeFileSync } from 'node:fs';
+import administrativeLabels from '../data/administrative-local-labels.json';
 import countries from '../data/countries.json';
 import { type CountryCode, isCountryCode } from '../src/data/countries';
 import { level1Admin_CA, level1Admin_US } from '../src/data/level1-administrative-codes';
@@ -23,6 +24,11 @@ import { getLocalTaxLabel, getTaxConfig, getTaxLabel, hasRegionalTax, TAX_CONFIG
 const README = new URL('../README.md', import.meta.url).pathname;
 const START = '<!-- COVERAGE_TABLE_START -->';
 const END = '<!-- COVERAGE_TABLE_END -->';
+
+// Division-type labels were split out of countries.json into their own file
+// (see scripts/split-administrative-labels.ts); re-join them here by code.
+type LabelCell = { en?: string; local?: string } | null;
+const LABELS: Record<string, { level1?: LabelCell; level2?: LabelCell }> = administrativeLabels;
 
 const HEADERS = [
   'Code',
@@ -143,8 +149,9 @@ function buildRows(): Row[] {
     const addressFmt = '✅';
     const consumerTax = consumerTaxCell(code);
     const postal = country.postalCodeRegex ? `✅ (${postalExample(code)})` : '❌';
-    const level1 = levelCell(country.administrativeLabels?.level1);
-    const level2 = levelCell(country.administrativeLabels?.level2);
+    const labels = LABELS[code];
+    const level1 = levelCell(labels?.level1);
+    const level2 = levelCell(labels?.level2);
 
     let tax: string;
     if (!entry) tax = '❓';

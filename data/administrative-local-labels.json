@@ -1,0 +1,1907 @@
+{
+  "AD": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parròquia"
+    },
+    "level2": {
+      "en": "Settlement",
+      "local": "Ciutat"
+    }
+  },
+  "AE": {
+    "level1": {
+      "en": "Emirate",
+      "local": "إمارة"
+    },
+    "level2": null
+  },
+  "AF": {
+    "level1": {
+      "en": "Province",
+      "local": "ولایت"
+    },
+    "level2": {
+      "en": "District",
+      "local": "ولسوالی"
+    }
+  },
+  "AG": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "AL": {
+    "level1": {
+      "en": "County",
+      "local": "Qarku"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Rrethet"
+    }
+  },
+  "AM": {
+    "level1": {
+      "en": "Province",
+      "local": "Մարզ"
+    },
+    "level2": {
+      "en": "Village",
+      "local": "Գյուղ"
+    }
+  },
+  "AO": {
+    "level1": {
+      "en": "Province",
+      "local": "Província"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Município"
+    }
+  },
+  "AR": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Departamento"
+    }
+  },
+  "AS": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": {
+      "en": "County",
+      "local": "County"
+    }
+  },
+  "AT": {
+    "level1": {
+      "en": "Federal state",
+      "local": "Bundesland"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Bezirk"
+    }
+  },
+  "AU": {
+    "level1": {
+      "en": "External territory",
+      "local": "External territory"
+    },
+    "level2": {
+      "en": "Local government area",
+      "local": "Local government area"
+    }
+  },
+  "AZ": {
+    "level1": {
+      "en": "District",
+      "local": "Rayonu"
+    },
+    "level2": null
+  },
+  "BA": {
+    "level1": {
+      "en": "Political division",
+      "local": "Administrativna podjela"
+    },
+    "level2": {
+      "en": "Region",
+      "local": "Regije Republike Srpske"
+    }
+  },
+  "BB": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "BD": {
+    "level1": {
+      "en": "Division",
+      "local": "বিভাগ"
+    },
+    "level2": {
+      "en": "District",
+      "local": "জেলা"
+    }
+  },
+  "BE": {
+    "level1": {
+      "en": "Region",
+      "local": "Gewest"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincie"
+    }
+  },
+  "BF": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Province"
+    }
+  },
+  "BG": {
+    "level1": {
+      "en": "Oblast",
+      "local": "Oбласт"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Община"
+    }
+  },
+  "BH": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": null
+  },
+  "BI": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Commune"
+    }
+  },
+  "BJ": {
+    "level1": {
+      "en": "Department",
+      "local": "Département"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Commune"
+    }
+  },
+  "BM": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "BN": {
+    "level1": {
+      "en": "District",
+      "local": "Daerah"
+    },
+    "level2": {
+      "en": "Mukim",
+      "local": "Mukim Negara"
+    }
+  },
+  "BO": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincia"
+    }
+  },
+  "BR": {
+    "level1": {
+      "en": "Federative unit",
+      "local": "Unidade federativa"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Município"
+    }
+  },
+  "BS": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "BT": {
+    "level1": {
+      "en": "District",
+      "local": "རྫོང་ཁག"
+    },
+    "level2": {
+      "en": "Gewog",
+      "local": ""
+    }
+  },
+  "BW": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "BY": {
+    "level1": {
+      "en": "Region",
+      "local": "Вобласць"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Раён"
+    }
+  },
+  "BZ": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "CA": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": {
+      "en": "Regional district",
+      "local": "Regional district"
+    }
+  },
+  "CD": {
+    "level1": {
+      "en": "Province",
+      "local": "Provinces"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Commune"
+    }
+  },
+  "CF": {
+    "level1": {
+      "en": "Prefecture",
+      "local": "Préfecture"
+    },
+    "level2": null
+  },
+  "CG": {
+    "level1": {
+      "en": "Department",
+      "local": "Département"
+    },
+    "level2": null
+  },
+  "CH": {
+    "level1": {
+      "en": "Canton",
+      "local": "Kanton"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Gemeinde"
+    }
+  },
+  "CI": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": null
+  },
+  "CL": {
+    "level1": {
+      "en": "Region",
+      "local": "Región"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincia"
+    }
+  },
+  "CM": {
+    "level1": {
+      "en": "Electoral unit",
+      "local": "Electoral unit"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Department"
+    }
+  },
+  "CN": {
+    "level1": {
+      "en": "Province",
+      "local": "省"
+    },
+    "level2": {
+      "en": "Prefecture-level city",
+      "local": "地级市"
+    }
+  },
+  "CO": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "CR": {
+    "level1": {
+      "en": "Electoral unit",
+      "local": "Circunscripción electoral"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Cantón"
+    }
+  },
+  "CU": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "CV": {
+    "level1": {
+      "en": "Concelho",
+      "local": "Municipio"
+    },
+    "level2": {
+      "en": "Freguesia",
+      "local": "Freguesia"
+    }
+  },
+  "CY": {
+    "level1": {
+      "en": "District",
+      "local": "Επαρχία"
+    },
+    "level2": {
+      "en": "Community",
+      "local": "Κοινότητα"
+    }
+  },
+  "CZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Kraj"
+    },
+    "level2": {
+      "en": "Municipal part",
+      "local": "Část obce"
+    }
+  },
+  "DE": {
+    "level1": {
+      "en": "Federated state",
+      "local": "Bundesland"
+    },
+    "level2": {
+      "en": "Urban municipality",
+      "local": "Stadt"
+    }
+  },
+  "DJ": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Sub-prefecture",
+      "local": "Sous-préfecture"
+    }
+  },
+  "DK": {
+    "level1": {
+      "en": "County",
+      "local": "Dansk amt"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Kommune"
+    }
+  },
+  "DM": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "DO": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": null
+  },
+  "DZ": {
+    "level1": {
+      "en": "Province",
+      "local": "ولاية"
+    },
+    "level2": {
+      "en": "District",
+      "local": "دائرة"
+    }
+  },
+  "EC": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Cantón"
+    }
+  },
+  "EE": {
+    "level1": {
+      "en": "County",
+      "local": "Maakond"
+    },
+    "level2": null
+  },
+  "EG": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": {
+      "en": "Marka",
+      "local": "مركز"
+    }
+  },
+  "ER": {
+    "level1": {
+      "en": "Region",
+      "local": ""
+    },
+    "level2": null
+  },
+  "ES": {
+    "level1": {
+      "en": "Autonomous community",
+      "local": "Comunidad autónoma"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincia"
+    }
+  },
+  "ET": {
+    "level1": {
+      "en": "Region",
+      "local": ""
+    },
+    "level2": {
+      "en": "District",
+      "local": ""
+    }
+  },
+  "FI": {
+    "level1": {
+      "en": "Region",
+      "local": "Maakunta"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Kunta"
+    }
+  },
+  "FJ": {
+    "level1": {
+      "en": "Division",
+      "local": "Division"
+    },
+    "level2": null
+  },
+  "FM": {
+    "level1": {
+      "en": "State",
+      "local": "State"
+    },
+    "level2": null
+  },
+  "FR": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Département"
+    }
+  },
+  "GA": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  },
+  "GB": {
+    "level1": {
+      "en": "Constituent country",
+      "local": "Constituent country"
+    },
+    "level2": {
+      "en": "Council area",
+      "local": "Council area"
+    }
+  },
+  "GD": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "GE": {
+    "level1": {
+      "en": "Mkhare",
+      "local": "Მხარე"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Მუნიციპალიტეტი"
+    }
+  },
+  "GF": {
+    "level1": {
+      "en": "Arrondissement",
+      "local": "Arrondissement"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Canton"
+    }
+  },
+  "GG": {
+    "level1": {
+      "en": "Island",
+      "local": "Island"
+    },
+    "level2": {
+      "en": "Parish",
+      "local": "Parish"
+    }
+  },
+  "GH": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": {
+      "en": "District",
+      "local": "District"
+    }
+  },
+  "GL": {
+    "level1": {
+      "en": "Municipality",
+      "local": ""
+    },
+    "level2": null
+  },
+  "GM": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": null
+  },
+  "GN": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Prefecture",
+      "local": "Préfecture"
+    }
+  },
+  "GP": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Canton"
+    }
+  },
+  "GQ": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": null
+  },
+  "GR": {
+    "level1": {
+      "en": "Monastic community",
+      "local": "Μοναστική κοινότητα"
+    },
+    "level2": {
+      "en": "Regional unit",
+      "local": "Περιφερειακή ενότητα"
+    }
+  },
+  "GT": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "GU": {
+    "level1": {
+      "en": "Village",
+      "local": "Village"
+    },
+    "level2": {
+      "en": "Village",
+      "local": "Village"
+    }
+  },
+  "GW": {
+    "level1": {
+      "en": "Region",
+      "local": "Região"
+    },
+    "level2": null
+  },
+  "GY": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": null
+  },
+  "HK": {
+    "level1": {
+      "en": "District",
+      "local": "香港政區"
+    },
+    "level2": null
+  },
+  "HN": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "HR": {
+    "level1": {
+      "en": "County",
+      "local": "Županija"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Općina"
+    }
+  },
+  "HT": {
+    "level1": {
+      "en": "Department",
+      "local": "Depatman"
+    },
+    "level2": {
+      "en": "Arrondissement",
+      "local": "Lis awondisman"
+    }
+  },
+  "HU": {
+    "level1": {
+      "en": "County",
+      "local": "Vármegye"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Járás"
+    }
+  },
+  "ID": {
+    "level1": {
+      "en": "Province",
+      "local": "Provinsi"
+    },
+    "level2": {
+      "en": "Regency",
+      "local": "Kabupaten"
+    }
+  },
+  "IE": {
+    "level1": {
+      "en": "County",
+      "local": "County"
+    },
+    "level2": {
+      "en": "Municipal district",
+      "local": "Municipal district"
+    }
+  },
+  "IL": {
+    "level1": {
+      "en": "District",
+      "local": "מחוז"
+    },
+    "level2": {
+      "en": "Settlement",
+      "local": "התנחלות"
+    }
+  },
+  "IN": {
+    "level1": {
+      "en": "State",
+      "local": "State"
+    },
+    "level2": {
+      "en": "District",
+      "local": "District"
+    }
+  },
+  "IQ": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": {
+      "en": "District",
+      "local": "قضاء"
+    }
+  },
+  "IR": {
+    "level1": {
+      "en": "Province",
+      "local": "استان"
+    },
+    "level2": {
+      "en": "County",
+      "local": "شهرستان"
+    }
+  },
+  "IS": {
+    "level1": {
+      "en": "Constituency",
+      "local": "Kjördæmi"
+    },
+    "level2": null
+  },
+  "IT": {
+    "level1": {
+      "en": "Region",
+      "local": "Regione"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincia"
+    }
+  },
+  "JE": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "JM": {
+    "level1": {
+      "en": "County",
+      "local": "County"
+    },
+    "level2": {
+      "en": "Parish",
+      "local": "Parish"
+    }
+  },
+  "JO": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": null
+  },
+  "JP": {
+    "level1": {
+      "en": "Prefecture",
+      "local": "都道府県"
+    },
+    "level2": {
+      "en": "City",
+      "local": "日本の市"
+    }
+  },
+  "KE": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  },
+  "KH": {
+    "level1": {
+      "en": "Province",
+      "local": "ខេត្តនៃកម្ពុជា"
+    },
+    "level2": {
+      "en": "District",
+      "local": ""
+    }
+  },
+  "KM": {
+    "level1": {
+      "en": "Volcanic island",
+      "local": "جزيرة"
+    },
+    "level2": null
+  },
+  "KN": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "KP": {
+    "level1": {
+      "en": "Province",
+      "local": "도"
+    },
+    "level2": {
+      "en": "County",
+      "local": "군"
+    }
+  },
+  "KR": {
+    "level1": {
+      "en": "Metropolitan city",
+      "local": "광역시"
+    },
+    "level2": {
+      "en": "County",
+      "local": "군"
+    }
+  },
+  "KW": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": null
+  },
+  "KZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Облыс"
+    },
+    "level2": null
+  },
+  "LA": {
+    "level1": {
+      "en": "Province",
+      "local": "ແຂວງຂອງປະເທດລາວ"
+    },
+    "level2": {
+      "en": "District",
+      "local": "ເມືອງ"
+    }
+  },
+  "LB": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": null
+  },
+  "LC": {
+    "level1": {
+      "en": "Quarter",
+      "local": "Quarter"
+    },
+    "level2": null
+  },
+  "LI": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Gemeinde"
+    },
+    "level2": null
+  },
+  "LK": {
+    "level1": {
+      "en": "Province",
+      "local": "පළාත"
+    },
+    "level2": {
+      "en": "District",
+      "local": "පරිපාලන දිස්ත්රික්කය"
+    }
+  },
+  "LR": {
+    "level1": {
+      "en": "County",
+      "local": "County"
+    },
+    "level2": null
+  },
+  "LS": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "LT": {
+    "level1": {
+      "en": "District municipality",
+      "local": "Rajono savivaldybė"
+    },
+    "level2": {
+      "en": "Eldership",
+      "local": "Seniūnija"
+    }
+  },
+  "LU": {
+    "level1": {
+      "en": "Canton",
+      "local": "Kanton"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Gemeng"
+    }
+  },
+  "LV": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Novads"
+    },
+    "level2": {
+      "en": "Parish",
+      "local": "Pagasts"
+    }
+  },
+  "LY": {
+    "level1": {
+      "en": "District",
+      "local": "شعبية"
+    },
+    "level2": null
+  },
+  "MA": {
+    "level1": {
+      "en": "Region",
+      "local": "جهة"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "إقليم"
+    }
+  },
+  "MC": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": null
+  },
+  "MD": {
+    "level1": {
+      "en": "District",
+      "local": "Raion"
+    },
+    "level2": {
+      "en": "Village",
+      "local": "Sat"
+    }
+  },
+  "ME": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Општина"
+    },
+    "level2": null
+  },
+  "MG": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": {
+      "en": "District",
+      "local": "District"
+    }
+  },
+  "MH": {
+    "level1": {
+      "en": "Reef island",
+      "local": ""
+    },
+    "level2": null
+  },
+  "MK": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Општина"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Општина"
+    }
+  },
+  "ML": {
+    "level1": {
+      "en": "Region",
+      "local": "Régions"
+    },
+    "level2": {
+      "en": "Human settlement",
+      "local": "Établissement humain"
+    }
+  },
+  "MM": {
+    "level1": {
+      "en": "Region",
+      "local": "တိုင်းဒေသကြီး"
+    },
+    "level2": null
+  },
+  "MN": {
+    "level1": {
+      "en": "Province",
+      "local": "Аймаг"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Сум"
+    }
+  },
+  "MP": {
+    "level1": {
+      "en": "Municipality",
+      "local": ""
+    },
+    "level2": null
+  },
+  "MQ": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Canton"
+    }
+  },
+  "MR": {
+    "level1": {
+      "en": "Region",
+      "local": "ولاية"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "مقاطعة"
+    }
+  },
+  "MT": {
+    "level1": {
+      "en": "Region",
+      "local": "Reġjuni ta"
+    },
+    "level2": {
+      "en": "Town",
+      "local": "Raħal"
+    }
+  },
+  "MU": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "MV": {
+    "level1": {
+      "en": "Atoll",
+      "local": "އަތޮޅުތައް"
+    },
+    "level2": null
+  },
+  "MW": {
+    "level1": {
+      "en": "Region",
+      "local": ""
+    },
+    "level2": {
+      "en": "District",
+      "local": "Madera"
+    }
+  },
+  "MX": {
+    "level1": {
+      "en": "State",
+      "local": "Estado"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "MY": {
+    "level1": {
+      "en": "State",
+      "local": "Negeri"
+    },
+    "level2": {
+      "en": "Division",
+      "local": "Bahagian"
+    }
+  },
+  "MZ": {
+    "level1": {
+      "en": "Province",
+      "local": "Província"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Distritos"
+    }
+  },
+  "NA": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": {
+      "en": "Constituency",
+      "local": "Constituency"
+    }
+  },
+  "NC": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": null
+  },
+  "NE": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Département"
+    }
+  },
+  "NG": {
+    "level1": {
+      "en": "State",
+      "local": "State"
+    },
+    "level2": {
+      "en": "Local government area",
+      "local": "Local government area"
+    }
+  },
+  "NI": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "NL": {
+    "level1": {
+      "en": "Country",
+      "local": "Land"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincie"
+    }
+  },
+  "NO": {
+    "level1": {
+      "en": "County",
+      "local": ""
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": ""
+    }
+  },
+  "NP": {
+    "level1": {
+      "en": "Province",
+      "local": "प्रदेश"
+    },
+    "level2": null
+  },
+  "NR": {
+    "level1": {
+      "en": "District",
+      "local": ""
+    },
+    "level2": null
+  },
+  "NZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": {
+      "en": "District",
+      "local": "District"
+    }
+  },
+  "OM": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": null
+  },
+  "PA": {
+    "level1": {
+      "en": "Province",
+      "local": "Provincia"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Distrito"
+    }
+  },
+  "PE": {
+    "level1": {
+      "en": "Department",
+      "local": "Departmento"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Provincia"
+    }
+  },
+  "PF": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Commune"
+    }
+  },
+  "PG": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": {
+      "en": "District",
+      "local": "District"
+    }
+  },
+  "PH": {
+    "level1": {
+      "en": "Region",
+      "local": "Rehiyon"
+    },
+    "level2": {
+      "en": "Province",
+      "local": "Lalawigan"
+    }
+  },
+  "PK": {
+    "level1": {
+      "en": "Province",
+      "local": "صوبہ"
+    },
+    "level2": {
+      "en": "Division",
+      "local": "ڈویژن"
+    }
+  },
+  "PL": {
+    "level1": {
+      "en": "Voivodeship",
+      "local": "Województwo"
+    },
+    "level2": {
+      "en": "Powiat",
+      "local": "Powiat"
+    }
+  },
+  "PM": {
+    "level1": {
+      "en": "Commune",
+      "local": "Commune"
+    },
+    "level2": {
+      "en": "Island",
+      "local": "Île"
+    }
+  },
+  "PR": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Municipality"
+    },
+    "level2": null
+  },
+  "PS": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": {
+      "en": "Governorate",
+      "local": "محافظة"
+    }
+  },
+  "PT": {
+    "level1": {
+      "en": "District",
+      "local": "Distrito"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Município"
+    }
+  },
+  "PW": {
+    "level1": {
+      "en": "State",
+      "local": ""
+    },
+    "level2": null
+  },
+  "PY": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "QA": {
+    "level1": {
+      "en": "Municipality",
+      "local": "بلدية"
+    },
+    "level2": {
+      "en": "Village",
+      "local": "قرية"
+    }
+  },
+  "RE": {
+    "level1": {
+      "en": "Arrondissement",
+      "local": "Arrondissement"
+    },
+    "level2": {
+      "en": "Canton",
+      "local": "Canton"
+    }
+  },
+  "RO": {
+    "level1": {
+      "en": "County",
+      "local": "Județ"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Comună"
+    }
+  },
+  "RS": {
+    "level1": {
+      "en": "District",
+      "local": "Округ"
+    },
+    "level2": {
+      "en": "Municipality / city",
+      "local": "Општина / град"
+    }
+  },
+  "RU": {
+    "level1": {
+      "en": "Federal subject",
+      "local": "Субъект"
+    },
+    "level2": {
+      "en": "Municipal district",
+      "local": "Муниципальный район"
+    }
+  },
+  "RW": {
+    "level1": {
+      "en": "Province",
+      "local": "Intara"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Uturere tw"
+    }
+  },
+  "SA": {
+    "level1": {
+      "en": "Province",
+      "local": "منطقة"
+    },
+    "level2": null
+  },
+  "SB": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  },
+  "SC": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "SD": {
+    "level1": {
+      "en": "State",
+      "local": "ولاية"
+    },
+    "level2": null
+  },
+  "SE": {
+    "level1": {
+      "en": "County",
+      "local": "Län"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Kommun"
+    }
+  },
+  "SH": {
+    "level1": {
+      "en": "Island",
+      "local": "Island"
+    },
+    "level2": null
+  },
+  "SI": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Občina"
+    },
+    "level2": null
+  },
+  "SK": {
+    "level1": {
+      "en": "Region",
+      "local": "Kraje"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Okres"
+    }
+  },
+  "SL": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  },
+  "SM": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Castelli"
+    },
+    "level2": null
+  },
+  "SN": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Département"
+    }
+  },
+  "SO": {
+    "level1": {
+      "en": "Region",
+      "local": "Gobolada"
+    },
+    "level2": {
+      "en": "District",
+      "local": ""
+    }
+  },
+  "SR": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": {
+      "en": "Ressort",
+      "local": "Ressort"
+    }
+  },
+  "SS": {
+    "level1": {
+      "en": "State",
+      "local": "State"
+    },
+    "level2": null
+  },
+  "ST": {
+    "level1": {
+      "en": "Electoral unit",
+      "local": "Círculo eleitoral"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Distritos"
+    }
+  },
+  "SV": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "SY": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": {
+      "en": "District",
+      "local": "منطقة"
+    }
+  },
+  "SZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Region"
+    },
+    "level2": null
+  },
+  "TD": {
+    "level1": {
+      "en": "Province",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Department",
+      "local": "Départements"
+    }
+  },
+  "TF": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": {
+      "en": "Island",
+      "local": "Île"
+    }
+  },
+  "TG": {
+    "level1": {
+      "en": "Region",
+      "local": "Région"
+    },
+    "level2": {
+      "en": "Prefecture",
+      "local": "Préfecture"
+    }
+  },
+  "TH": {
+    "level1": {
+      "en": "Province",
+      "local": "จังหวัด"
+    },
+    "level2": {
+      "en": "Amphoe",
+      "local": "อำเภอ"
+    }
+  },
+  "TJ": {
+    "level1": {
+      "en": "Region",
+      "local": "Вилоят"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Ноҳия"
+    }
+  },
+  "TL": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Munisipiu"
+    },
+    "level2": null
+  },
+  "TM": {
+    "level1": {
+      "en": "Region",
+      "local": "Welaýatlary"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Etraplar we şäherler"
+    }
+  },
+  "TN": {
+    "level1": {
+      "en": "Governorate",
+      "local": "ولاية"
+    },
+    "level2": {
+      "en": "Delegation",
+      "local": "معتمدية"
+    }
+  },
+  "TO": {
+    "level1": {
+      "en": "Division",
+      "local": ""
+    },
+    "level2": null
+  },
+  "TR": {
+    "level1": {
+      "en": "Province",
+      "local": "Il"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Ilçe"
+    }
+  },
+  "TT": {
+    "level1": {
+      "en": "Regional corporation",
+      "local": "Regional corporation"
+    },
+    "level2": null
+  },
+  "TW": {
+    "level1": {
+      "en": "City",
+      "local": "城市"
+    },
+    "level2": {
+      "en": "District",
+      "local": "區"
+    }
+  },
+  "TZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Mikoa"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Wilaya za"
+    }
+  },
+  "UA": {
+    "level1": {
+      "en": "Oblast",
+      "local": "Область"
+    },
+    "level2": {
+      "en": "Raion",
+      "local": "Район"
+    }
+  },
+  "UG": {
+    "level1": {
+      "en": "District",
+      "local": "District"
+    },
+    "level2": null
+  },
+  "UM": {
+    "level1": {
+      "en": "Insular area",
+      "local": "Insular area"
+    },
+    "level2": null
+  },
+  "US": {
+    "level1": {
+      "en": "State",
+      "local": "State"
+    },
+    "level2": {
+      "en": "County",
+      "local": "County"
+    }
+  },
+  "UY": {
+    "level1": {
+      "en": "Department",
+      "local": "Departamento"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "UZ": {
+    "level1": {
+      "en": "Region",
+      "local": "Viloyatlari"
+    },
+    "level2": {
+      "en": "District",
+      "local": "Tuman"
+    }
+  },
+  "VC": {
+    "level1": {
+      "en": "Parish",
+      "local": "Parish"
+    },
+    "level2": null
+  },
+  "VE": {
+    "level1": {
+      "en": "State",
+      "local": "Estado"
+    },
+    "level2": {
+      "en": "Municipality",
+      "local": "Municipio"
+    }
+  },
+  "VN": {
+    "level1": {
+      "en": "Province",
+      "local": "Tỉnh"
+    },
+    "level2": {
+      "en": "Rural district",
+      "local": "Huyện"
+    }
+  },
+  "VU": {
+    "level1": {
+      "en": "Province",
+      "local": "Provens"
+    },
+    "level2": null
+  },
+  "WF": {
+    "level1": {
+      "en": "Customary kingdom",
+      "local": ""
+    },
+    "level2": null
+  },
+  "WS": {
+    "level1": {
+      "en": "District",
+      "local": ""
+    },
+    "level2": null
+  },
+  "XK": {
+    "level1": {
+      "en": "Municipality",
+      "local": "Komunat"
+    },
+    "level2": null
+  },
+  "YE": {
+    "level1": {
+      "en": "Governorate",
+      "local": "محافظة"
+    },
+    "level2": {
+      "en": "District",
+      "local": "مديرية"
+    }
+  },
+  "YT": {
+    "level1": {
+      "en": "Canton",
+      "local": "Canton"
+    },
+    "level2": {
+      "en": "Commune",
+      "local": "Commune"
+    }
+  },
+  "ZA": {
+    "level1": {
+      "en": "Province",
+      "local": "Izifundazwe zaseNingizimu"
+    },
+    "level2": {
+      "en": "District municipality",
+      "local": ""
+    }
+  },
+  "ZM": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  },
+  "ZW": {
+    "level1": {
+      "en": "Province",
+      "local": "Province"
+    },
+    "level2": null
+  }
+}

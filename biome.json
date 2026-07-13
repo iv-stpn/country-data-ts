@@ -2,7 +2,7 @@
   "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
   "extends": ["@iv-stpn/biome-config/biome"],
   "files": {
-    "includes": ["!dist", "!node_modules", "!src/data", "!data"]
+    "includes": ["!dist", "!node_modules", "!src/data"]
   },
   "linter": {
     "rules": {
