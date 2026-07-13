@@ -15,11 +15,19 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import administrativeLabels from '../data/administrative-local-labels.json';
 import countries from '../data/countries.json';
 import { type CountryCode, isCountryCode } from '../src/data/countries';
-import { level1Admin_CA, level1Admin_US } from '../src/data/level1-administrative-codes';
 import { COUNTRY_PHONE_DATA } from '../src/data/phone-data';
 import { POSTAL_CODE_DATA } from '../src/data/postal-codes';
 import { getUniqueAreaCode } from '../src/phone';
-import { getLocalTaxLabel, getTaxConfig, getTaxLabel, hasRegionalTax, TAX_CONFIG } from '../src/tax';
+import type { RegionalTaxCountryCode } from '../src/tax';
+import {
+  getLocalTaxLabel,
+  getTaxConfig,
+  getTaxLabel,
+  hasRegionalTax,
+  isRegionalCountryCode,
+  REGIONAL_TAX_COUNTRY_REGIONS,
+  TAX_CONFIG,
+} from '../src/tax';
 
 const README = new URL('../README.md', import.meta.url).pathname;
 const START = '<!-- COVERAGE_TABLE_START -->';
@@ -52,9 +60,9 @@ const DATA_COLS = HEADERS.slice(3);
 // Fast lookup from alpha-2 code to phone config.
 const phoneByCode = new Map(COUNTRY_PHONE_DATA.map((country) => [country.code, country]));
 
-const regionLabel = (countryCode: string, code: string): string => {
-  const list = countryCode === 'US' ? level1Admin_US : countryCode === 'CA' ? level1Admin_CA : [];
-  return list.find((o) => o.value === code)?.label ?? code;
+const regionLabel = (countryCode: RegionalTaxCountryCode, code: string): string => {
+  const list = REGIONAL_TAX_COUNTRY_REGIONS[countryCode];
+  return list.find((administrativeDivision) => administrativeDivision.value === code)?.label ?? code;
 };
 
 function postalExample(code: string): string {
@@ -137,6 +145,50 @@ type Row = {
   cells: Record<(typeof HEADERS)[number], string>;
 };
 
+function consumptionTaxCell(code: string, entry: (typeof TAX_CONFIG)[CountryCode] | undefined): string {
+  if (!entry) return '❓';
+  if (hasRegionalTax(code)) {
+    const rates = Object.values(entry)
+      .map((r) => r.baseConsumerTax)
+      .filter((r): r is number => r !== null);
+    const label = taxLabel(code);
+    return `${Math.min(...rates)}–${Math.max(...rates)}% ${label} (regional) ✅`;
+  }
+  const base = getTaxConfig(code)?.baseConsumerTax;
+  const label = taxLabel(code);
+  return base === null ? 'None ✅' : `${base}% ${label} ✅`;
+}
+
+// Per-region rows for countries whose consumption tax rate varies by state/province.
+function buildRegionRows(
+  country: (typeof countries)[number],
+  code: RegionalTaxCountryCode,
+  entry: NonNullable<(typeof TAX_CONFIG)[CountryCode]>,
+): Row[] {
+  return Object.entries(entry).map(([region, config]) => {
+    const rate = config.baseConsumerTax;
+    const label = taxLabel(code, region);
+    return {
+      code: `${code}-${region}`,
+      cells: {
+        Code: `${code}-${region}`,
+        Country: `${country.name} — ${regionLabel(code, region)}`,
+        'Last verified': '—',
+        'Calling code': '↳',
+        'Phone mask': '↳',
+        'Phone example': '↳',
+        'Address format': '↳',
+        'Postal code': '↳',
+        'Level 1 labels': '↳',
+        'Level 2 labels': '↳',
+        'Consumption tax': rate === null ? 'None ✅' : `${rate}% ${label} ✅`,
+        'Nexus minimum': '↳',
+        'Consumer tax': '↳',
+      },
+    };
+  });
+}
+
 /** Build all rows (countries, plus per-region rows for regional-tax countries). */
 function buildRows(): Row[] {
   const rows: Row[] = [];
@@ -145,27 +197,6 @@ function buildRows(): Row[] {
     if (!isCountryCode(code)) throw new Error(`unexpected country code ${code} in data/countries.json`);
 
     const entry = TAX_CONFIG[code];
-
-    const addressFmt = '✅';
-    const consumerTax = consumerTaxCell(code);
-    const postal = country.postalCodeRegex ? `✅ (${postalExample(code)})` : '❌';
-    const labels = LABELS[code];
-    const level1 = levelCell(labels?.level1);
-    const level2 = levelCell(labels?.level2);
-
-    let tax: string;
-    if (!entry) tax = '❓';
-    else if (hasRegionalTax(code)) {
-      const rates = Object.values(entry)
-        .map((r) => r.baseConsumerTax)
-        .filter((r): r is number => r !== null);
-      const label = taxLabel(code);
-      tax = `${Math.min(...rates)}–${Math.max(...rates)}% ${label} (regional) ✅`;
-    } else {
-      const base = getTaxConfig(code)?.baseConsumerTax;
-      const label = taxLabel(code);
-      tax = base === null ? 'None ✅' : `${base}% ${label} ✅`;
-    }
 
     rows.push({
       code,
@@ -176,40 +207,19 @@ function buildRows(): Row[] {
         'Calling code': callingCodeCell(code),
         'Phone mask': phoneMaskCell(code),
         'Phone example': phoneExampleCell(code),
-        'Address format': addressFmt,
-        'Postal code': postal,
-        'Level 1 labels': level1,
-        'Level 2 labels': level2,
-        'Consumption tax': tax,
+        'Address format': '✅',
+        'Postal code': country.postalCodeRegex ? `✅ (${postalExample(code)})` : '❌',
+        'Level 1 labels': levelCell(LABELS[code]?.level1),
+        'Level 2 labels': levelCell(LABELS[code]?.level2),
+        'Consumption tax': consumptionTaxCell(code, entry),
         'Nexus minimum': nexusCell(code, country.currencyCode),
-        'Consumer tax': consumerTax,
+        'Consumer tax': consumerTaxCell(code),
       },
     });
 
-    // Per-region rows for countries whose rate varies by state/province.
     if (entry && hasRegionalTax(code)) {
-      for (const [region, cfg] of Object.entries(entry)) {
-        const rate = cfg.baseConsumerTax;
-        const label = taxLabel(code, region);
-        rows.push({
-          code: `${code}-${region}`,
-          cells: {
-            Code: `${code}-${region}`,
-            Country: `${country.name} — ${regionLabel(code, region)}`,
-            'Last verified': '—',
-            'Calling code': '↳',
-            'Phone mask': '↳',
-            'Phone example': '↳',
-            'Address format': '↳',
-            'Postal code': '↳',
-            'Level 1 labels': '↳',
-            'Level 2 labels': '↳',
-            'Consumption tax': rate === null ? 'None ✅' : `${rate}% ${label} ✅`,
-            'Nexus minimum': '↳',
-            'Consumer tax': '↳',
-          },
-        });
-      }
+      if (!isRegionalCountryCode(code)) throw new Error(`unexpected regional-tax country code ${code} in data/tax-config.json`);
+      rows.push(...buildRegionRows(country, code, entry));
     }
   }
   return rows;

@@ -2,7 +2,13 @@
   "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
   "extends": ["@iv-stpn/biome-config/biome"],
   "files": {
-    "includes": ["!dist", "!node_modules", "!src/data"]
+    "includes": [
+      "!dist",
+      "!node_modules",
+      "!data",
+      "!src/data/administrative-local-names.ts",
+      "!src/data/level2-administrative-codes.ts"
+    ]
   },
   "linter": {
     "rules": {

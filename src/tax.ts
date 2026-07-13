@@ -3,6 +3,7 @@
 // ---------------------------------------------------------------------------
 
 import { type CountryCode, isCountryCode } from './data/countries';
+import { type AdministrativeDivisionOption, level1Admin_CA, level1Admin_US } from './data/level1-administrative-codes';
 
 type TaxValue = {
   taxId?: string;
@@ -126,7 +127,10 @@ function flat(rate: number | null, collectionThreshold: number | null): TaxConfi
  * Country-level fields come from `base`; each region's `baseConsumerTax` comes
  * from `rates` (null = no tax in that region).
  */
-function regional(base: Omit<TaxConfig, 'baseConsumerTax'> & { taxSystem: 'region-specific' }, rates: Record<string, number | null>): Record<string, TaxConfig> {
+function regional(
+  base: Omit<TaxConfig, 'baseConsumerTax'> & { taxSystem: 'region-specific' },
+  rates: Record<string, number | null>,
+): Record<string, TaxConfig> {
   const out: Record<string, TaxConfig> = {};
   for (const [code, rate] of Object.entries(rates)) out[code] = { ...base, baseConsumerTax: rate };
   return out;
@@ -892,6 +896,20 @@ function taxEntryFor(country: string): CountryTaxEntry | undefined {
   return isCountryCode(code) ? TAX_CONFIG[code] : undefined;
 }
 
+/** Country codes whose consumption-tax rate varies by state or province. A `state` param is needed to resolve a definitive rate. */
+const REGIONAL_TAX_COUNTRY_CODES = ['US', 'CA'] as const;
+type RegionalTaxCountryCode = (typeof REGIONAL_TAX_COUNTRY_CODES)[number];
+
+const REGIONAL_TAX_COUNTRY_REGIONS: Record<RegionalTaxCountryCode, readonly AdministrativeDivisionOption[]> = {
+  US: level1Admin_US,
+  CA: level1Admin_CA,
+};
+
+function isRegionalCountryCode(country: string): country is (typeof REGIONAL_TAX_COUNTRY_CODES)[number] {
+  // biome-ignore lint/plugin: TS doesn't narrow the type of `value` based on the return value of `includes`, so we have to cast it here.
+  return REGIONAL_TAX_COUNTRY_CODES.includes(country as (typeof REGIONAL_TAX_COUNTRY_CODES)[number]);
+}
+
 /** True when a country's tax rate varies by state/province. */
 function hasRegionalTax(country: string): boolean {
   const entry = taxEntryFor(country);
@@ -1100,6 +1118,7 @@ export type {
   ComputeConsumerTaxOutcomeParams,
   ComputeTaxOutcomeParams,
   CountryTaxEntry,
+  RegionalTaxCountryCode,
   TaxConfig,
   TaxLabels,
   TaxOutcome,
@@ -1116,7 +1135,10 @@ export {
   getTaxConfig,
   getTaxLabel,
   hasRegionalTax,
+  isRegionalCountryCode,
   normalizeTax,
+  REGIONAL_TAX_COUNTRY_CODES,
+  REGIONAL_TAX_COUNTRY_REGIONS,
   TAX_CONFIG,
   validateTax,
 };

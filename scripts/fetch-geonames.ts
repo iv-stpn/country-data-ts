@@ -11,7 +11,6 @@
 // administrative-local-names for that data.
 //
 // Run with: bun run fetch-geonames
-import { spawnSync } from 'node:child_process';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import process from 'node:process';
@@ -123,6 +122,86 @@ function sortKeys<T>(obj: Record<string, T>): Record<string, T> {
 }
 
 // ---------------------------------------------------------------------------
+// Parsing helpers
+// ---------------------------------------------------------------------------
+
+// countryInfo.txt columns:
+// 0 ISO  1 ISO3  2 ISO-Numeric  3 fips  4 Country  5 Capital  6 Area
+// 7 Population  8 Continent  9 tld  10 CurrencyCode  11 CurrencyName
+// 12 Phone  13 Postal Code Format  14 Postal Code Regex  15 Languages
+// 16 geonameid  17 neighbours  18 EquivalentFipsCode
+function parseCountries(rows: string[][]): Country[] {
+  return (
+    rows
+      .map((c) => ({
+        code: c[0] ?? '',
+        iso3: c[1] ?? '',
+        name: c[4] ?? '',
+        continent: c[8] ?? '',
+        currencyCode: c[10] ?? '',
+        currencyName: c[11] ?? '',
+        postalCodeRegex: c[14] ? c[14] : null,
+        languages: c[15] ? c[15].split(',') : [],
+      }))
+      .filter((c) => c.code.length === 2)
+      // Drop defunct ISO 3166-1 codes: AN (Netherlands Antilles), CS (Serbia and Montenegro).
+      .filter((c) => !DEFUNCT_COUNTRY_CODES.has(c.code))
+      .sort((a, b) => a.code.localeCompare(b.code))
+  );
+}
+
+// admin1CodesASCII.txt columns: "CC.A1" \t name \t asciiName \t geonameid
+// Codes are country-prefixed in the output (e.g. "US-NY").
+// officialCode comes from the Wikidata GeoNames-ID → P300 join.
+function buildLevel1Divisions(rows: string[][], officialCodes: Map<string, string>): Record<string, AdministrativeDivision[]> {
+  const result: Record<string, AdministrativeDivision[]> = {};
+  for (const [fullCode, name, , geonameId] of rows) {
+    if (fullCode && geonameId) {
+      const [country, code] = fullCode.split('.');
+      if (country && code) {
+        result[country] ??= [];
+        result[country].push({
+          code: `${country}-${code}`,
+          name: name ?? '',
+          officialCode: officialCodes.get(geonameId) ?? null,
+        });
+      }
+    }
+  }
+  return result;
+}
+
+// admin2Codes.txt columns: "CC.A1.A2" \t name \t asciiName \t geonameid
+function buildLevel2Divisions(
+  rows: string[][],
+  officialCodes: Map<string, string>,
+): Record<string, Level2AdministrativeDivision[]> {
+  const result: Record<string, Level2AdministrativeDivision[]> = {};
+  for (const [fullCode, name, , geonameId] of rows) {
+    if (fullCode && geonameId) {
+      const [country, level1AdminCode, code] = fullCode.split('.');
+      if (country && level1AdminCode && code) {
+        result[country] ??= [];
+        result[country].push({
+          level1AdminCode: `${country}-${level1AdminCode}`,
+          code: `${country}-${code}`,
+          name: name ?? '',
+          officialCode: officialCodes.get(geonameId) ?? null,
+        });
+      }
+    }
+  }
+  return result;
+}
+
+// Sort each country's division list alphabetically by name, then sort the country keys.
+function sortDivisionsByName<T extends { name: string }>(record: Record<string, T[]>): Record<string, T[]> {
+  return sortKeys(
+    Object.fromEntries(Object.entries(record).map(([k, list]) => [k, [...list].sort((a, b) => a.name.localeCompare(b.name))])),
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -136,68 +215,9 @@ async function main() {
   ]);
   console.log(`wikidata: ${officialCodes.size} ISO 3166-2 codes fetched`);
 
-  // countryInfo.txt columns:
-  // 0 ISO  1 ISO3  2 ISO-Numeric  3 fips  4 Country  5 Capital  6 Area
-  // 7 Population  8 Continent  9 tld  10 CurrencyCode  11 CurrencyName
-  // 12 Phone  13 Postal Code Format  14 Postal Code Regex  15 Languages
-  // 16 geonameid  17 neighbours  18 EquivalentFipsCode
-  const countries: Country[] = countryRows
-    .map((c) => ({
-      code: c[0] ?? '',
-      iso3: c[1] ?? '',
-      name: c[4] ?? '',
-      continent: c[8] ?? '',
-      currencyCode: c[10] ?? '',
-      currencyName: c[11] ?? '',
-      postalCodeRegex: c[14] ? c[14] : null,
-      languages: c[15] ? c[15].split(',') : [],
-    }))
-    .filter((c) => c.code.length === 2)
-    // Drop defunct ISO 3166-1 codes: AN (Netherlands Antilles), CS (Serbia and Montenegro).
-    .filter((c) => !DEFUNCT_COUNTRY_CODES.has(c.code))
-    .sort((a, b) => a.code.localeCompare(b.code));
-
-  // admin1CodesASCII.txt columns: "CC.A1" \t name \t asciiName \t geonameid
-  // Codes are country-prefixed in the output (e.g. "US-NY").
-  // officialCode comes from the Wikidata GeoNames-ID → P300 join.
-  const level1: Record<string, AdministrativeDivision[]> = {};
-  for (const [fullCode, name, , geonameId] of level1AdminRows) {
-    if (fullCode && geonameId) {
-      const [country, code] = fullCode.split('.');
-      if (country && code) {
-        level1[country] ??= [];
-        level1[country].push({
-          code: `${country}-${code}`,
-          name: name ?? '',
-          officialCode: officialCodes.get(geonameId) ?? null,
-        });
-      }
-    }
-  }
-
-  // admin2Codes.txt columns: "CC.A1.A2" \t name \t asciiName \t geonameid
-  const level2: Record<string, Level2AdministrativeDivision[]> = {};
-  for (const [fullCode, name, , geonameId] of level2AdminCodeRows) {
-    if (fullCode && geonameId) {
-      const [country, level1AdminCode, code] = fullCode.split('.');
-      if (country && level1AdminCode && code) {
-        level2[country] ??= [];
-        level2[country].push({
-          level1AdminCode: `${country}-${level1AdminCode}`,
-          code: `${country}-${code}`,
-          name: name ?? '',
-          officialCode: officialCodes.get(geonameId) ?? null,
-        });
-      }
-    }
-  }
-
-  // Sort within each country alphabetically by name, then sort country keys.
-  const sort = <T extends { name: string }>(list: T[]): T[] => [...list].sort((a, b) => a.name.localeCompare(b.name));
-  const level1Out: Record<string, AdministrativeDivision[]> = {};
-  const level2Out: Record<string, Level2AdministrativeDivision[]> = {};
-  for (const [countryCode, list] of Object.entries(level1)) level1Out[countryCode] = sort(list);
-  for (const [countryCode, list] of Object.entries(level2)) level2Out[countryCode] = sort(list);
+  const countries = parseCountries(countryRows);
+  const level1Out = sortDivisionsByName(buildLevel1Divisions(level1AdminRows, officialCodes));
+  const level2Out = sortDivisionsByName(buildLevel2Divisions(level2AdminCodeRows, officialCodes));
 
   const outFiles = [
     resolve(outDir, 'countries.json'),
@@ -211,12 +231,6 @@ async function main() {
     writeFile(outFiles[1], `${JSON.stringify(sortKeys(level1Out), null, '\t')}\n`),
     writeFile(outFiles[2], `${JSON.stringify(sortKeys(level2Out), null, '\t')}\n`),
   ]);
-
-  console.log('formatting JSON with biome…');
-  spawnSync('bunx', ['biome', 'format', '--write', ...outFiles], {
-    cwd: resolve(__dirname, '..'),
-    stdio: 'inherit',
-  });
 
   const l1Total = Object.values(level1Out).reduce((n, l) => n + l.length, 0);
   const l2Total = Object.values(level2Out).reduce((n, l) => n + l.length, 0);
