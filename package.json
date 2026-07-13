@@ -118,6 +118,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.3",
+    "@changesets/changelog-github": "0.7.0",
     "@changesets/cli": "2.31.0",
     "@iv-stpn/biome-config": "1.2.13",
     "biome-drizzle-best-practices-plugin": "2.0.0",
