@@ -1,6 +1,6 @@
 {
   "name": "country-data-ts",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Zero-dependency, tree-shakeable worldwide country, address and phone reference data for TypeScript (ISO 3166 countries, administrative divisions, postal-code patterns, calling codes and phone masks)",
   "keywords": [
     "country",
