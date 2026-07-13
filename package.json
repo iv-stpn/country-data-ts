@@ -1,0 +1,107 @@
+{
+  "name": "country-data-ts",
+  "version": "0.1.0",
+  "description": "Zero-dependency, tree-shakeable worldwide country, address and phone reference data for TypeScript (ISO 3166 countries, administrative divisions, postal-code patterns, calling codes and phone masks)",
+  "keywords": [
+    "country",
+    "countries",
+    "iso-3166",
+    "address",
+    "postal-code",
+    "administrative-divisions",
+    "phone",
+    "telephone",
+    "calling-code",
+    "e164",
+    "geonames",
+    "typescript"
+  ],
+  "author": "Ivan Stepanian <iv.stpn@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iv-stpn/country-data-ts.git"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./countries": {
+      "import": {
+        "types": "./dist/countries.d.ts",
+        "default": "./dist/countries.js"
+      },
+      "require": {
+        "types": "./dist/countries.d.cts",
+        "default": "./dist/countries.cjs"
+      }
+    },
+    "./address": {
+      "import": {
+        "types": "./dist/address.d.ts",
+        "default": "./dist/address.js"
+      },
+      "require": {
+        "types": "./dist/address.d.cts",
+        "default": "./dist/address.cjs"
+      }
+    },
+    "./phone": {
+      "import": {
+        "types": "./dist/phone.d.ts",
+        "default": "./dist/phone.js"
+      },
+      "require": {
+        "types": "./dist/phone.d.cts",
+        "default": "./dist/phone.cjs"
+      }
+    },
+    "./tax": {
+      "import": {
+        "types": "./dist/tax.d.ts",
+        "default": "./dist/tax.js"
+      },
+      "require": {
+        "types": "./dist/tax.d.cts",
+        "default": "./dist/tax.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p scripts/tsconfig.json && tsc --noEmit -p src/__tests__/tsconfig.json",
+    "prepublishOnly": "bun run build && bun run typecheck",
+    "gen:countries": "bun run scripts/gen-countries.ts",
+    "gen:level1": "bun run scripts/gen-level1-codes.ts",
+    "gen": "bun run gen:countries && bun run gen:level1"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.2",
+    "@types/bun": "latest",
+    "@types/node": "^26",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.9"
+  }
+}
