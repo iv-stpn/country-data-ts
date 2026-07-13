@@ -1,5 +1,11 @@
 # country-data-ts
 
+## 0.2.1
+
+### Patch Changes
+
+- [`ec5fad4`](https://github.com/iv-stpn/country-data-ts/commit/ec5fad4b028289067c4904191c9ac0f6e4e57056) Thanks [@iv-stpn](https://github.com/iv-stpn)! - Use `@changesets/changelog-github` for richer changelog entries with PR and author links
+
 ## 0.2.0
 
 ### Minor Changes
