@@ -76,6 +76,16 @@
         "types": "./dist/tax.d.cts",
         "default": "./dist/tax.cjs"
       }
+    },
+    "./divisions": {
+      "import": {
+        "types": "./dist/divisions.d.ts",
+        "default": "./dist/divisions.js"
+      },
+      "require": {
+        "types": "./dist/divisions.d.cts",
+        "default": "./dist/divisions.cjs"
+      }
     }
   },
   "files": [
@@ -101,9 +111,13 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "bun run build && changeset publish",
+    "fetch-geonames": "bun run scripts/fetch-geonames.ts",
     "gen:countries": "bun run scripts/gen-countries.ts",
     "gen:level1": "bun run scripts/gen-level1-codes.ts",
-    "gen": "bun run gen:countries && bun run gen:level1"
+    "gen:coverage": "bun run scripts/gen-coverage-table.ts",
+    "gen:level2": "bun run scripts/gen-level2-codes.ts",
+    "gen:local-names": "bun run scripts/gen-local-names.ts",
+    "gen": "bun run gen:countries && bun run gen:level1 && bun run gen:level2 && bun run gen:local-names"
   },
   "devDependencies": {
     "@biomejs/biome": "2.5.2",
