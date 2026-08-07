@@ -4,7 +4,7 @@
 // country that isn't imported here — the full world's worth of divisions never
 // reaches the published build for an app that only needs one country.
 
-import type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names';
+import type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names.js';
 import {
   localNames_AD,
   localNames_AE,
@@ -229,9 +229,9 @@ import {
   localNames_ZA,
   localNames_ZM,
   localNames_ZW,
-} from './data/administrative-local-names';
-import { type CountryCode, isCountryCode } from './data/countries';
-import type { Level2DivisionOption } from './data/level2-administrative-codes';
+} from './data/administrative-local-names.js';
+import { type CountryCode, isCountryCode } from './data/countries.js';
+import type { Level2DivisionOption } from './data/level2-administrative-codes.js';
 import {
   level2Admin_AE,
   level2Admin_AF,
@@ -422,7 +422,7 @@ import {
   level2Admin_ZA,
   level2Admin_ZM,
   level2Admin_ZW,
-} from './data/level2-administrative-codes';
+} from './data/level2-administrative-codes.js';
 
 // Level-2 <select> option lists, one entry per country that has division data.
 // The same per-country named-export pattern as LEVEL1_OPTIONS in address.ts:
@@ -973,8 +973,8 @@ function pickLocalName(names: DivisionLocalNames | undefined, languages: string 
   }
 }
 
-export type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names';
-export type { Level2DivisionOption } from './data/level2-administrative-codes';
+export type { CountryLocalNames, DivisionLocalNames } from './data/administrative-local-names.js';
+export type { Level2DivisionOption } from './data/level2-administrative-codes.js';
 
 export {
   getLevel1LocalName,

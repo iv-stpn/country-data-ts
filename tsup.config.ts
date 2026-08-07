@@ -10,7 +10,7 @@ export default defineConfig({
     divisions: 'src/divisions.ts',
   },
   format: ['cjs', 'esm'],
-  dts: true,
+  dts: false,
   sourcemap: false,
   clean: true,
   treeshake: true,

@@ -3,7 +3,7 @@
 // regex, and the optional trunk prefix (the leading digit dropped in E.164 form).
 // Edit entries directly to refine a country's mask, example, calling code, or
 // validation regex.
-import type { CountryCode } from './countries';
+import type { CountryCode } from './countries.js';
 
 export type CountryPhoneConfig = {
   code: CountryCode;

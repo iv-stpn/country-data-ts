@@ -2,8 +2,8 @@
 // Types
 // ---------------------------------------------------------------------------
 
-import { type CountryCode, isCountryCode } from './data/countries';
-import { type AdministrativeDivisionOption, level1Admin_CA, level1Admin_US } from './data/level1-administrative-codes';
+import { type CountryCode, isCountryCode } from './data/countries.js';
+import { type AdministrativeDivisionOption, level1Admin_CA, level1Admin_US } from './data/level1-administrative-codes.js';
 
 type TaxValue = {
   taxId?: string;

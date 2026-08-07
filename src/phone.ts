@@ -3,13 +3,13 @@
 // formatting. The mask formatter correctly emits leading literals (e.g. the "("
 // in the US "([000]) [000]-[0000]" mask) instead of dropping them.
 
-import { type CountryCode, isCountryCode } from './data/countries';
+import { type CountryCode, isCountryCode } from './data/countries.js';
 import {
   CALLING_CODE_AREA_PREFIXES,
   CALLING_CODE_DEFAULTS,
   COUNTRY_PHONE_DATA,
   type CountryPhoneConfig,
-} from './data/phone-data';
+} from './data/phone-data.js';
 
 // Hoisted so the pattern is compiled once at module load rather than on every
 // call (these helpers run on every keystroke of a controlled phone field).

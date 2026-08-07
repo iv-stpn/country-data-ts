@@ -6,8 +6,8 @@
 // Full country reference data (every country), generated from data/countries.json
 // by scripts/gen-countries.ts. Source of postal-code patterns and level-1
 // division labels below.
-import { COUNTRY_CODES, COUNTRY_DATA, type CountryCode, isCountryCode } from './data/countries';
-import type { AdministrativeDivisionOption } from './data/level1-administrative-codes';
+import { COUNTRY_CODES, COUNTRY_DATA, type CountryCode, isCountryCode } from './data/countries.js';
+import type { AdministrativeDivisionOption } from './data/level1-administrative-codes.js';
 import {
   level1Admin_AD,
   level1Admin_AE,
@@ -238,10 +238,10 @@ import {
   level1Admin_ZA,
   level1Admin_ZM,
   level1Admin_ZW,
-} from './data/level1-administrative-codes';
+} from './data/level1-administrative-codes.js';
 // Curated level-1 option lists for countries GeoNames has no admin1 data for,
 // but which have an officially documented (ISO 3166-2) subdivision scheme.
-import { POSTAL_CODE_DATA } from './data/postal-codes';
+import { POSTAL_CODE_DATA } from './data/postal-codes.js';
 
 type AddressValue = {
   line1: string;
