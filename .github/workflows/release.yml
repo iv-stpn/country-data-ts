@@ -35,6 +35,13 @@ jobs:
 
       - name: Upgrade npm (OIDC trusted publishing requires npm >= 11.15)
         run: sudo npm install -g npm@11
+      - name: DIAG-TEMP npm version & OIDC env
+        run: |
+          which npm
+          npm --version
+          node --version
+          echo "OIDC_URL=${ACTIONS_ID_TOKEN_REQUEST_URL:+set}"
+          echo "OIDC_TOKEN=${ACTIONS_ID_TOKEN_REQUEST_TOKEN:+set}"
       - name: Create Release PR or Publish
         uses: changesets/action@v1
         with:
@@ -45,3 +52,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"
+          NPM_CONFIG_LOGLEVEL: verbose
+
+      - name: DIAG-TEMP dump npm debug log
+        if: always()
+        run: |
+          LOG=$(ls -t "$HOME/.npm/_logs/"*debug-0.log 2>/dev/null | head -1)
+          echo "=== debug log: ${LOG:-none} ==="
+          if [ -n "$LOG" ]; then grep -iE "oidc|auth|token exchange|eneedauth|code ENEEDAUTH" "$LOG" | tail -60; fi
